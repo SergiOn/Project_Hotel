@@ -42,3 +42,14 @@
          url('../fonts/Kurale/Kurale-Regular.woff') format('woff'),
          url('../fonts/Kurale/Kurale-Regular.ttf') format("truetype");
 }
+@font-face {
+    font-family: 'Lato';
+    font-weight: bold;
+    font-style: normal;
+    src: url('../fonts/Lato/Lato-Bold.eot');
+    src: local('Lato Bold'), local('Lato-Bold'),
+         url('../fonts/Lato/Lato-Bold.eot?#iefix') format("embedded-opentype"),
+         url('../fonts/Lato/Lato-Bold.woff2') format('woff2'),
+         url('../fonts/Lato/Lato-Bold.woff') format('woff'),
+         url('../fonts/Lato/Lato-Bold.ttf') format("truetype");
+}
