@@ -1,0 +1,13 @@
+
+document.body.style.overflow = 'hidden';
+
+var padding = document.body.clientWidth - width;
+
+document.body.style.paddingRight = padding + 'px';
+
+
+document.body.style.overflow = '';
+
+var padding = document.body.clientWidth - width;
+
+document.body.style.paddingRight = '';
