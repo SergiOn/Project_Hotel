@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/Open_Sans/OpenSans-Regular.eot');
+    src: local('Open Sans'), local('OpenSans'),
+         url('../fonts/Open_Sans/OpenSans-Regular.eot?#iefix') format("embedded-opentype"),
+         url('../fonts/Open_Sans/OpenSans-Regular.woff2') format('woff2'),
+         url('../fonts/Open_Sans/OpenSans-Regular.woff') format('woff'),
+         url('../fonts/Open_Sans/OpenSans-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-style: normal;
+    src: url('../fonts/Open_Sans/OpenSans-Semibold.eot');
+    src: local('Open Sans Semibold'), local('OpenSans-Semibold'),
+         url('../fonts/Open_Sans/OpenSans-Semibold.eot?#iefix') format("embedded-opentype"),
+         url('../fonts/Open_Sans/OpenSans-Semibold.woff2') format('woff2'),
+         url('../fonts/Open_Sans/OpenSans-Semibold.woff') format('woff'),
+         url('../fonts/Open_Sans/OpenSans-Semibold.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-style: normal;
+    src: url('../fonts/Open_Sans/OpenSans-Bold.eot');
+    src: local('Open Sans Bold'), local('OpenSans-Bold'),
+         url('../fonts/Open_Sans/OpenSans-Bold.eot?#iefix') format("embedded-opentype"),
+         url('../fonts/Open_Sans/OpenSans-Bold.woff2') format('woff2'),
+         url('../fonts/Open_Sans/OpenSans-Bold.woff') format('woff'),
+         url('../fonts/Open_Sans/OpenSans-Bold.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Kurale';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/Kurale/Kurale-Regular.eot');
+    src: local('Kurale'), local('Kurale-Regular'),
+         url('../fonts/Kurale/Kurale-Regular.eot?#iefix') format("embedded-opentype"),
+         url('../fonts/Kurale/Kurale-Regular.woff2') format('woff2'),
+         url('../fonts/Kurale/Kurale-Regular.woff') format('woff'),
+         url('../fonts/Kurale/Kurale-Regular.ttf') format("truetype");
+}
