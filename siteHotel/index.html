@@ -21,26 +21,26 @@
 <body>
     <header>
         <div class="width1142">
-            <section class="header-top">
-                <h1 class="logo">O
+            <section class="header-top clearfix">
+                <h1 class="left logo">O
                     <span class="logo-s">S</span>
                     <span class="logo-hotel">Hotel</span>
                 </h1>
-                <section class="auth-in">
-                    <button class="login">
+                <section class="right auth-in">
+                    <button class="left login">
                         <i class="fa fa-sign-in" aria-hidden="true"></i>Войти
                     </button>
-                    <button class="reg">
+                    <button class="left reg">
                         <i class="fa fa-magic" aria-hidden="true"></i>Регистрация
                     </button>
                 </section>
-                <section class="auth-out">
+                <section class="right auth-out">
                     <button class="log-out">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>Выйти
                     </button>
                 </section>
             </section>
-            <nav class="header-menu">
+            <nav class="header-menu clearfix">
                 <ul class="left menu-left">
                     <li class="menu-active">
                         <a id="#home" href="pages/home.html">
@@ -76,7 +76,7 @@
                 </ul>
                 <ul class="right menu-right">
                     <li><span class="separator"></span></li>
-                    <li>
+                    <li class="header-menu_tell">
                         <i class="fa fa-phone" aria-hidden="true"></i>
                         <a href="tell:+380969774491">+38 (096) 977 44 91</a>
                         <span>позвоните нам</span>
@@ -104,16 +104,16 @@
         <section class="block-1_home">
             <div class="width1142">
                 <div class="block-1_home_arrow-slider">
-                    <span id="arrow-slider-l" class="left"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
-                    <span id="arrow-slider-r" class="right"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                    <span id="block-1_home_arrow-slider-l" class="left"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                    <span id="block-1_home_arrow-slider-r" class="right"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                 </div>
                 <section class="block-1_home_banner">
                     <div class="block-1_home_banner-slider">
                         <div class="block-1_home_banner-slider-active">
-                            <span id="banner-slider-l" class="left"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
-                            <span id="banner-slider-close" class="right"><i class="fa fa-times" aria-hidden="true"></i></span>
-                            <span id="banner-slider-r" class="right"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-                            <div class="block-1_home_banner-img">
+                            <span id="block-1_home_banner-slider-l" class="left"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                            <span id="block-1_home_banner-slider-close" class="right"><i class="fa fa-times" aria-hidden="true"></i></span>
+                            <span id="block-1_home_banner-slider-r" class="right"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                            <div class="block-1_home_banner-slider_img">
                                 <figure>
                                     <figcaption>5/24 - Встречайте утро в этом светлом номере с большими французскими окнами. Поработайте за столом, воспользовавшись доступом к беспроводному Интернету (за отдельную плату), или расслабьтесь в уютной атмосфере зоны отдыха, наслаждаясь просмотром фильмов по телевизору.
                                     </figcaption>
@@ -124,7 +124,7 @@
                         <div class="block-1_home_banner-slider-noactive">
                             <h2 class="left">SO Hotel</h2>
                             <span class="rigth">
-                                <span class="arrow-slider-number">1</span>/24
+                                <span class="block-1_home_arrow-slider-number">1</span>/24
                                 <i class="fa fa-th-large" aria-hidden="true"></i>
                             </span>
                         </div>
@@ -151,7 +151,7 @@
                             <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
                             <input type="text" id="room-out">
                         </label>
-                        <button id="reserve"></button>
+                        <button id="reserve">Проверить цены</button>
                         <p>Было от <span class="strike">€240</span> Сейчас от €168</p>
                     </div>
                 </section>
@@ -161,22 +161,87 @@
             <div class="width1142">
                 <p>Пятизвездочный отель SO Hotel расположенный в одном из красивейших украинских городов с многовековой историей и памятниками искусства, является идеальным местом для бизнесменов и туристов.
                 </p>
-                <video width="400" height="300" controls="controls">
-                    <source src=".ogv" type='video/ogg; codecs="theora, vorbis"'>
-                    <source src=".mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                    <source src=".webm" type='video/webm; codecs="vp8, vorbis"'>
+                <video width="530" height="300" controls="controls">
+                    <source src="video/Hilton_Kyiv.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                    <source src="video/Hilton_Kyiv.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    <source src="video/Hilton_Kyiv.webm" type='video/webm; codecs="vp8, vorbis"'>
                 </video>
-                <div class="block-2_home_key">
-                    <a href="#hotel-rooms"></a>
-                    <a href="#hotel-hall"></a>
+                <div id="block-2_home_hotel_key">
+                    <a href="#block-2_home_hotel-rooms" class="block-2_home_hotel_key-active"></a>
+                    <a href="#block-2_home_hotel-halls"></a>
                 </div>
-                <section class="block-2_home_hotel-rooms">
-                    <div class="block-2_home_hotel-l"></div>
-                    <div class="block-2_home_hotel-c"></div>
-                    <div class="block-2_home_hotel-r"></div>
+                <section id="block-2_home_hotel">
+                    <section id="block-2_home_hotel-rooms">
+                        <div class="block-2_home_hotel-l">
+                            <h3>Стандартные номера и номера люкс</h3>
+                            <p>Доступные стандартные номера и номера люкс</p>
+                            <a href="#block-2_home_hotel-rooms-1" class="block-2_home_hotel-active">Стандартные номера</a>
+                            <a href="#block-2_home_hotel-rooms-2">Номера люкс</a>
+                            <a href="#block-2_home_hotel-rooms-3">Номера представительского класса</a>
+                            <a href="#block-2_home_hotel-rooms-4">Номера для людей с ограниченными
+                                возможностями</a>
+                        </div>
+                        <div class="block-2_home_hotel-c">
+                            <div class="block-2_home_hotel-rooms-1 block-2_home_hotel-active"></div>
+                            <div class="block-2_home_hotel-rooms-2"></div>
+                            <div class="block-2_home_hotel-rooms-3"></div>
+                            <div class="block-2_home_hotel-rooms-4"></div>
+                        </div>
+                        <div class="block-2_home_hotel-r">
+                            <div class="block-2_home_hotel-rooms-1 block-2_home_hotel-active">
+                                <h3>Стандартные номера</h3>
+                                <p>В стильных номерах SOHotel к Вашим услугам комфортная кровать, оборудованная рабочая зона с доступом к Интернету, LCD-телевизор и принадлежности для приготовления чая/кофе. Если Вы устали после насыщенного дня, закажите еду прямо в номер.
+                                </p>
+                            </div>
+                            <div class="block-2_home_hotel-rooms-2">
+                                <h3>Номера люкс</h3>
+                                <p>Побалуйте себя, остановившись в одном из стильных номеров люкс. Насладитесь вкусным завтраком, напитками и закусками на протяжении всего дня в лаунж-баре бизнес-класса, поработайте или отдохните за просмотром фильма на удобной кровати.
+                                </p>
+                            </div>
+                            <div class="block-2_home_hotel-rooms-3">
+                                <h3>Номера представительского класса</h3>
+                                <p>Выбрав номера представительского класса, гостям представится возможность индивидуальной регистрации заезда и выезда, бесплатный завтрак, доступ к закускам и напиткам на протяжении дня. Мы гарантируем Вам лучшие условия для отдыха и работы!
+                                </p>
+                            </div>
+                            <div class="block-2_home_hotel-rooms-4">
+                                <h3>Номера для людей с ограниченными возможностями</h3>
+                                <p>Номера данной категории были специально спроектированы и оборудованы для обеспечения максимального комфорта гостей, которые нуждаются в дополнительном пространстве и удобствах. Мы сделаем все возможное, чтобы Вы почувствовали себя как дома.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="block-2_home_hotel-halls">
+                        <div class="block-2_home_hotel-l">
+                            <h3>Залы для проведения мероприятий</h3>
+                            <p>Ознакомьтесь с залами для проведения мероприятий, доступными в данном отеле.</p>
+                            <a href="#block-2_home_hotel-halls-1" class="block-2_home_hotel-active">Бальный зал Dallas</a>
+                            <a href="#block-2_home_hotel-halls-2">Зал заседаний Amsterdam</a>
+                            <a href="#block-2_home_hotel-halls-3">Зал для деловых встреч New York</a>
+                        </div>
+                        <div class="block-2_home_hotel-c">
+                            <div class="block-2_home_hotel-halls-1 block-2_home_hotel-active"></div>
+                            <div class="block-2_home_hotel-halls-2"></div>
+                            <div class="block-2_home_hotel-halls-3"></div>
+                        </div>
+                        <div class="block-2_home_hotel-r">
+                            <div class="block-2_home_hotel-halls-1 block-2_home_hotel-active">
+                                <h3>Бальный зал Dallas</h3>
+                                <p>Современный элегантный бальный зал "Dallas" вместимостью 430 персон может быть разделен на два самостоятельных помещения. Потолки высотой 5,8 метра, отсутствие колонн, встроенные LCD-экраны, звуковая система, легко демонтируемая сцена, танцпол — все это делает зал "Dallas" идеальным местом для проведения корпоративных и частных мероприятий.
+                                </p>
+                            </div>
+                            <div class="block-2_home_hotel-halls-2">
+                                <h3>Зал заседаний Amsterdam</h3>
+                                <p>Зал заседаний "Amsterdam" площадью 100 м² с панорамными окнами, из которых открывается прекрасный вид на Ботанический сад, может быть разделен на два отдельных помещения, вместимостью до 20 гостей. Он имеет два встроенных LCD-экрана, гардероб, звуковую систему и прямой доступ к месту для курения. Идеально подойдет для небольших фуршетов и заседаний.
+                                </p>
+                            </div>
+                            <div class="block-2_home_hotel-halls-3">
+                                <h3>Зал для деловых встреч New York</h3>
+                                <p>Многофункциональный зал "New York" может быть разделен на два самостоятельных помещения. К Вашим услугам естественное освещение, два встроенных LCD-экрана и звуковая система. Он идеально подойдет для небольших частных мероприятий и деловых встреч.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
                 </section>
-
-                <section class="block-2_home_hotel-hall"></section>
             </div>
         </section>
     </section>
