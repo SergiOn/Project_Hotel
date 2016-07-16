@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>SO Hotel</title>
@@ -20,27 +20,32 @@
 </head>
 <body>
     <header>
-        <div class="width1142">
-            <section class="header-top clearfix">
+        <section class="header-top clearfix">
+            <div class="width1142">
                 <h1 class="left logo">O
                     <span class="logo-s">S</span>
                     <span class="logo-hotel">Hotel</span>
                 </h1>
                 <section class="right auth-in">
-                    <button class="left login">
+                    <button id="login" class="left login">
                         <i class="fa fa-sign-in" aria-hidden="true"></i>Войти
                     </button>
-                    <button class="left reg">
+                    <button id="registration" class="left reg">
                         <i class="fa fa-magic" aria-hidden="true"></i>Регистрация
                     </button>
                 </section>
-                <section class="right auth-out">
-                    <button class="log-out">
+                <section class="right auth-out auth-hidden">
+                    <section class="left auth-user">
+                    </section>
+                    <button id="log-out" class="left log-out">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>Выйти
                     </button>
                 </section>
-            </section>
-            <nav class="header-menu clearfix">
+            </div>
+        </section>
+        <nav class="header-menu clearfix">
+            <div class="width1142">
+                <button id="mobile-menu" class="left">+</button>
                 <ul class="left menu-left">
                     <li class="menu-active">
                         <a id="#home" href="pages/home.html">
@@ -52,9 +57,9 @@
                         <a id="#rooms" href="pages/rooms.html">Выбрать номер</a>
                     </li>
                     <li><span class="separator"></span></li>
-                    <li>
+                    <li class="menu-services-hover">
                         <a id="#services" href="pages/services.html">Услуги отеля</a>
-                        <ul>
+                        <ul class="menu-services">
                             <li>
                                 <a href="#overview">Обзор</a>
                             </li>
@@ -77,27 +82,45 @@
                 <ul class="right menu-right">
                     <li><span class="separator"></span></li>
                     <li class="header-menu_tell">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <a href="tell:+380969774491">+38 (096) 977 44 91</a>
+                        <a href="tell:+380969774491"><i class="fa fa-phone" aria-hidden="true"></i>+38 (096) 977 44 91</a>
                         <span>позвоните нам</span>
                     </li>
                     <li><span class="separator"></span></li>
-                    <li>
-                        <i class="fa fa-money" aria-hidden="true"></i>
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    <li class="menu-currency-hover">
+                        <div id="currency">
+                            <i class="fa fa-money" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </div>
+                        <ul class="menu-currency">
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>валюта</li>
+                            <li><a href="#rub">RUB - Российский рубль</a></li>
+                            <li><a href="#uah">UAH - Украинская гривна</a></li>
+                            <li><a href="#usd">USD - Американский доллар</a></li>
+                        </ul>
+                    </li>
+                    <li><span class="separator"></span></li>
+                    <li class="menu-language-hover">
+                        <div id="language">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </div>
+                        <ul class="menu-language">
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>язык</li>
+                            <li><a href="#ru">Русский язык</a></li>
+                            <li><a href="#ua">Українська мова</a></li>
+                            <li><a href="#en">English language</a></li>
+                        </ul>
                     </li>
                     <li><span class="separator"></span></li>
                     <li>
-                        <i class="fa fa-globe" aria-hidden="true"></i>
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </li>
-                    <li><span class="separator"></span></li>
-                    <li id="search">
-                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <a id="search" href="#search">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+
                     </li>
                 </ul>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
     <section id="content">
@@ -246,8 +269,8 @@
         <!--</section>-->
     </section>
 
-    <footer>
-        SO Hotel   Все права защищены   ©   2016
-    </footer>
+    <!--<footer>-->
+        <!--SO Hotel   Все права защищены   ©   2016-->
+    <!--</footer>-->
 </body>
 </html>
