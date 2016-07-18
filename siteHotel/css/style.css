@@ -419,6 +419,7 @@ footer {
     padding: 0 14px;
     background-color: #00395d;
     border: 1px solid #006fb6;
+    color: #fff;
     overflow-y: hidden;
     opacity: .5;
     transition: all .4s;
@@ -429,8 +430,8 @@ footer {
     line-height: 50px;
 }
 .menu-services .separator {
-    height: 36px;
-    margin: 7px 14px 0;
+    height: 26px;
+    margin: 12px 14px 0;
 }
 .menu-currency-hover,
 .menu-language-hover {
