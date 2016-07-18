@@ -8,6 +8,11 @@ body {
     margin: 0 auto;
     padding: 0 10px;
 }
+.width1142:before,
+.block-1_home:before {
+    content: '';
+    display: table;
+}
 .left {
     float: left;
 }
@@ -59,9 +64,14 @@ h1, h2, h3, h4 {
     margin: 0;
     padding: 0;
 }
+button, input {
+    font-family: 'Open Sans';
+}
 p {
     font-family: Kurale;
     font-size: 15px;
+    margin: 0;
+    padding: 0;
 }
 /**   start header   **/
 /***  .header-top  ***/
@@ -172,8 +182,29 @@ footer {
     font-family: 'Open Sans';
     font-weight: 600;
 }
-
 /**   end .block-1_home   **/
+/**   start .block-2_home   **/
+.block-2_home p {
+    font-size: 16px;
+}
+.block-2_home .hotel_key a {
+    font-size: 14px;
+    font-weight: 600;
+}
+.block-2_home_hotel-l h3,
+.block-2_home_hotel-r h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+.block-2_home_hotel-l p,
+.block-2_home_hotel-r p {
+    font-size: 15px;
+}
+.block-2_home_hotel-l a {
+    font-size: 12px;
+    font-weight: 600;
+}
+/**   end .block-2_home   **/
 /*    end #conten_home    */
 
 /*   end font style   */
@@ -204,9 +235,12 @@ footer {
 }
 /***  /.logo  ***/
 /***  .auth  ***/
-.header-top .auth-hidden {
+/****  .hidden  ****/
+.header-top .auth-in.hidden,
+.header-top .auth-out.hidden {
     display: none;
 }
+/****  /.hidden  ****/
 .header-top .auth-in,
 .header-top .auth-out {
     margin-top: 10px;
@@ -363,19 +397,31 @@ footer {
     margin-left: 10px;
     color: #59b5e2;
 }
+.menu-left:hover .menu-services,
 .menu-services-hover:hover .menu-services {
-    display: block;
+    visibility: visible;
+    height: 50px;
+    bottom: -52px;
+}
+.menu-services-hover:hover .menu-services {
+    opacity: 1;
+}
+.menu-services-hover:hover > a {
+    color: #59b5e2;
 }
 .menu-services {
     position: absolute;
-    bottom: -52px;
     left: 0;
-    display: none;
+    bottom: -2px;
+    visibility: hidden;
     width: 548px;
-    height: 50px;
+    height: 0;
     padding: 0 14px;
     background-color: #00395d;
     border: 1px solid #006fb6;
+    overflow-y: hidden;
+    opacity: .5;
+    transition: all .4s;
 }
 .menu-services a {
     display: block;
@@ -455,26 +501,21 @@ footer {
 
 
 body {
-    background-color: yellow;
+    /*background-color: yellow;*/
 }
 
 
 
 /* === -- ***   start #content   *** -- === */
 
-/*   start #conten_home   */
+/*   start #conten_home   */ /* ----- ----- ----- ----- ----- */
 /**  start .block-1_home  **/
 .block-1_home {
     height: 500px;
     background:
             linear-gradient(to bottom, transparent, rgba(72, 204, 217, 0.3)),
-            url("../img/1_home/bl-1/1-slider.jpg") no-repeat center;
-    background-size: cover;
+            url("../img/1_home/bl-1/1-slider.jpg") no-repeat center / cover;
     color: #fff;
-}
-.block-1_home:before {
-    content: '';
-    display: table;
 }
 .block-1_home_arrow-slider {
     margin-top: 203px;
@@ -483,10 +524,12 @@ body {
     background-color: transparent;
     color: #fff;
 }
+/****  .hidden  ****/
 .block-1_home_banner-slider-noactive.hidden,
 .block-1_home_banner-slider-active.hidden {
     display: none;
 }
+/****  /.hidden  ****/
 /*** .block-1_home_banner-slider-noactive ***/
 .block-1_home_banner-slider-noactive {
     height: 40px;
@@ -597,8 +640,8 @@ body {
     color: #fff;
     background-color: #00395d;
     background-clip: padding-box;
-    border: 10px solid transparent;
-    border-top: none;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
     border-radius: 0 0 20px 20px;
     text-align: center;
 }
@@ -635,12 +678,12 @@ body {
     height: 36px;
     margin-left: 8px;
     margin-right: 40px;
-    background-color: #d9a548;
+    background-color: #f0af22;
     border-radius: 10px;
     color: #fff;
 }
 .block-1_home_banner-reserve button:hover {
-    box-shadow: 0 0 1px 1px #d9a548;
+    box-shadow: 0 0 1px 1px #f0af22;
 }
 .block-1_home_banner-reserve p {
     display: inline;
@@ -666,11 +709,139 @@ body {
 /*** /.block-1_home_banner-reserve ***/
 /**   end .block-1_home   **/
 
-/**   start .block-1_home   **/
+/**   start .block-2_home   **/
+.block-2_home {
+    margin-bottom: 50px;
+}
+.block-2_home p {
+    max-width: 824px;
+    margin: 50px auto 0;
+    text-align: center;
+}
+.block-2_home video {
+    display: block;
+    width: 564px;
+    height: 315px;
+    margin: 10px auto 0;
+}
+.block-2_home .hotel_key {
+    margin-top: 50px;
+    text-align: center;
+}
+.block-2_home .hotel_key a:first-of-type {
+    margin-right: 8px;
+}
+.block-2_home .hotel_key a {
+    display: inline-block;
+    max-width: 288px;
+    padding-bottom: 5px;
+    border-bottom: 5px solid #006fb6;
+    color: #00395d;
+}
+.block-2_home .hotel_key a.hotel_key-active {
+    border-bottom: 5px solid #59b5e2;
+    color: #59b5e2;
+}
+/****  .hidden  ****/
+.block-2_home_hotel-rooms.hidden {
+    margin-top: -400px;
+}
+.block-2_home_hotel-rooms {
+    transition: margin-top .6s;
+}
+/****  /.hidden  ****/
+.block-2_home_hotel {
+    height: 400px;
+    margin-top: 30px;
+    overflow-y: hidden;
+}
+.block-2_home_hotel-l {
+    width: 287px;
+    height: 399px;
+    border-top: 1px solid #006fb6;
+    border-left: 1px solid #006fb6;
+}
+.block-2_home_hotel-l h3 {
+    width: 250px;
+    margin: 30px 23px 0;
+    color: #00395d;
+}
+.block-2_home_hotel-l p {
+    width: 250px;
+    margin: 14px 23px 0;
+    text-align: left;
+}
+.block-2_home_hotel-l a {
+    display: block;
+    width: 248px;
+    margin-left: -1px;
+    padding: 15px 20px;
+    background-color: #00395d;
+    color: #fff;
+}
+.block-2_home_hotel-rooms a:first-of-type {
+    margin-top: 56px;
+}
+.block-2_home_hotel-halls a:first-of-type {
+    margin-top: 97px;
+}
+.block-2_home_hotel-l a:hover {
+    background-color: #002137;
+}
+.block-2_home_hotel-l a.active {
+    background-color: #59b5e2;
+}
+.block-2_home_hotel-c {
+    width: 564px;
+    height: 400px;
+}
+.block-2_home_hotel-c img,
+.block-2_home_hotel-r div {
+    display: none;
+    width: inherit;
+    height: inherit;
+}
+.block-2_home_hotel-c img.active,
+.block-2_home_hotel-r div.active {
+    display: block;
+}
+.block-2_home_hotel-r {
+    width: 288px;
+    height: 400px;
+    background-color: #00395d;
+    color: #fff;
+}
+.block-2_home_hotel-r h3 {
+    margin: 50px 24px 0;
+}
+.block-2_home_hotel-r p {
+    margin: 18px 24px 0;
+    text-align: left;
+}
+/**   end .block-2_home   **/
+/*    end #conten_home    */ /* ----- ----- ----- ----- ----- */
 
-/**   end .block-1_home   **/
 
-/*    end #conten_home    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

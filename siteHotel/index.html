@@ -19,14 +19,16 @@
     <![endif]-->
 </head>
 <body>
-    <!-- <header>
+    <header>
         <section class="header-top clearfix">
             <div class="width1142">
-                <h1 class="left logo">O
-                    <span class="logo-s">S</span>
-                    <span class="logo-hotel">Hotel</span>
+                <h1 class="left logo">
+                    <a href="/">O
+                        <span class="logo-s">S</span>
+                        <span class="logo-hotel">Hotel</span>
+                    </a>
                 </h1>
-                <section class="right auth-in auth-hidden">
+                <section class="right auth-in hidden">
                     <button id="login" class="left login">
                         <i class="fa fa-sign-in" aria-hidden="true"></i>Войти
                     </button>
@@ -34,7 +36,7 @@
                         <i class="fa fa-magic" aria-hidden="true"></i>Регистрация
                     </button>
                 </section>
-                <section class="right auth-out auth-hidde">
+                <section class="right auth-out hidden-">
                     <section class="left auth-user">
                         <i class="fa fa-user" aria-hidden="true"></i>Мои данные
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -132,7 +134,7 @@
                 </ul>
             </div>
         </nav>
-    </header> -->
+    </header>
 
     <section id="content">
         <section id="content_home">
@@ -298,12 +300,12 @@
             <section class="block-1_home_banner-reserve"><!--class = "fixed"-->
                 <label class="room-in">
                     <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-                    <input type="text" id="room-in" readonly>
+                    <input type="text" id="room-in" value="Заезд" readonly>
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </label>
                 <label class="room-out">
                     <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
-                    <input type="text" id="room-out" readonly>
+                    <input type="text" id="room-out" value="Выезд" readonly>
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </label>
                 <button id="reserve">Проверить цены</button>
@@ -311,43 +313,44 @@
             </section>
 
 
-
-
-
             <section class="block-2_home">
                 <div class="width1142">
                     <p>Пятизвездочный отель SO Hotel расположенный в одном из красивейших украинских городов с многовековой историей и памятниками искусства, является идеальным местом для бизнесменов и туристов.
                     </p>
-                    <video width="530" height="300" controls="controls">
+                    <video controls="controls">
                         <source src="video/Hilton_Kyiv.ogv" type='video/ogg; codecs="theora, vorbis"'>
                         <source src="video/Hilton_Kyiv.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                         <source src="video/Hilton_Kyiv.webm" type='video/webm; codecs="vp8, vorbis"'>
                     </video>
-                    <div id="block-2_home_hotel_key">
-                        <a href="#block-2_home_hotel-rooms" class="block-2_home_hotel_key-active">Стандартные номера и номера люкс</a>
-                        <a href="#block-2_home_hotel-halls">Зал для проведения мероприятий</a>
+                    <div id="block-2_home_hotel_key" class="hotel_key">
+                        <a href="#block-2_home_hotel-rooms" class="hotel_key-active">
+                            Стандартные номера и номера люкс
+                        </a>
+                        <a href="#block-2_home_hotel-halls">
+                            Зал для проведения мероприятий
+                        </a>
                     </div>
-                    <section id="block-2_home_hotel">
-                        <section id="block-2_home_hotel-rooms">
-                            <div class="block-2_home_hotel-l">
+                    <section id="block-2_home_hotel" class="block-2_home_hotel">
+                        <section id="block-2_home_hotel-rooms" class="block-2_home_hotel-rooms hidden-">
+                            <div class="block-2_home_hotel-l left">
                                 <h3>Стандартные номера и номера люкс</h3>
                                 <p>Доступные стандартные номера и номера люкс</p>
-                                <a href="#block-2_home_hotel-rooms-1" class="block-2_home_hotel-active">Стандартные номера</a>
+                                <a href="#block-2_home_hotel-rooms-1" class="active">Стандартные номера</a>
                                 <a href="#block-2_home_hotel-rooms-2">Номера люкс</a>
                                 <a href="#block-2_home_hotel-rooms-3">Номера представительского класса</a>
                                 <a href="#block-2_home_hotel-rooms-4">Номера для людей с ограниченными
                                     возможностями</a>
                             </div>
-                            <div class="block-2_home_hotel-c">
-                                <div class="block-2_home_hotel-rooms-1 block-2_home_hotel-active"></div>
-                                <div class="block-2_home_hotel-rooms-2"></div>
-                                <div class="block-2_home_hotel-rooms-3"></div>
-                                <div class="block-2_home_hotel-rooms-4"></div>
+                            <div class="block-2_home_hotel-c left">
+                                <img class="block-2_home_hotel-rooms-1 active" src="img/1_home/bl-2/1-rooms.jpg" alt="">
+                                <img class="block-2_home_hotel-rooms-2" src="img/1_home/bl-2/2-rooms.jpg" alt="">
+                                <img class="block-2_home_hotel-rooms-3" src="img/1_home/bl-2/3-rooms.jpg" alt="">
+                                <img class="block-2_home_hotel-rooms-4" src="img/1_home/bl-2/4-rooms.jpg" alt="">
                             </div>
-                            <div class="block-2_home_hotel-r">
-                                <div class="block-2_home_hotel-rooms-1 block-2_home_hotel-active">
+                            <div class="block-2_home_hotel-r left">
+                                <div class="block-2_home_hotel-rooms-1 active">
                                     <h3>Стандартные номера</h3>
-                                    <p>В стильных номерах SOHotel к Вашим услугам комфортная кровать, оборудованная рабочая зона с доступом к Интернету, LCD-телевизор и принадлежности для приготовления чая/кофе. Если Вы устали после насыщенного дня, закажите еду прямо в номер.
+                                    <p>В стильных номерах SO Hotel к Вашим услугам комфортная кровать, оборудованная рабочая зона с доступом к Интернету, LCD-телевизор и принадлежности для приготовления чая/кофе. Если Вы устали после насыщенного дня, закажите еду прямо в номер.
                                     </p>
                                 </div>
                                 <div class="block-2_home_hotel-rooms-2">
@@ -367,43 +370,43 @@
                                 </div>
                             </div>
                         </section>
-                        <!--<section id="block-2_home_hotel-halls">-->
-                            <!--<div class="block-2_home_hotel-l">-->
-                                <!--<h3>Залы для проведения мероприятий</h3>-->
-                                <!--<p>Ознакомьтесь с залами для проведения мероприятий, доступными в данном отеле.</p>-->
-                                <!--<a href="#block-2_home_hotel-halls-1" class="block-2_home_hotel-active">Бальный зал Dallas</a>-->
-                                <!--<a href="#block-2_home_hotel-halls-2">Зал заседаний Amsterdam</a>-->
-                                <!--<a href="#block-2_home_hotel-halls-3">Зал для деловых встреч New York</a>-->
-                            <!--</div>-->
-                            <!--<div class="block-2_home_hotel-c">-->
-                                <!--<div class="block-2_home_hotel-halls-1 block-2_home_hotel-active"></div>-->
-                                <!--<div class="block-2_home_hotel-halls-2"></div>-->
-                                <!--<div class="block-2_home_hotel-halls-3"></div>-->
-                            <!--</div>-->
-                            <!--<div class="block-2_home_hotel-r">-->
-                                <!--<div class="block-2_home_hotel-halls-1 block-2_home_hotel-active">-->
-                                    <!--<h3>Бальный зал Dallas</h3>-->
-                                    <!--<p>Современный элегантный бальный зал "Dallas" вместимостью 430 персон может быть разделен на два самостоятельных помещения. Потолки высотой 5,8 метра, отсутствие колонн, встроенные LCD-экраны, звуковая система, легко демонтируемая сцена, танцпол — все это делает зал "Dallas" идеальным местом для проведения корпоративных и частных мероприятий.-->
-                                    <!--</p>-->
-                                <!--</div>-->
-                                <!--<div class="block-2_home_hotel-halls-2">-->
-                                    <!--<h3>Зал заседаний Amsterdam</h3>-->
-                                    <!--<p>Зал заседаний "Amsterdam" площадью 100 м² с панорамными окнами, из которых открывается прекрасный вид на Ботанический сад, может быть разделен на два отдельных помещения, вместимостью до 20 гостей. Он имеет два встроенных LCD-экрана, гардероб, звуковую систему и прямой доступ к месту для курения. Идеально подойдет для небольших фуршетов и заседаний.-->
-                                    <!--</p>-->
-                                <!--</div>-->
-                                <!--<div class="block-2_home_hotel-halls-3">-->
-                                    <!--<h3>Зал для деловых встреч New York</h3>-->
-                                    <!--<p>Многофункциональный зал "New York" может быть разделен на два самостоятельных помещения. К Вашим услугам естественное освещение, два встроенных LCD-экрана и звуковая система. Он идеально подойдет для небольших частных мероприятий и деловых встреч.-->
-                                    <!--</p>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</section>-->
+                        <section id="block-2_home_hotel-halls" class="block-2_home_hotel-halls">
+                            <div class="block-2_home_hotel-l left">
+                                <h3>Залы для проведения мероприятий</h3>
+                                <p>Ознакомьтесь с залами для проведения мероприятий, доступными в данном отеле.</p>
+                                <a href="#block-2_home_hotel-halls-1" class="active">Бальный зал Dallas</a>
+                                <a href="#block-2_home_hotel-halls-2">Зал заседаний Amsterdam</a>
+                                <a href="#block-2_home_hotel-halls-3">Зал для деловых встреч New York</a>
+                            </div>
+                            <div class="block-2_home_hotel-c left">
+                                <img class="block-2_home_hotel-halls-1 active" src="img/1_home/bl-2/1-halls.jpg" alt="">
+                                <img class="block-2_home_hotel-halls-2" src="img/1_home/bl-2/2-halls.jpg" alt="">
+                                <img class="block-2_home_hotel-halls-3" src="img/1_home/bl-2/3-halls.jpg" alt="">
+                            </div>
+                            <div class="block-2_home_hotel-r left">
+                                <div class="block-2_home_hotel-halls-1 active">
+                                    <h3>Бальный зал Dallas</h3>
+                                    <p>Современный элегантный бальный зал "Dallas" вместимостью 430 персон может быть разделен на два самостоятельных помещения. Потолки высотой 5,8 метра, отсутствие колонн, встроенные LCD-экраны, звуковая система, легко демонтируемая сцена, танцпол — все это делает зал "Dallas" идеальным местом для проведения корпоративных и частных мероприятий.
+                                    </p>
+                                </div>
+                                <div class="block-2_home_hotel-halls-2">
+                                    <h3>Зал заседаний Amsterdam</h3>
+                                    <p>Зал заседаний "Amsterdam" площадью 100 м² с панорамными окнами, из которых открывается прекрасный вид на Ботанический сад, может быть разделен на два отдельных помещения, вместимостью до 20 гостей. Он имеет два встроенных LCD-экрана, гардероб, звуковую систему и прямой доступ к месту для курения. Идеально подойдет для небольших фуршетов и заседаний.
+                                    </p>
+                                </div>
+                                <div class="block-2_home_hotel-halls-3">
+                                    <h3>Зал для деловых встреч New York</h3>
+                                    <p>Многофункциональный зал "New York" может быть разделен на два самостоятельных помещения. К Вашим услугам естественное освещение, два встроенных LCD-экрана и звуковая система. Он идеально подойдет для небольших частных мероприятий и деловых встреч.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
                     </section>
                 </div>
             </section>
         </section>
     </section>
 
-    <!--<footer>SO Hotel   Все права защищены   ©   2016</footer>-->
+    <footer>SO Hotel   Все права защищены   ©   2016</footer>
 </body>
 </html>

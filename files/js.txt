@@ -1,0 +1,31 @@
+
+document.body.style.overflow = 'hidden';
+
+var padding = document.body.clientWidth - width;
+
+document.body.style.paddingRight = padding + 'px';
+
+
+document.body.style.overflow = '';
+
+var padding = document.body.clientWidth - width;
+
+document.body.style.paddingRight = '';
+
+
+
+
+var img = 1;
+document.querySelector('.block-1_home').style.background = "linear-gradient(to bottom, transparent, rgba(72, 204, 217, 0.3)), url('img/1_home/bl-1/" + img + "-slider.jpg') no-repeat center / cover"
+стоит полифил ie9, ie8
+
+getComputedStyle(document.querySelector('.block-1_home')).backgroundImage
+no ie 9,9-
+
+//* block-2_home slider
+
+document.querySelector('.block-2_home_hotel-rooms').classList.add('hidden')
+document.querySelector('.block-2_home_hotel-rooms').classList.remove('hidden')
+
+
+
