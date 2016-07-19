@@ -166,18 +166,18 @@ footer {
 .block-1_home_banner-top .fa-paper-plane-o {
     font-size: 18px;
 }
-.block-1_home_banner-reserve input {
+.banner-reserve input {
     font-size: 15px;
     font-family: 'Open Sans';
 }
-.block-1_home_banner-reserve i {
+.banner-reserve i {
     font-size: 18px;
 }
-.block-1_home_banner-reserve button {
+.banner-reserve button {
     font-size: 15px;
     font-weight: 600;
 }
-.block-1_home_banner-reserve p {
+.banner-reserve p {
     font-size: 14px;
     font-family: 'Open Sans';
     font-weight: 600;
@@ -283,6 +283,7 @@ footer {
     padding: 2px 10px;
     border-left: 1px solid #d9a548;
     border-right: 1px solid #d9a548;
+    cursor: pointer;
 }
 .header-top .auth-user:hover .auth-user-menu {
     display: block;
@@ -297,6 +298,7 @@ footer {
     border-top: 14px solid transparent;
     background-color: #fff;
     background-clip: padding-box;
+    cursor: default;
     z-index: 1;
 }
 .header-top .auth-user-menu li {
@@ -320,6 +322,7 @@ footer {
     background-color: #d9a548;
     color: #fff;
     border-bottom: 1px solid #d9a548;
+    cursor: pointer;
     transition: all .3s;
 }
 .header-top .auth-user-menu li:last-of-type:hover i {
@@ -373,7 +376,8 @@ footer {
     margin-right: 10px;
 }
 .menu-left .menu-active,
-.menu-left a:hover {
+.menu-left a:hover,
+.menu-search:hover {
     color: #59b5e2;
 }
 .header-menu i {
@@ -400,8 +404,8 @@ footer {
 .menu-left:hover .menu-services,
 .menu-services-hover:hover .menu-services {
     visibility: visible;
-    height: 50px;
-    bottom: -52px;
+    height: 46px;
+    bottom: -48px;
 }
 .menu-services-hover:hover .menu-services {
     opacity: 1;
@@ -419,9 +423,11 @@ footer {
     padding: 0 14px;
     background-color: #00395d;
     border: 1px solid #006fb6;
+    border-radius: 0 0 2px 2px;
     color: #fff;
     overflow-y: hidden;
     opacity: .5;
+    z-index: 5;
     transition: all .4s;
 }
 .menu-services a {
@@ -430,7 +436,7 @@ footer {
     line-height: 50px;
 }
 .menu-services .separator {
-    height: 26px;
+    height: 24px;
     margin: 12px 14px 0;
 }
 .menu-currency-hover,
@@ -646,7 +652,7 @@ body {
     border-radius: 0 0 20px 20px;
     text-align: center;
 }
-.block-1_home_banner-reserve label {
+.banner-reserve label {
     display: inline-block;
     width: 180px;
     height: 40px;
@@ -655,26 +661,27 @@ body {
     border-radius: 10px;
     background-color: #fff;
 }
-.block-1_home_banner-reserve label:first-of-type {
+.banner-reserve label:first-of-type {
     margin-right: 8px;
 }
-.block-1_home_banner-reserve .fa-calendar-plus-o,
-.block-1_home_banner-reserve .fa-calendar-minus-o {
+.banner-reserve .fa-calendar-plus-o,
+.banner-reserve .fa-calendar-minus-o {
     margin: 0 5px 0 20px;
     color: #59b5e2;
 }
-.block-1_home_banner-reserve .fa-caret-down {
+.banner-reserve .fa-caret-down {
     margin: 0 20px 0 5px;
     color: #59b5e2;
 }
-.block-1_home_banner-reserve input {
+.banner-reserve input {
     width: 89px;
     height: 22px;
     background-color: transparent;
     text-align: center;
+    cursor: pointer;
     color: #00395d;
 }
-.block-1_home_banner-reserve button {
+.banner-reserve button {
     width: 192px;
     height: 36px;
     margin-left: 8px;
@@ -683,10 +690,10 @@ body {
     border-radius: 10px;
     color: #fff;
 }
-.block-1_home_banner-reserve button:hover {
+.banner-reserve button:hover {
     box-shadow: 0 0 1px 1px #f0af22;
 }
-.block-1_home_banner-reserve p {
+.banner-reserve p {
     display: inline;
 }
 /****  .fixed  ****/
@@ -702,7 +709,7 @@ body {
     border-radius: 0;
     transition: all .4s;
 }
-.block-1_home_banner-reserve.fixed label {
+.block-1_home.banner-reserve.fixed label {
     margin-top: 10px;
     transition: all .4s;
 }
@@ -734,7 +741,7 @@ body {
 }
 .block-2_home .hotel_key a {
     display: inline-block;
-    max-width: 288px;
+    width: 288px;
     padding-bottom: 5px;
     border-bottom: 5px solid #006fb6;
     color: #00395d;
