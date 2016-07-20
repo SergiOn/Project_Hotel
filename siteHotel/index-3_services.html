@@ -139,27 +139,47 @@
     <section id="content">
         <section id="content_services">
             <section class="block-1_services">
-
+                <section class="block-1_services_banner-reserve banner-reserve active-"> <!--class = "active"-->
+                    <label id="room-in">
+                        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                        <input type="text" name="room-in" value="Заезд" readonly>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </label>
+                    <label id="room-out">
+                        <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                        <input type="text" name="room-out" value="Выезд" readonly>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </label>
+                    <button id="reserve">Проверить цены</button>
+                    <p class="">Было от <span class="strike">€240</span> Сейчас от €168</p>
+                </section>
+                <button id="reserve-show">Проверить цены
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="block-1_services_banner-reserve_bg"></div>
+                <h2>Услуги отеля</h2>
+                <p>Предлагая истинную роскошь и высококлассный уровень обслуживания, наш сервис является одним из ведущих в индустрии гостеприимства
+                </p>
             </section>
-
-            <section class="block-1_services_banner-reserve banner-reserve"> <!--class = "fixed"-->
-                <label class="room-in">
-                    <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-                    <input type="text" id="room-in" value="Заезд" readonly>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </label>
-                <label class="room-out">
-                    <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
-                    <input type="text" id="room-out" value="Выезд" readonly>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </label>
-                <button id="reserve">Проверить цены</button>
-                <p class="">Было от <span class="strike">€240</span> Сейчас от €168</p>
-            </section>
-
             <section class="block-2_services">
                 <div class="width1142">
-
+                    <div id="block-2_services_key" class="services_key">
+                        <a href="#block-2_services-1_overview" class="services_key-active"> <!-- class = "services_key-active" -->
+                            Обзор
+                        </a>
+                        <a href="#block-2_services-2_comfort">
+                            Услуги и удобства отеля
+                        </a> <!-- class = "services_key-active" -->
+                        <a href="#block-2_services-3_rules">
+                            Правила проживания в отеле
+                        </a> <!-- class = "services_key-active" -->
+                    </div>
+                    <section id="block-2_services-1_overview" class="block-2_services-1_overview"> <!-- class = "active" -->
+                    </section>
+                    <section id="block-2_services-2_comfort" class="block-2_services-2_comfort"> <!-- class = "active" -->
+                    </section>
+                    <section id="block-2_services-3_rules" class="block-2_services-3_rules"> <!-- class = "active" -->
+                    </section>
                 </div>
             </section>
         </section>

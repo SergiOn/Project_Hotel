@@ -9,7 +9,8 @@ body {
     padding: 0 10px;
 }
 .width1142:before,
-.block-1_home:before {
+.block-1_home:before,
+.block-1_services:before{
     content: '';
     display: table;
 }
@@ -127,7 +128,7 @@ footer {
 }
 /**    end header    **/
 
-/*   start #conten_home   */
+/*   start #conten_home   */ /* ----- ----- ----- ----- ----- */
 /**  start .block-1_home  **/
 .block-1_home_arrow-slider button {
     font-size: 48px;
@@ -205,12 +206,31 @@ footer {
     font-weight: 600;
 }
 /**   end .block-2_home   **/
-/*    end #conten_home    */
+/*    end #conten_home    */ /* ----- ----- ----- ----- ----- */
+
+/*    start #conten_services    */ /* ----- ----- ----- ----- ----- */
+/**  start .block-1_services  **/
+.block-1_services > button {
+    font-size: 14px;
+    font-weight: 600;
+}
+.block-1_services h2 {
+    font-size: 48px;
+}
+.block-1_services > p {
+    font-size: 20px;
+}
+/**  end .block-1_services  **/
+/*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
 
 /*   end font style   */
 
 
 /*   start header   */
+header {
+    position: relative;
+    z-index: 2;
+}
 /** start .header-top **/
 /***  .logo  ***/
 .header-top {
@@ -299,7 +319,7 @@ footer {
     background-color: #fff;
     background-clip: padding-box;
     cursor: default;
-    z-index: 1;
+    z-index: 4;
 }
 .header-top .auth-user-menu li {
     height: 36px;
@@ -426,8 +446,8 @@ footer {
     border-radius: 0 0 2px 2px;
     color: #fff;
     overflow-y: hidden;
+    z-index: 3;
     opacity: .5;
-    z-index: 5;
     transition: all .4s;
 }
 .menu-services a {
@@ -660,6 +680,7 @@ body {
     line-height: 40px;
     border-radius: 10px;
     background-color: #fff;
+    cursor: pointer;
 }
 .banner-reserve label:first-of-type {
     margin-right: 8px;
@@ -675,11 +696,11 @@ body {
 }
 .banner-reserve input {
     width: 89px;
-    height: 22px;
+    height: 30px;
     background-color: transparent;
     text-align: center;
-    cursor: pointer;
     color: #00395d;
+    cursor: pointer;
 }
 .banner-reserve button {
     width: 192px;
@@ -829,11 +850,87 @@ body {
 /**   end .block-2_home   **/
 /*    end #conten_home    */ /* ----- ----- ----- ----- ----- */
 
+/*    start #conten_services    */ /* ----- ----- ----- ----- ----- */
+/**  start .block-1_services  **/
+.block-1_services {
+    height: 500px;
+    background:
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+            url("../img/3_services/bg-services.jpg") no-repeat center / cover;
+    color: #fff;
+}
+.block-1_services_banner-reserve {
+    position: relative;
+    height: 75px;
+    margin-top: -75px;
+    background-color: #00395d;
+    color: #fff;
+    text-align: center;
+    overflow-y: hidden;
+    transition: margin-top .4s linear;
+    z-index: 1;
+}
+.block-1_services_banner-reserve.active {
+    margin-top: 0;
+}
+.block-1_services > button {
+    position: relative;
+    display: block;
+    width: 204px;
+    height: 44px;
+    margin: 0 auto;
+    background-color: #f0af22;
+    border-radius: 0 0 10px 10px;
+    color: #fff;
+    z-index: 1;
+}
+.block-1_services > button i {
+    margin-left: 6px;
+}
+.block-1_services_banner-reserve.active ~ button .fa-chevron-down:before {
+    content: "\f077";
+}
+.block-1_services_banner-reserve.active ~
+.block-1_services_banner-reserve_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(72, 204, 217, 0.5);
+    transition: all .5s linear;
+}
+.block-1_services h2 {
+    margin-top: 110px;
+    text-align: center;
+    transition: margin-top .4s linear;
+}
+.block-1_services_banner-reserve.active ~ h2 {
+    margin-top: 35px;
+}
+.block-1_services p {
+    max-width: 644px;
+    margin: 10px auto 0;
+    text-align: center;
+}
+/**  end .block-1_services  **/
 
+/**  start .block-2_services  **/
+.block-2_services {
+    padding-bottom: 50px;
+    background-color: yellow;
+}
+.block-2_services .services_key {
+    margin: 50px 0 40px;
+    background-color: #d9a548;
+}
+.block-2_services-1_overview {
+    height: 500px;
+    background-color: silver;
+}
+/**  end .block-2_services  **/
 
-
-
-
+/*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
 
 
 

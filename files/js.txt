@@ -24,6 +24,13 @@ no ie 9,9-
 
 //* block-2_home slider
 
+
+
+//* page-3 services
+document.querySelector('.block-1_services_banner-reserve').classList.add('active')
+document.querySelector('.block-1_services_banner-reserve').classList.remove('active')
+
+
 document.querySelector('.block-2_home_hotel-rooms').classList.add('hidden')
 document.querySelector('.block-2_home_hotel-rooms').classList.remove('hidden')
 
