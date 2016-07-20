@@ -923,11 +923,18 @@ body {
 .block-2_services .services_key {
     margin: 50px 0 40px;
     background-color: #d9a548;
+    text-align: center;
 }
+.block-2_services .services_key a {
+}
+
+
+
 .block-2_services-1_overview {
     height: 500px;
     background-color: silver;
 }
+
 /**  end .block-2_services  **/
 
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
