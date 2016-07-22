@@ -274,6 +274,16 @@ footer {
 .restaurant-active_r .restaurant-img_next {
     font-size: 20px;
 }
+.block-2_services-2_comfort div i {
+    font-size: 48px;
+}
+.block-2_services-2_comfort div h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+.block-2_services-2_comfort div p {
+    font-size: 15px;
+}
 /**  end .block-2_services  **/
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
 
@@ -991,6 +1001,7 @@ body {
     color: #59b5e2;
 }
 .block-2_services h2 {
+    color: #00395d;
     text-align: center;
 }
 .block-2_services p {
@@ -998,14 +1009,13 @@ body {
     margin: 0 auto 50px;
     text-align: center;
 }
-
 .block-2_services_overflow {
     width: inherit;
     overflow-x: hidden;
 }
 .block-2_services_wrapper {
     width: 300%;
-    transition: margin-left 2s;
+    transition: margin-left 1.5s;
 }
 #overview {
     margin-left: 0;
@@ -1020,6 +1030,7 @@ body {
 #comfort .block-2_services-2_comfort,
 #rules .block-2_services-3_rules {
     height: auto;
+    opacity: 1;
     overflow-y: visible;
 }
 .block-2_services-1_overview,
@@ -1028,16 +1039,17 @@ body {
     height: 300px;
     width: calc(100%/3);
     overflow-y: hidden;
-    transition: height 2s;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
-/*** .block-2_services-1_spa ***/
-/*** .block-2_services-1_restaurant ***/
+/*** .block-2_services-1_spa .block-2_services-1_restaurant ***/
 .block-2_services-1_spa,
 .block-2_services-1_restaurant {
     width: calc(50% - 6px);
     height: 338px;
     margin-right: 12px;
+    overflow-y: hidden;
     color: #fff;
     text-align: center;
     cursor: pointer;
@@ -1219,15 +1231,46 @@ body {
 .restaurant-active_r .restaurant-img_next {
     right: 0;
 }
-
-/**** /spa-active, restaurant-active ****/
-/*** /.block-2_services-1_spa ***/
+/**** /spa-active, restaurant-active /.block-2_services-1_spa ****/
 /*** /.block-2_services-1_restaurant ***/
 
 /*** .block-2_services-2_comfort ***/
-
-
-
+.block-2_services-2_comfort div {
+    display: inline-block;
+    width: 276px;
+    height: 245px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    overflow-y: hidden;
+    background-color: #00395d;
+    text-align: center;
+    vertical-align: bottom;
+    color: #fff;
+}
+.block-2_services-2_comfort div:hover {
+    background: radial-gradient(#006fb6, #00395d);
+}
+.block-2_services-2_comfort div:nth-of-type(4n) {
+    margin-right: 0;
+}
+.block-2_services-2_comfort div:nth-of-type(n+5) {
+    margin-bottom: 0;
+}
+.block-2_services-2_comfort div i {
+    margin: 60px 0 20px;
+    transition: margin-top .45s;
+}
+.block-2_services-2_comfort div p {
+    margin: 10px 20px 0;
+    opacity: 0;
+}
+.block-2_services-2_comfort div:hover i {
+    margin-top: 20px;
+}
+.block-2_services-2_comfort div:hover p {
+    opacity: 1;
+    transition: opacity .5s;
+}
 /*** /.block-2_services-2_comfort ***/
 /**  end .block-2_services  **/
 
