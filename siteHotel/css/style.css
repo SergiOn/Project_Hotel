@@ -46,6 +46,10 @@ button {
     color: inherit;
     cursor: pointer;
 }
+#content button.no-key_bg {
+    background-color: #abafb2;
+    cursor: default;
+}
 input {
     margin: 0;
     padding: 0;
@@ -245,9 +249,30 @@ footer {
 .block-2_services-1_restaurant p {
     font-size: 15px;
 }
+.restaurant-active_l_key button {
+   font-size: 14px;
+}
 .block-2_services-1_spa span,
 .block-2_services-1_restaurant span {
     font-size: 14px;
+}
+.spa-active_l article,
+.restaurant-active_l article,
+.spa-active_l article p,
+.restaurant-active_l article p {
+    font-size: 15px;
+    font-family: Kurale;
+}
+.spa-active_r .spa-active_close,
+.restaurant-active_r .restaurant-active_close {
+    font-size: 14px;
+    font-weight: 600;
+}
+.spa-active_r .spa-img_prew,
+.restaurant-active_r .restaurant-img_prew,
+.spa-active_r .spa-img_next,
+.restaurant-active_r .restaurant-img_next {
+    font-size: 20px;
 }
 /**  end .block-2_services  **/
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
@@ -947,7 +972,6 @@ body {
 /**  start .block-2_services  **/
 .block-2_services {
     padding-bottom: 50px;
-    /*background-color: yellow;*/
 }
 .block-2_services .services_key {
     margin: 45px 0 40px;
@@ -974,14 +998,13 @@ body {
     margin: 0 auto 50px;
     text-align: center;
 }
-/*
+
 .block-2_services_overflow {
     width: inherit;
     overflow-x: hidden;
 }
 .block-2_services_wrapper {
     width: 300%;
-    background-color: yellow;
     transition: margin-left 2s;
 }
 #overview {
@@ -999,29 +1022,17 @@ body {
     height: auto;
     overflow-y: visible;
 }
-.block-2_services-1_overview {
-    height: 100px;
-    width: calc(100%/3);
-    overflow-y: hidden;
-    background-color: silver;
-    transition: height 2s;
-}
-.block-2_services-2_comfort {
-    height: 100px;
-    width: calc(100%/3);
-    overflow-y: hidden;
-    background-color: #d9a548;
-    transition: height 2s;
-}
+.block-2_services-1_overview,
+.block-2_services-2_comfort,
 .block-2_services-3_rules {
-    height: 100px;
+    height: 300px;
     width: calc(100%/3);
     overflow-y: hidden;
-    background-color: #002137;
+    transition: height 2s;
 }
-*/
 
-
+/*** .block-2_services-1_spa ***/
+/*** .block-2_services-1_restaurant ***/
 .block-2_services-1_spa,
 .block-2_services-1_restaurant {
     width: calc(50% - 6px);
@@ -1030,13 +1041,16 @@ body {
     color: #fff;
     text-align: center;
     cursor: pointer;
-
+    transition: margin-bottom .3s linear;
+}
+.block-2_services-1_spa.active,
+.block-2_services-1_restaurant.active {
+    margin-bottom: 20px;
 }
 .block-2_services-1_spa {
     background: 
             linear-gradient(rgba(72, 204, 217, 0.25), rgba(0, 0, 0, 0.25)),
             url("../img/3_services/overview/spa-bg.jpg") no-repeat center / cover;
-    background-clip: border-box, border-box;
 }
 .block-2_services-1_restaurant {
     margin-right: 0;
@@ -1065,7 +1079,7 @@ body {
 }
 .block-2_services-1_spa:hover h3,
 .block-2_services-1_restaurant:hover h3 {
-    margin-top: 70px;
+    margin-top: 90px;
 }
 .block-2_services-1_spa p,
 .block-2_services-1_restaurant p {
@@ -1087,14 +1101,134 @@ body {
 .block-2_services-1_restaurant:hover span {
     opacity: 1;
 }
-/*** spa-active, restaurant-active ***/
-.block-2_services-1_spa-active {
+/**** spa-active, restaurant-active ****/
+.block-2_services-1_spa.active ~ .block-2_services-1_spa-active,
+.block-2_services-1_restaurant.active ~ .block-2_services-1_restaurant-active {
+    height: 342px;
+}
+.block-2_services-1_spa-active,
+.block-2_services-1_restaurant-active {
     clear: both;
+    height: 0;
+    overflow-y: hidden;
+    transition: height .3s linear;
 }
-.block-2_services-1_spa.active ~ .block-2_services-1_spa-active {
-    background-color: red;
+.restaurant_block-1,
+.restaurant_block-2,
+.restaurant_block-3 {
+    display: none;
 }
-/*** /spa-active, restaurant-active ***/
+.block-2_services-1_restaurant-active[data-restaurant-block="1"] .restaurant_block-1,
+.block-2_services-1_restaurant-active[data-restaurant-block="2"] .restaurant_block-2,
+.block-2_services-1_restaurant-active[data-restaurant-block="3"] .restaurant_block-3 {
+    display: block;
+}
+.spa-active_l,
+.spa-active_r,
+.restaurant-active_l,
+.restaurant-active_r {
+    position: relative;
+    width: 50%;
+    height: 342px;
+    box-sizing: border-box;
+}
+.spa-active_l,
+.restaurant-active_l {
+    border: 1px solid #006fb6;
+    border-right: none;
+}
+.spa-active_l h4,
+.restaurant-active_l h4 {
+    margin: 20px 30px 10px;
+    color: #00395d;
+}
+.spa-active_l article,
+.restaurant-active_l article {
+    height: 270px;
+    margin: 0 30px;
+    overflow-y: auto;
+}
+.restaurant-active_l article {
+    height: 220px;
+}
+.restaurant-active_l_key {
+    margin: 20px 0 0;
+    text-align: center;
+}
+.restaurant-active_l_key button {
+    width: 30px;
+    height: 30px;
+    background-color: #59b5e2;
+    color: #fff;
+}
+.restaurant-active_l_key span {
+    margin: 0 16px;
+    color: #00395d;
+}
+.spa-active_l article p,
+.restaurant-active_l article p {
+    max-width: none;
+    margin: 0 0 10px;
+    text-align: left;
+}
+.spa-active_l article ul,
+.restaurant-active_l article ul {
+    margin: 0 0 0 -10px;
+}
+.spa-active_r figure,
+.restaurant-active_r figure {
+    width: 100%;
+    margin: 0;
+}
+.spa-active_r img,
+.restaurant-active_r img {
+    display: none;
+    width: 100%;
+    height: 342px;
+}
+.spa-active_r img.active,
+.restaurant-active_r img.active {
+    display: block;
+}
+.spa-active_r .spa-active_close,
+.restaurant-active_r .restaurant-active_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 44px;
+    background-color: #f0af22;
+    color: #fff;
+}
+.spa-active_r .spa-img_prew,
+.spa-active_r .spa-img_next,
+.restaurant-active_r .restaurant-img_prew,
+.restaurant-active_r .restaurant-img_next {
+    position: absolute;
+    top: calc(50% - 22px);
+    width: 44px;
+    height: 44px;
+    background-color: #59b5e2;
+    color: #fff;
+}
+.spa-active_r .spa-img_prew,
+.restaurant-active_r .restaurant-img_prew {
+    left: 0;
+}
+.spa-active_r .spa-img_next,
+.restaurant-active_r .restaurant-img_next {
+    right: 0;
+}
+
+/**** /spa-active, restaurant-active ****/
+/*** /.block-2_services-1_spa ***/
+/*** /.block-2_services-1_restaurant ***/
+
+/*** .block-2_services-2_comfort ***/
+
+
+
+/*** /.block-2_services-2_comfort ***/
 /**  end .block-2_services  **/
 
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
