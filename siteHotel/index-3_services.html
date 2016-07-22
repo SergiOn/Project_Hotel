@@ -16,6 +16,7 @@
         <script src="libs/ie/eventListener.polyfill.min.js"></script>
         <script src="libs/ie/classList.min.js"></script>
         <script src="libs/ie/getComputedStyle.js"></script>
+        <script src="libs/ie/calc.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -79,7 +80,7 @@
                             </li>
                             <li><span class="separator"></span></li>
                             <li>
-                                <a href="#facilities">Услуги и удобства отеля</a>
+                                <a href="#comfort">Услуги и удобства отеля</a>
                             </li>
                             <li><span class="separator"></span></li>
                             <li>
@@ -164,22 +165,77 @@
             <section class="block-2_services">
                 <div class="width1142">
                     <div id="block-2_services_key" class="services_key">
-                        <a href="#block-2_services-1_overview" class="services_key-active"> <!-- class = "services_key-active" -->
+                        <a href="#overview" class="services_key-active"> <!-- class = "services_key-active" -->
                             Обзор
                         </a>
-                        <a href="#block-2_services-2_comfort">
+                        <a href="#comfort">
                             Услуги и удобства отеля
                         </a> <!-- class = "services_key-active" -->
-                        <a href="#block-2_services-3_rules">
+                        <a href="#rules">
                             Правила проживания в отеле
                         </a> <!-- class = "services_key-active" -->
                     </div>
-                    <section id="block-2_services-1_overview" class="block-2_services-1_overview"> <!-- class = "active" -->
-                    </section>
-                    <section id="block-2_services-2_comfort" class="block-2_services-2_comfort"> <!-- class = "active" -->
-                    </section>
-                    <section id="block-2_services-3_rules" class="block-2_services-3_rules"> <!-- class = "active" -->
-                    </section>
+                    <div class="block-2_services_overflow">
+                        <div id="comfort" class="block-2_services_wrapper clearfix">
+                            <section class="block-2_services-1_overview clearfix">
+                                <h2>Обзор</h2>
+                                <p>262 современных номера, а также индивидуально оформленные номера класса люкс, обеспечат максимальный комфорт.  Насладитесь изысканными блюдами украинской и международной кухни в ресторане "The Park Kitchen". Расслабьтесь после насыщенного дня в спа-салоне, где Вам предложат широкий выбор оздоровительных процедур для лица и тела. Поплавайте в крытом бассейне или позанимайтесь в фитнес-центре, оборудованном разнообразными силовыми и кардиологическими тренажерами. Для проведения бизнес-встреч или неофициальных мероприятий в отеле имеются 11 конференц-залов и элегантный бальный зал площадью 390 м², максимальная вместимость которого - 400 человек.
+                                </p>
+                                <section class="block-2_services-1_spa left active"> <!-- class = "active" -->
+                                    <h3>Спа</h3>
+                                    <p>Отдохните от ежедневной суеты в спа-центре отеля Hilton Kyiv. Выберете оздоровительные процедуры для лица и тела и окунитесь в мир гармонии. Расслабьтесь в сауне или во время сеанса массажа, поплавайте в бассейне, снимите напряжение, позанимавшись в фитнес-центре.
+                                    </p>
+                                    <span>Дополнительная информация</span>
+                                </section>
+                                <section class="block-2_services-1_restaurant left active-"> <!-- class = "active" -->
+                                    <h3>Рестораны</h3>
+                                    <p>Начните свой день со свежеприготовленного завтрака, побалуйте себя эксклюзивными блюдами международной и украинской кухни, приготовленными исключительно из свежайших ингредиентов, или расслабьтесь за чашечкой кофе в лобби-баре отеля. В SO Hotel каждый гость найдет себе блюдо по душе!
+                                    </p>
+                                    <span>Дополнительная информация</span>
+                                </section>
+
+                                <section class="block-2_services-1_spa-active">
+                                    <div class="spa-active_l">
+                                        <h3></h3>
+                                        <article>
+                                            <p></p>
+                                            <ul>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                            </ul>
+                                        </article>
+                                    </div>
+                                    <div class="spa-active_r">
+                                        <button></button>
+                                        <button></button>
+                                        <button></button>
+                                        <img class="active" src="img/3_services/overview/spa/01-gallery.jpg" alt=""> <!-- class = "active" -->
+                                        <img src="img/3_services/overview/spa/02-gallery.jpg" alt=""> <!-- class = "active" -->
+                                        <img src="img/3_services/overview/spa/03-gallery.jpg" alt=""> <!-- class = "active" -->
+                                    </div>
+                                </section>
+
+
+
+
+
+                            </section>
+                            <section class="block-2_services-2_comfort">
+                                <h2>Услуги и удобства отеля</h2>
+                                <p>Высококвалифицированный персонал отеля SO Hotel сделает все возможное, чтобы Ваше пребывание было комфортным. 262 современных номера различных категорий, ресторан "The Park Kitchen ", роскошный спа-салон, фитнес-центр, крытый бассейн, а также залы для проведения мероприятий - к Вашим услугам!
+                                </p>
+                            </section>
+                            <section class="block-2_services-3_rules">
+                                <h2>Правила проживания в отеле</h2>
+                                <p>Наша главная цель - сделать Ваше размещение в гостинице SO Hotel комфортным и приятным. Здесь Вы сможете найти всю необходимую информацию, которая будет полезна во время пребывания в нашем отеле. Если у Вас возникли какие-либо вопросы, пожалуйста, свяжитесь с сотрудниками напрямую.
+                                </p>
+                            </section>
+                        </div>
+                    </div>
                 </div>
             </section>
         </section>

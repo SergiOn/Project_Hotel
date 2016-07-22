@@ -26,7 +26,10 @@ body {
     display: table;
     clear: both;
 }
-ul, li {
+header ul,
+header li,
+.block-1_home ul,
+.block-1_home li {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -221,6 +224,32 @@ footer {
     font-size: 20px;
 }
 /**  end .block-1_services  **/
+/**  start .block-2_services  **/
+.block-2_services .services_key a {
+    font-size: 14px;
+    font-weight: 600;
+}
+.block-2_services h2 {
+    font-size: 36px;
+    font-weight: 600;
+}
+.block-2_services p {
+    font-size: 16px;
+}
+.block-2_services-1_spa h3,
+.block-2_services-1_restaurant h3 {
+    font-size: 30px;
+    font-weight: 600;
+}
+.block-2_services-1_spa p,
+.block-2_services-1_restaurant p {
+    font-size: 15px;
+}
+.block-2_services-1_spa span,
+.block-2_services-1_restaurant span {
+    font-size: 14px;
+}
+/**  end .block-2_services  **/
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
 
 /*   end font style   */
@@ -918,23 +947,154 @@ body {
 /**  start .block-2_services  **/
 .block-2_services {
     padding-bottom: 50px;
-    background-color: yellow;
+    /*background-color: yellow;*/
 }
 .block-2_services .services_key {
-    margin: 50px 0 40px;
-    background-color: #d9a548;
+    margin: 45px 0 40px;
     text-align: center;
 }
 .block-2_services .services_key a {
+    margin-left: 12px;
+    padding: 0 24px 5px;
+    border-bottom: 5px solid #006fb6;
+    color: #00395d;
 }
-
-
-
+.block-2_services .services_key a:first-of-type {
+    margin-left: 0;
+}
+.block-2_services .services_key a.services_key-active {
+    border-bottom: 5px solid #59b5e2;
+    color: #59b5e2;
+}
+.block-2_services h2 {
+    text-align: center;
+}
+.block-2_services p {
+    max-width: 754px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+/*
+.block-2_services_overflow {
+    width: inherit;
+    overflow-x: hidden;
+}
+.block-2_services_wrapper {
+    width: 300%;
+    background-color: yellow;
+    transition: margin-left 2s;
+}
+#overview {
+    margin-left: 0;
+}
+#comfort {
+    margin-left: -100%;
+}
+#rules {
+    margin-left: -200%;
+}
+#overview .block-2_services-1_overview,
+#comfort .block-2_services-2_comfort,
+#rules .block-2_services-3_rules {
+    height: auto;
+    overflow-y: visible;
+}
 .block-2_services-1_overview {
-    height: 500px;
+    height: 100px;
+    width: calc(100%/3);
+    overflow-y: hidden;
     background-color: silver;
+    transition: height 2s;
 }
+.block-2_services-2_comfort {
+    height: 100px;
+    width: calc(100%/3);
+    overflow-y: hidden;
+    background-color: #d9a548;
+    transition: height 2s;
+}
+.block-2_services-3_rules {
+    height: 100px;
+    width: calc(100%/3);
+    overflow-y: hidden;
+    background-color: #002137;
+}
+*/
 
+
+.block-2_services-1_spa,
+.block-2_services-1_restaurant {
+    width: calc(50% - 6px);
+    height: 338px;
+    margin-right: 12px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+
+}
+.block-2_services-1_spa {
+    background: 
+            linear-gradient(rgba(72, 204, 217, 0.25), rgba(0, 0, 0, 0.25)),
+            url("../img/3_services/overview/spa-bg.jpg") no-repeat center / cover;
+    background-clip: border-box, border-box;
+}
+.block-2_services-1_restaurant {
+    margin-right: 0;
+    background:
+            linear-gradient(rgba(72, 204, 217, 0.25), rgba(0, 0, 0, 0.25)),
+            url("../img/3_services/overview/restaurant-bg.jpg") no-repeat center / cover;
+}
+.block-2_services-1_spa:hover,
+.block-2_services-1_restaurant:hover {
+    box-shadow: inset 0 0 1px 3px #f0af22;
+}
+.block-2_services-1_spa:hover {
+    background:
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("../img/3_services/overview/spa-bg.jpg") no-repeat center / cover;
+}
+.block-2_services-1_restaurant:hover {
+    background:
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("../img/3_services/overview/restaurant-bg.jpg") no-repeat center / cover;
+}
+.block-2_services-1_spa h3,
+.block-2_services-1_restaurant h3 {
+    margin-top: 150px;
+    transition: margin-top .3s;
+}
+.block-2_services-1_spa:hover h3,
+.block-2_services-1_restaurant:hover h3 {
+    margin-top: 70px;
+}
+.block-2_services-1_spa p,
+.block-2_services-1_restaurant p {
+    max-width: none;
+    margin-bottom: 15px;
+    padding: 0 15px;
+    opacity: 0;
+    transition: opacity .3s;
+}
+.block-2_services-1_spa span,
+.block-2_services-1_restaurant span {
+    color: #f0af22;
+    opacity: 0;
+    transition: opacity .3s;
+}
+.block-2_services-1_spa:hover p,
+.block-2_services-1_restaurant:hover p,
+.block-2_services-1_spa:hover span,
+.block-2_services-1_restaurant:hover span {
+    opacity: 1;
+}
+/*** spa-active, restaurant-active ***/
+.block-2_services-1_spa-active {
+    clear: both;
+}
+.block-2_services-1_spa.active ~ .block-2_services-1_spa-active {
+    background-color: red;
+}
+/*** /spa-active, restaurant-active ***/
 /**  end .block-2_services  **/
 
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
