@@ -10,7 +10,8 @@ body {
 }
 .width1142:before,
 .block-1_home:before,
-.block-1_services:before{
+.block-1_services:before,
+.block-1_contact-top:before {
     content: '';
     display: table;
 }
@@ -66,7 +67,7 @@ i.fa {
 }
 
 
-/* start font style */
+/* start font style */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
 h1, h2, h3, h4 {
     font-family: 'Open Sans';
     margin: 0;
@@ -311,10 +312,30 @@ footer {
 /**  end .block-2_services  **/
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
 
-/*   end font style   */
+/*    start #conten_contact    */ /* ----- ----- ----- ----- ----- */
+/**   start .block-1_contact   **/
+.block-1_contact-top h2,
+.block-1_contact-middle h3,
+.block-1_contact-bottom h3 {
+    font-size: 36px;
+    font-weight: 600;
+}
+.block-1_contact-top p,
+.block-1_contact-bottom p,
+.block-1_contact-middle p {
+    font-size: 16px;
+}
+.block-1_contact-middle ul {
+    font-size: 16px;
+    font-family: Kurale;
+}
+/**   end .block-1_contact   **/
+/*    end #conten_contact    */ /* ----- ----- ----- ----- ----- */
+
+/*   end font style   */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
 
 
-/*   start header   */
+/*   start header   */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
 header {
     position: relative;
     z-index: 2;
@@ -612,7 +633,7 @@ footer {
     white-space: pre-wrap;
     line-height: 50px;
 }
-/*    end footer    */
+/*    end footer    */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
 
 
 body {
@@ -621,7 +642,7 @@ body {
 
 
 
-/* === -- ***   start #content   *** -- === */
+/*    start #content    */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
 
 /*   start #conten_home   */ /* ----- ----- ----- ----- ----- */
 /**  start .block-1_home  **/
@@ -1374,19 +1395,51 @@ body {
 /**  end .block-2_services  **/
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*    start #conten_contact    */ /* ----- ----- ----- ----- ----- */
+/**   start .block-1_contact   **/
+.block-1_contact {
+    margin-bottom: 50px;
+}
+.block-1_contact-top {
+    margin: 50px 0 40px;
+}
+.block-1_contact-middle,
+.block-1_contact-bottom {
+    margin-top: 50px;
+}
+.block-1_contact-top h2,
+.block-1_contact-middle h3,
+.block-1_contact-bottom h3 {
+    text-align: center;
+    color: #00395d;
+}
+.block-1_contact-top p,
+.block-1_contact-bottom p{
+    max-width: 756px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+.block-1_contact-middle p {
+    margin-top: 20px;
+}
+.block-1_contact-middle ul {
+    margin: 20px 0 0 -20px;
+}
+.block-1_contact-middle li {
+    margin: 6px 0 0;
+}
+.block-1_contact-bottom figure {
+    margin: 50px 0 0;
+}
+.block-1_contact-bottom img {
+    margin-right: 5px;
+    vertical-align: bottom;
+}
+.block-1_contact-bottom img:last-of-type {
+    margin-right: 0;
+}
+/**   end .block-1_contact   **/
+/*    end #conten_contact    */ /* ----- ----- ----- ----- ----- */
 
 
 
