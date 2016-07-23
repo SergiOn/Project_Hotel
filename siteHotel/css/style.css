@@ -284,6 +284,30 @@ footer {
 .block-2_services-2_comfort div p {
     font-size: 15px;
 }
+.block-2_services-3_rules-l_top h3 {
+    font-size: 30px;
+    font-weight: normal;
+}
+.block-2_services-3_rules-l_top i {
+    font-size: 24px;
+}
+.block-2_services-3_rules-l_top small {
+    font-size: 14px;
+    font-weight: 600;
+}
+.block-2_services-3_rules-l_bottom h3 {
+    font-size: 16px;
+}
+.block-2_services-3_rules-l_bottom p {
+    font-size: 14px;
+    font-family: 'Open Sans';
+}
+.block-2_services-3_rules-r h3 {
+    font-size: 16px;
+}
+.block-2_services-3_rules-r p {
+    font-size: 15px;
+}
 /**  end .block-2_services  **/
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
 
@@ -1030,19 +1054,22 @@ body {
 #comfort .block-2_services-2_comfort,
 #rules .block-2_services-3_rules {
     height: auto;
+    overflow-y: hidden;
     opacity: 1;
-    overflow-y: visible;
 }
 .block-2_services-1_overview,
 .block-2_services-2_comfort,
 .block-2_services-3_rules {
-    height: 300px;
+    height: 250px;
     width: calc(100%/3);
     overflow-y: hidden;
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 1s .8s;
 }
-
+.block-2_services-2_comfort,
+.block-2_services-3_rules {
+    height: 155px;
+}
 /*** .block-2_services-1_spa .block-2_services-1_restaurant ***/
 .block-2_services-1_spa,
 .block-2_services-1_restaurant {
@@ -1272,8 +1299,79 @@ body {
     transition: opacity .5s;
 }
 /*** /.block-2_services-2_comfort ***/
-/**  end .block-2_services  **/
 
+/*** .block-2_services-2_rules ***/
+.block-2_services-3_rules-l {
+    width: 276px;
+    margin-right: 12px;
+    margin-left: 1px;
+}
+.block-2_services-3_rules-l_top {
+    height: 110px;
+    margin-bottom: 12px;
+    padding-top: 40px;
+    background-color: #00395d;
+    text-align: center;
+}
+.block-2_services-3_rules-l_top h3 {
+    position: relative;
+    display: inline;
+    padding-top: 0px;
+    color: #fff;
+}
+.block-2_services-3_rules-l_top small {
+    position: absolute;
+    top: 40px;
+    color: #59b5e2;
+}
+.block-2_services-3_rules-l_top small.in {
+    left: 20px;
+}
+.block-2_services-3_rules-l_top small.out {
+    right: 14px;
+}
+.block-2_services-3_rules-l_bottom {
+    width: 274px;
+    border: 1px solid #006fb6;
+}
+.block-2_services-3_rules-l_bottom article:first-of-type {
+    margin: 30px 22px 0;
+}
+.block-2_services-3_rules-l_bottom article:last-of-type {
+    margin: 26px 22px 30px;
+}
+.block-2_services-3_rules-l_bottom h3 {
+    color: #59b5e2;
+}
+.block-2_services-3_rules-l_bottom p {
+    max-width: none;
+    margin: 22px 0 0;
+    text-align: left;
+}
+.block-2_services-3_rules-r {
+    width: 850px;
+    border: 1px solid #006fb6;
+}
+.block-2_services-3_rules-r article {
+    margin: 30px 22px;
+}
+.block-2_services-3_rules-r h3 {
+    display: inline-block;
+    width: 130px;
+    margin-right: 12px;
+    color: #00395d;
+    vertical-align: top;
+}
+.block-2_services-3_rules-r p {
+    display: inline-block;
+    max-width: none;
+    width: 656px;
+    margin: 0;
+    text-align: left;
+    vertical-align: top;
+}
+/*** /.block-2_services-2_rules ***/
+/**  end .block-2_services  **/
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
 
 
