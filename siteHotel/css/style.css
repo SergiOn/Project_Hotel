@@ -505,6 +505,7 @@ header {
     margin-right: 10px;
 }
 .menu-left .menu-active,
+.menu-right .menu-active,
 .menu-left a:hover,
 .menu-search:hover {
     color: #59b5e2;
@@ -1441,6 +1442,13 @@ body {
 /**   end .block-1_contact   **/
 /*    end #conten_contact    */ /* ----- ----- ----- ----- ----- */
 
+/*    start #conten_search    */ /* ----- ----- ----- ----- ----- */
+/**   start .block-1_search   **/
+.block-1_search {
+    min-height: 100%;
+}
+/**   end .block-1_search   **/
+/*    end #conten_search    */ /* ----- ----- ----- ----- ----- */
 
 
 
