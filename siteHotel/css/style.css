@@ -332,6 +332,27 @@ footer {
 /**   end .block-1_contact   **/
 /*    end #conten_contact    */ /* ----- ----- ----- ----- ----- */
 
+/*    start #conten_search    */ /* ----- ----- ----- ----- ----- */
+/**   start .block-1_search   **/
+.block-1_search_search-input button {
+    font-size: 24px;
+}
+.block-1_search_search-input label i {
+    font-size: 30px;
+}
+.block-1_search_search-input label input {
+    font-size: 24px;
+}
+.block-1_search_search-input p {
+    font-size: 19px;
+}
+.block-1_search_search-result p {
+    font-size: 17px;
+    font-family: 'Open Sans';
+}
+/**   end .block-1_search   **/
+/*    end #conten_search    */ /* ----- ----- ----- ----- ----- */
+
 /*   end font style   */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
 
 
@@ -1445,7 +1466,66 @@ body {
 /*    start #conten_search    */ /* ----- ----- ----- ----- ----- */
 /**   start .block-1_search   **/
 .block-1_search {
-    min-height: 100%;
+    min-height: calc(100vh - 180px);
+}
+.block-1_search_search-input button {
+    width: 40px;
+    height: 40px;
+    margin: 30px 0 10px;
+    background-color: #59b5e2;
+    border-radius: 5px;
+    color: #fff;
+    line-height: 40px;
+}
+
+.block-1_search_search-input label {
+    position: relative;
+    clear: both;
+    display: block;
+    max-width: 756px;
+    height: 60px;
+    margin: 0 auto;
+}
+.block-1_search_search-input label i {
+    position: absolute;
+    top: 15px;
+    left: 22px;
+    color: #59b5e2;
+}
+.block-1_search_search-input label input {
+    display: block;
+    width: calc(100% - 142px);
+    height: 58px;
+    padding: 0 70px;
+    background-color: #fff;
+    border: 1px solid #59b5e2;
+    border-radius: 10px;
+    color: #00395d;
+    transition: background-color 1s, color 1s;
+}
+.block-1_search_search-input label input:invalid {
+    width: calc(100% - 144px);
+    height: 56px;
+    background-color: #00395d;
+    border: 2px solid #59b5e2;
+    color: #fff;
+}
+.block-1_search_search-input label input:invalid + i {
+    color: #fff;
+}
+.block-1_search_search-input p {
+    max-width: 972px;
+    margin: 40px auto 0;
+    padding-bottom: 15px;
+    color: #00395d;
+    border-bottom: 1px solid #d9a548;
+}
+.block-1_search_search-result p {
+    max-width: 972px;
+    margin: 30px auto 0;
+    padding-bottom: 30px;
+    color: #00395d;
+    border-bottom: 1px solid #d9a548;
 }
 /**   end .block-1_search   **/
 /*    end #conten_search    */ /* ----- ----- ----- ----- ----- */
