@@ -1492,7 +1492,7 @@ body {
     left: 22px;
     color: #59b5e2;
 }
-.block-1_search_search-input label input {
+.block-1_search_search-input input {
     display: block;
     width: calc(100% - 142px);
     height: 58px;
@@ -1503,14 +1503,17 @@ body {
     color: #00395d;
     transition: background-color 1s, color 1s;
 }
-.block-1_search_search-input label input:invalid {
+.block-1_search_search-input input:valid:focus {
+    box-shadow: 0 0 2px 0 #59b5e2;
+}
+.block-1_search_search-input input:invalid {
     width: calc(100% - 144px);
     height: 56px;
     background-color: #00395d;
     border: 2px solid #59b5e2;
     color: #fff;
 }
-.block-1_search_search-input label input:invalid + i {
+.block-1_search_search-input input:invalid + i {
     color: #fff;
 }
 .block-1_search_search-input p {
@@ -1530,10 +1533,13 @@ body {
 /**   end .block-1_search   **/
 /*    end #conten_search    */ /* ----- ----- ----- ----- ----- */
 
+/*    start #conten_login    */ /* ----- ----- ----- ----- ----- */
+/**   start .block-1_login   **/
 
 
 
-
+/**   end .block-1_login   **/
+/*    end #conten_login    */ /* ----- ----- ----- ----- ----- */
 
 
 
