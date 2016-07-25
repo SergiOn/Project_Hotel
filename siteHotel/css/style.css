@@ -361,18 +361,23 @@ footer {
 
 /*    start #conten_login    */ /* ----- ----- ----- ----- ----- */
 /**   start .block-1_login   **/
-.block-1_login button {
+.block-1_login button,
+.block-1_reg button {
     font-size: 24px;
 }
-.block-1_login form div label {
+.block-1_login form div label,
+.block-1_reg form div label {
     font-size: 16px;
     font-family: Kurale;
 }
-.block-1_login form div label.novalid {
+.block-1_login form div label.novalid,
+.block-1_reg form div label.novalid{
     font-size: 14px;
 }
 .block-1_login form div input,
-.block-1_login form > label {
+.block-1_login form > label,
+.block-1_reg form div input,
+.block-1_reg form > label {
     font-size: 16px;
 }
 /**   end .block-1_login   **/
@@ -1566,10 +1571,12 @@ body {
 
 /*    start #conten_login && start #conten_reg    */ /* ----- ----- ----- ----- ----- */
 /**   start .block-1_login && start .block-1_reg   **/
-.block-1_login {
+.block-1_login,
+.block-1_reg {
     padding-bottom: 50px;
 }
-.block-1_login button {
+.block-1_login button,
+.block-1_reg button {
     width: 34px;
     height: 34px;
     margin: 30px 0 10px;
@@ -1577,45 +1584,54 @@ body {
     border-radius: 5px;
     color: #fff;
 }
-.block-1_login button i {
+.block-1_login button i,
+.block-1_reg button i {
     vertical-align: top;
     margin-top: 3px;
 }
-.block-1_login form {
+.block-1_login form,
+.block-1_reg form {
     clear: both;
     max-width: 396px;
     margin: 0 auto;
 }
-.block-1_login form div label {
+.block-1_login form div label,
+.block-1_reg form div label {
     margin-left: 20px;
     color: #00395d;
 }
-.block-1_login form div label.novalid {
+.block-1_login form div label.novalid,
+.block-1_reg form div label.novalid {
     visibility: hidden;
     color: #dc1b3b;
     opacity: 0;
     transition: opacity .2s linear;
 }
-.block-1_login form div.novalid label.novalid {
+.block-1_login form div.novalid label.novalid,
+.block-1_reg form div.novalid label.novalid {
     visibility: visible;
     opacity: 1;
     transition: opacity .4s linear;
 }
-.block-1_login form div input {
+.block-1_login form div input,
+.block-1_reg form div input {
     display: block;
     width: 100%;
     height: 42px;
     box-sizing: border-box;
     margin: 5px 0 0;
     padding: 0 20px;
+    background-color: #fff;
     border: 1px solid #59b5e2;
     color: #00395d;
 }
-.block-1_login form div input:focus {
+.block-1_login form div input:focus,
+.block-1_reg form div input:focus {
     box-shadow: 0 0 3px 0 #59b5e2;
     transition: all .1s;
 }
-.block-1_login form > label {
+.block-1_login form > label,
+.block-1_reg form > label {
     display: block;
     width: 180px;
     height: 36px;
@@ -1626,7 +1642,15 @@ body {
     line-height: 36px;
     cursor: pointer;
 }
-.block-1_login form > label input {
+.block-1_reg form > label {
+    width: 224px;
+}
+.block-1_login form > label:hover,
+.block-1_reg form > label:hover {
+    box-shadow: 0 0 4px 1px #d9a548;
+}
+.block-1_login form > label input,
+.block-1_reg form > label input {
     margin-left: 6px;
     background-color: inherit;
     cursor: inherit;
