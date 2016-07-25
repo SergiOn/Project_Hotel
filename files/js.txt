@@ -49,6 +49,42 @@ document.querySelector('.block-2_services-1_restaurant').classList.remove('activ
 
 
 
+/* page animate */
+
+/** center-left (animated zoomOutLeft) **/
+
+var login = document.getElementById('content_login');
+document.body.style.overflowX = 'hidden';
+login.classList.add('animated');
+login.classList.add('zoomOutLeft');
+document.body.style.overflowX = '';
+
+/** end center-left **/
+
+
+/** center-right (animated lightSpeedIn) **/
+
+var login = document.getElementById('content_login');
+login.parentElement.removeChild(login);
+document.body.style.overflowX = 'hidden';
+login.classList.add('animated');
+login.classList.add('lightSpeedIn');
+document.body.children[1].appendChild(login);
+var styleLogin = getComputedStyle(login);
+var timeOut = parseInt(styleLogin.animationDuration) + parseInt(styleLogin.animationDelay);
+setTimeout(function() {
+  login.classList.remove('animated');
+  login.classList.remove('lightSpeedIn');
+  document.body.style.overflowX = '';
+}, timeOut * 1000 * 10);
+10 = просто чтобы успеть в диспетчере увидеть изменения
+
+
+/** end center-right **/
+
+
+/* end page animate */
+
 
 
 
