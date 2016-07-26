@@ -67,9 +67,6 @@ i.fa {
     font-weight: normal;
     color: inherit;
 }
-.strike {
-    text-decoration: line-through;
-}
 
 
 /* start font style */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
@@ -1716,10 +1713,11 @@ body {
 }
 /**   end .block-1_rooms   **/
 /**   start .block-2_rooms   **/
+/***  aside  ***/
 .block-2_rooms_sort-block_wrapper {
     width: 276px;
-    min-height: calc(100vh - 342px); /*h130px+mt152+mb10px+f50px*/
-    max-height: calc(100vh - 212px);
+    min-height: calc(100vh - 348px); /*h130px+mt152+mb16px+f50px*/
+    max-height: calc(100vh - 218px);
     margin: 40px 12px 15px 0;
     overflow-y: auto;
 }
@@ -1757,6 +1755,18 @@ body {
 .block-2_rooms_sort-border div label input {
     margin-right: 4px;
 }
+/***  /aside  ***/
+/***  .block-2_rooms_content-block  ***/
+.block-2_rooms_content-block {
+    width: calc(100% - 288px);
+}
+
+.block-2_rooms_content-block td {
+    border: 1px solid;
+}
+
+
+/***  /.block-2_rooms_content-block  ***/
 /**   end .block-2_rooms   **/
 /*    end #conten_rooms    */ /* ----- ----- ----- ----- ----- */
 
