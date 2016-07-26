@@ -1,0 +1,15 @@
+/* Edge */
+
+/*    start #conten_services    */ /* ----- ----- ----- ----- ----- */
+/**  start .block-1_services  **/
+.block-1_services_banner-reserve {
+    height: 0;
+    margin-top: 0;
+    overflow-y: hidden;
+    transition: height .5s linear;
+}
+.block-1_services_banner-reserve.active {
+    height: 75px;
+}
+/**  end .block-1_services  **/
+/*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
