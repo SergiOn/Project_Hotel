@@ -138,12 +138,77 @@
     </header>
 
     <section id="content">
-        <section id="content_login">
-            <section class="block-1_login">
-                <div class="width1142">
+        <section id="content_rooms">
+            <section class="block-1_rooms">
+                <section class="block-1_rooms_top">
+                    <div class="width1142">
+                        <h4>Описание бронирования:</h4>
+                        <button id="room_cal-in" class="room_cal-in">
+                            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                            <time datetime="26.07.2016">26 июля 2016</time>
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </button>
+                        -
+                        <button id="room_cal-out" class="room_cal-out">
+                            <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                            <time datetime="27.07.2016">27 июля 2016</time>
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </section>
+            </section>
+            <section class="block-2_rooms">
+                <div class="width1142 clearfix">
+                    <div class="block-2_rooms_sort-block_wrapper left">
+                        <section class="block-2_rooms_sort-block">
+                            <h4>Корректировать результаты поиска</h4>
+                            <div id="rooms_sort-block" class="block-2_rooms_sort-border">
+                                <div>
+                                    <label>
+                                        <input type="checkbox"> Показать занятые номера
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input type="checkbox"> 1 большая кровать (King Size)
+                                    </label>
+                                    <label class="martop10">
+                                        <input type="checkbox"> 2 кровати
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input type="checkbox"> Стандартные номера
+                                    </label>
+                                    <label class="martop10">
+                                        <input type="checkbox"> Номера-люкс
+                                    </label>
+                                    <label class="martop10">
+                                        <input type="checkbox"> Башня / бизнес-класс
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input type="checkbox"> Для некурящих
+                                    </label>
+                                    <label class="martop10">
+                                        <input type="checkbox"> Для курящих
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <section id="rooms_content-block" class="block-2_rooms_content-block left">
+                        content
 
+
+                        <section id="rooms_page-pagination" class="block-2_rooms_page-pagination">
+                            pagination
+                        </section>
+                    </section>
                 </div>
             </section>
+
         </section>
     </section>
 
