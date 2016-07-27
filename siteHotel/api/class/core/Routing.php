@@ -13,56 +13,47 @@ class Routing {
         $path = $_SERVER["REQUEST_URI"];
         $pathArr = explode("/", $path);
         $key = array_search('api', $pathArr);
-        $dataUrl = array_slice($pathArr, $key+1);
+        $dataUrl = [];
 
-        print_r($path);
-        echo "<br>";
-        print_r($pathArr);
-        echo "<br>";
-        print_r($key);
-        echo "<br>";
-        print_r($dataUrl);
+        $className = array_slice($pathArr, $key+1, 1)[0];
+        $dataUrl[0][0] = $className;
 
+        if (!empty($pathArr[$key+2])) {
+            $methodName = array_slice($pathArr, $key+2, 1)[0];
+            $methodName = preg_replace("/\?.*/", "", $methodName);
+            $dataUrl[0][1] = $methodName;
+        }
 
+        if (!empty($pathArr[$key+3])) {
+            $dataUrl[1] = array_slice($pathArr, $key + 3);
+        }
 
-//        $pathArr = explode("/", $path);
-//        $pathArrSITE = explode("/", SITE);
-//
-//        $classNum = count($pathArrSITE) - 1;
-//        $methodNum = count($pathArrSITE);
-//        $className = false;
-//        $methodName = false;
-//        if (isset($pathArr[$classNum])) {
-//            $className = $pathArr[$classNum];
-//        }
-//        if (isset($pathArr[$methodNum])) {
-//            $methodName = $pathArr[$methodNum];
-//            $methodName = preg_replace("/\?.*/", "", $methodName);
-//        }
-//        $result = [$className, $methodName];
-//        return $result;
+        return $dataUrl;
     }
 
     public static function rout() {
-        $arr = self::getPath();
+        $dataUrl = self::getPath();
 
-        //print_r($_SERVER["REQUEST_URI"]);
+        $className = isset($dataUrl[0][0]) ? ucfirst($dataUrl[0][0]) : "User";
+        $methodName = isset($dataUrl[0][1]) ? $dataUrl[0][1] : "index";
 
-        /*$className = $arr[0] ? ucfirst($arr[0]) : "Main";
-        $methodName = $arr[1] ? $arr[1] : "index";
         $className = "\\controller\\".$className;
 
         if (class_exists($className)) {
             $obj = new $className;
+
             if (method_exists($obj, $methodName)) {
-                $obj->$methodName();
-            } else {
-                $obj = new \controller\Main();
-                $obj->pageNotFound();
+
+                $reflectionMethod = new \ReflectionMethod($className, $methodName);
+                $params = $reflectionMethod->getNumberOfParameters();
+
+                if ($params && isset($dataUrl[1])) {
+                    $obj->$methodName($dataUrl[1]);
+                } else {
+                    $obj->$methodName();
+                }
             }
-        } else {
-            $obj = new \controller\Main();
-            $obj->pageNotFound();
-        }*/
+        }
+
     }
 }
