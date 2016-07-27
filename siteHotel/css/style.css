@@ -1827,7 +1827,7 @@ body {
     margin: 40px 0 20px;
 }
 .block-2_rooms_content-block > div {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .block-2_rooms_content-block h3 {
     text-transform: uppercase;
@@ -1843,7 +1843,7 @@ body {
 .block-2_rooms_content-block img {
     float: left;
     width: 32.4%;
-    margin: 0 1.4% 0 0;
+    margin: 0 1.4% 30px 0;
 }
 .block-2_rooms_content-block table {
     width: 66%;
@@ -1863,6 +1863,8 @@ body {
 }
 .block-2_rooms_content-block td span {
     text-transform: uppercase;
+}
+.block-2_rooms_content-block td:first-of-type span {
     color: #006fb6;
 }
 .block-2_rooms_content-block td:nth-of-type(2),
@@ -1875,6 +1877,40 @@ body {
     border-radius: 5px;
     color: #fff;
 }
+.block-2_rooms_content-block > div hr {
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin-top: 15px;
+    background-color: #9a9a9a;
+    border: 0;
+    border-bottom: 1px solid #eee;
+}
+/**** .the-room-reserve & .the-room-reserve-br ****/
+.the-room-reserve,
+.the-room-reserve-br {
+    position: relative;
+}
+.block-2_rooms_content-block .the-room-reserve:after,
+.block-2_rooms_content-block .the-room-reserve-br:after {
+    content: 'Зарезервировано';
+    position: absolute;
+    bottom: 32px;
+    right: 0;
+    padding: 10px 18px;
+    color: #fff;
+    background-color: #d9a548;
+    border-top-left-radius: 5px;
+}
+.the-room-reserve button,
+.the-room-reserve-br button {
+    visibility: hidden;
+}
+.the-room-reserve table tr:nth-of-type(3),
+.the-room-reserve-br table tr:nth-of-type(2) {
+    display: none;
+}
+/**** /.the-room-reserve & /.the-room-reserve-br ****/
 /***  /.block-2_rooms_content-block  ***/
 /**   end .block-2_rooms   **/
 
