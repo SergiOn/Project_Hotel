@@ -1,15 +1,36 @@
-/* Edge */
+/*    start #content    */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
+
+/*   start #conten_home   */ /* ----- ----- ----- ----- ----- */
+/**  start .block-1_home  **/
+.block-1_home {
+    height: 500px;
+    background: url("../img/1_home/bl-1/1-slider.jpg") no-repeat center;
+    background-size: cover;
+}
+/**  end .block-1_home  **/
+/*   end #conten_home   */ /* ----- ----- ----- ----- ----- */
+
+
 
 /*    start #conten_services    */ /* ----- ----- ----- ----- ----- */
 /**  start .block-1_services  **/
-.block-1_services_banner-reserve {
-    height: 0;
-    margin-top: 0;
-    overflow-y: hidden;
-    transition: height .5s linear;
-}
-.block-1_services_banner-reserve.active {
-    height: 75px;
+.block-1_services {
+    height: 500px;
+    background: url("../img/3_services/bg-services.jpg") no-repeat center;
+    background-size: cover;
 }
 /**  end .block-1_services  **/
+
+/**  start .block-2_services  **/
+.block-2_services-1_spa {
+    background: url("../img/3_services/overview/spa-bg.jpg") no-repeat center;
+    background-size: cover;
+}
+.block-2_services-1_restaurant {
+    background: url("../img/3_services/overview/restaurant-bg.jpg") no-repeat center;
+    background-size: cover;
+}
+/**  end .block-2_services  **/
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
+
+/*    end #content    */ /* ***** ***** ***** ***** ***** ***** ***** ***** */

@@ -1,15 +1,110 @@
-/* Edge */
+/*   start header   */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
+/**  .header-menu  **/
+/*.menu-services-hover:hover .menu-services*/
+.menu-services {
+    width: 590px;
+}
+.menu-currency {
+    width: 230px;
+}
+.menu-language {
+    width: 150px;
+}
+/*    end header    */
+
+
+/*    start #content    */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
+
+/*   start #conten_home   */ /* ----- ----- ----- ----- ----- */
+/**  start .block-1_home  **/
+.block-1_home_banner-top li i.fa-map-marker {
+    margin-left: 20px;
+}
+.block-1_home_banner-reserve {
+    border-left: 10px solid #fff;
+    border-right: 10px solid #fff;
+}
+/**  end .block-1_home  **/
+/**  start .block-2_home  **/
+.block-2_home_hotel-rooms a[href="#block-2_home_hotel-rooms-1"] {
+    margin-top: 56px;
+}
+.block-2_home_hotel-halls a[href="#block-2_home_hotel-halls-1"] {
+    margin-top: 97px;
+}
+/**  end .block-2_home  **/
+/*    end #conten_home    */ /* ----- ----- ----- ----- ----- */
+
+
 
 /*    start #conten_services    */ /* ----- ----- ----- ----- ----- */
-/**  start .block-1_services  **/
-.block-1_services_banner-reserve {
-    height: 0;
-    margin-top: 0;
-    overflow-y: hidden;
-    transition: height .5s linear;
+/**  start .block-2_services  **/
+.block-2_services-1_overview,
+.block-2_services-2_comfort,
+.block-2_services-3_rules {
+    width: 33.3%;
 }
-.block-1_services_banner-reserve.active {
-    height: 75px;
+/*** .block-2_services-1_spa .block-2_services-1_restaurant ***/
+.block-2_services-1_spa,
+.block-2_services-1_restaurant {
+    width: 48.4%;
+    margin-right: 1.05%;
 }
-/**  end .block-1_services  **/
+.spa-active_r .spa-img_prew,
+.spa-active_r .spa-img_next,
+.restaurant-active_r .restaurant-img_prew,
+.restaurant-active_r .restaurant-img_next {
+    top: 45%;
+}
+.block-2_services-1_spa p,
+.block-2_services-1_restaurant p,
+.block-2_services-1_spa span,
+.block-2_services-1_restaurant span,
+.block-2_services-2_comfort div p {
+    visibility: hidden;
+}
+.block-2_services-1_spa:hover p,
+.block-2_services-1_restaurant:hover p,
+.block-2_services-1_spa:hover span,
+.block-2_services-1_restaurant:hover span,
+.block-2_services-2_comfort div:hover p {
+    visibility: visible;
+}
+/*** /.block-2_services-1_spa /.block-2_services-1_restaurant ***/
+/**  end .block-2_services  **/
 /*    end #conten_services    */ /* ----- ----- ----- ----- ----- */
+
+
+
+/*    start #conten_search    */ /* ----- ----- ----- ----- ----- */
+/**   start .block-1_search   **/
+.block-1_search input {
+    width: 80%;
+    height: 34px;
+    padding: 11px 70px;
+}
+/**   end .block-1_search   **/
+/*    end #conten_search    */ /* ----- ----- ----- ----- ----- */
+
+
+
+/*    start #conten_login && start #conten_reg    */ /* ----- ----- ----- ----- ----- */
+/**   start .block-1_login && start .block-1_reg   **/
+.block-1_login form div input,
+.block-1_reg form div input {
+    padding: 8px 20px;
+}
+/**   end .block-1_login && end .block-1_reg   **/
+/*    end #conten_login && end #conten_reg    */ /* ----- ----- ----- ----- ----- */
+
+/*    start #conten_rooms    */ /* ----- ----- ----- ----- ----- */
+/**   start .block-2_rooms   **/
+/***  .block-2_rooms_content-block  ***/
+.block-2_rooms_content-block {
+    width: 852px;
+}
+/***  /.block-2_rooms_content-block  ***/
+/**   end .block-2_rooms   **/
+/*    end #conten_rooms    */ /* ----- ----- ----- ----- ----- */
+
+/*    end #content    */ /* ***** ***** ***** ***** ***** ***** ***** ***** */

@@ -28,9 +28,7 @@ body {
     float: right;
 }
 .clearfix:before,
-.clearfix:after,
-.block-2_rooms_content-block > div:before,
-.block-2_rooms_content-block > div:after {
+.clearfix:after {
     content: "";
     display: table;
     clear: both;
@@ -753,9 +751,6 @@ footer {
 /*    end footer    */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
 
 
-body {
-    /*background-color: yellow;*/
-}
 
 
 
@@ -1716,7 +1711,7 @@ body {
 .block-1_login form > label input,
 .block-1_reg form > label input {
     margin-left: 6px;
-    background-color: inherit;
+    background-color: transparent;
     cursor: inherit;
 }
 /**   end .block-1_login && end .block-1_reg   **/
@@ -1843,7 +1838,7 @@ body {
 .block-2_rooms_content-block img {
     float: left;
     width: 32.4%;
-    margin: 0 1.4% 30px 0;
+    margin: 0 1.4% 26px 0;
 }
 .block-2_rooms_content-block table {
     width: 66%;
@@ -1878,10 +1873,10 @@ body {
     color: #fff;
 }
 .block-2_rooms_content-block > div hr {
+    clear: both;
     display: block;
     height: 1px;
     width: 100%;
-    margin-top: 15px;
     background-color: #9a9a9a;
     border: 0;
     border-bottom: 1px solid #eee;
@@ -1890,6 +1885,11 @@ body {
 .the-room-reserve,
 .the-room-reserve-br {
     position: relative;
+}
+.block-2_rooms_content-block .the-room-reserve hr,
+.block-2_rooms_content-block .the-room-reserve-br hr {
+    background-color: #d9a548;
+
 }
 .block-2_rooms_content-block .the-room-reserve:after,
 .block-2_rooms_content-block .the-room-reserve-br:after {
@@ -1945,34 +1945,6 @@ body {
 /***  /.block-3_rooms_page-pagination  ***/
 /**   end .block-3_rooms   **/
 /*    end #conten_rooms    */ /* ----- ----- ----- ----- ----- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
