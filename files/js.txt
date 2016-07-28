@@ -86,6 +86,27 @@ setTimeout(function() {
 /* end page animate */
 
 
+/*  location for ie8,9  */
+location
+
+var pathName = location.pathname;
+pathName = pathName.slice(1);
+location.pathname = '';
+location.hash = pathName;
+
+даже не нужно использовать pushState history Api
+из-за htaccess все перенаправляется на главную траницу
+и все, что после домена идеть в location.pathname
+могу менять только location.pathname и этот вариан
+добавляет все висторию и работает кроссбраузерно
+
+хотя не для ie8,9 лучше использовать pushState
+потому что pushState не перезагружает страницу
+
+/*  end location for ie8,9  */
+
+
+
 
 
 

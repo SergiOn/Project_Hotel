@@ -28,4 +28,12 @@ class User extends Controller {
     public function booking() {
 
     }
+
+    public function search() {
+
+    }
+
+    public function getTrueUserId() {
+
+    }
 }
