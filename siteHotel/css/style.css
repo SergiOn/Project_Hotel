@@ -1872,6 +1872,9 @@ footer {
     border-radius: 5px;
     color: #fff;
 }
+.block-2_rooms_content-block td button:hover {
+    box-shadow: 0 0 4px 0 #d9a548;
+}
 .block-2_rooms_content-block > div hr {
     clear: both;
     display: block;
@@ -1932,7 +1935,7 @@ footer {
     line-height: 26px;
 }
 .block-3_rooms_page-pagination a:hover {
-    box-shadow: 0 0 1px 1px #d9a548;
+    box-shadow: 0 0 5px 0 #d9a548;
 }
 .block-3_rooms_page-pagination a.active {
     background-color: #d9a548;
