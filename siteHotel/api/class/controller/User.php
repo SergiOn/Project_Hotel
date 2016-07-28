@@ -9,7 +9,9 @@
 namespace controller;
 
 
-class User {
+use core\Controller;
+
+class User extends Controller {
     public function index($var2 = "it is a var") {
         print_r($var2);
     }
