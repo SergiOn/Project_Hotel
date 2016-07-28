@@ -404,7 +404,7 @@ footer {
     font-size: 15px;
     font-weight: 600;
 }
-.block-2_rooms_sort-border div label {
+.block-2_rooms_sort-border div {
     font-size: 15px;
 }
 /***  /aside  ***/
@@ -1809,6 +1809,14 @@ footer {
     display: block;
     cursor: pointer;
 }
+.block-2_rooms_sort-border div span {
+    margin-right: 5px;
+    cursor: default;
+}
+.block-2_rooms_sort-border div select {
+    padding: 0 6px;
+    cursor: pointer;
+}
 .block-2_rooms_sort-border div .martop10 {
     margin-top: 10px;
 }
@@ -1933,6 +1941,10 @@ footer {
     border-radius: 5px;
     color: #d9a548;
     line-height: 26px;
+}
+.block-3_rooms_page-pagination span {
+    display: inline-block;
+    margin-right: 6px;
 }
 .block-3_rooms_page-pagination a:hover {
     box-shadow: 0 0 5px 0 #d9a548;

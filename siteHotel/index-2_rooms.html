@@ -167,44 +167,109 @@
                     <aside class="block-2_rooms_sort-block_wrapper left">
                         <section class="block-2_rooms_sort-block">
                             <h4>Корректировать результаты поиска</h4>
-                            <div id="rooms_sort-block" class="block-2_rooms_sort-border">
+                            <form action="#" id="rooms_sort-block" class="block-2_rooms_sort-border">
                                 <div>
                                     <label>
-                                        <input type="checkbox"> Показать занятые номера
+                                        <input name="reserved-rooms" type="checkbox"> Показать занятые номера
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <input type="checkbox"> 1 большая кровать (King Size)
+                                        <input name="1-bed" type="checkbox" checked> 1 большая кровать (King Size)
                                     </label>
                                     <label class="martop10">
-                                        <input type="checkbox"> 2 кровати
+                                        <input name="2-bed" type="checkbox" checked> 2 кровати
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <input type="checkbox"> Стандартные номера
+                                        <input name="standard-rooms" type="checkbox" checked> Стандартные номера
                                     </label>
                                     <label class="martop10">
-                                        <input type="checkbox"> Номера-люкс
+                                        <input name="lux-rooms" type="checkbox" checked> Номера-люкс
                                     </label>
                                     <label class="martop10">
-                                        <input type="checkbox"> Башня / бизнес-класс
+                                        <input name="business-rooms" type="checkbox" checked> Башня / бизнес-класс
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <input type="checkbox"> Для некурящих
+                                        <input name="no-smoke" type="checkbox" checked> Для некурящих
                                     </label>
                                     <label class="martop10">
-                                        <input type="checkbox"> Для курящих
+                                        <input name="smoke" type="checkbox"> Для курящих
                                     </label>
                                 </div>
-                            </div>
+                                <div>
+                                    <span>Выберите этаж:</span>
+                                    <select name="steps">
+                                        <option value="" selected>1 - 25 этаж</option>
+                                        <option value="1">1 этаж</option>
+                                        <option value="2">2 этаж</option>
+                                        <option value="3">3 этаж</option>
+                                        <option value="4">4 этаж</option>
+                                        <option value="5">5 этаж</option>
+                                        <option value="6">6 этаж</option>
+                                        <option value="7">7 этаж</option>
+                                        <option value="8">8 этаж</option>
+                                        <option value="9">9 этаж</option>
+                                        <option value="10">10 этаж</option>
+                                        <option value="11">11 этаж</option>
+                                        <option value="12">12 этаж</option>
+                                        <option value="13">13 этаж</option>
+                                        <option value="14">14 этаж</option>
+                                        <option value="15">15 этаж</option>
+                                        <option value="16">16 этаж</option>
+                                        <option value="17">17 этаж</option>
+                                        <option value="18">18 этаж</option>
+                                        <option value="19">19 этаж</option>
+                                        <option value="20">20 этаж</option>
+                                        <option value="21">21 этаж</option>
+                                        <option value="22">22 этаж</option>
+                                        <option value="23">23 этаж</option>
+                                        <option value="24">24 этаж</option>
+                                        <option value="25">25 этаж</option>
+                                    </select>
+                                </div>
+                            </form>
                         </section>
                     </aside>
                     <section id="rooms_content-block" class="block-2_rooms_content-block left">
-                        <div data-room_id="1" class="the-room-reserve">
+                        <div data-room_number="1" class="the-room-reserve">
+                            <h3 class="room-name">Номер с большой кроватью (king size)</h3>
+                            <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
+                            <img src="img/2_rooms/bz-1.jpg" alt="">
+                            <table>
+                                <tr>
+                                    <th>Тарифный план</th>
+                                    <th>Цена за ночь (eur)</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Гибкий тариф</span><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price">440</span> €</td>
+                                    <td>
+                                        <button class="room-reserve">Заказать</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>«Завтрак включен»</span><br>
+                                        <small>Тариф включает завтрак.</small><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price-br">465</span> €</td>
+                                    <td>
+                                        <button class="room-reserve-br">Заказать</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                        </div>
+                        <div data-room_number="1" class="the-room-reserve-br">
                             <h3 class="room-name">Номер с большой кроватью (king size)</h3>
                             <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
                             <img src="img/2_rooms/bz-1.jpg" alt="">
@@ -239,7 +304,7 @@
                             <hr>
                         </div>
 
-                        <div data-room_id="1" class="the-room-reserve-br">
+                        <div data-room_number="1" class="the-room">
                             <h3 class="room-name">Номер с большой кроватью (king size)</h3>
                             <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
                             <img src="img/2_rooms/bz-1.jpg" alt="">
@@ -273,9 +338,211 @@
                             </table>
                             <hr>
                         </div>
-
-
-                        <div data-room_id="1" class="the-room">
+                        <div data-room_number="1" class="the-room">
+                            <h3 class="room-name">Номер с большой кроватью (king size)</h3>
+                            <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
+                            <img src="img/2_rooms/bz-1.jpg" alt="">
+                            <table>
+                                <tr>
+                                    <th>Тарифный план</th>
+                                    <th>Цена за ночь (eur)</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Гибкий тариф</span><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price">440</span> €</td>
+                                    <td>
+                                        <button class="room-reserve">Заказать</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>«Завтрак включен»</span><br>
+                                        <small>Тариф включает завтрак.</small><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price-br">465</span> €</td>
+                                    <td>
+                                        <button class="room-reserve-br">Заказать</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                        </div>
+                        <div data-room_number="1" class="the-room">
+                            <h3 class="room-name">Номер с большой кроватью (king size)</h3>
+                            <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
+                            <img src="img/2_rooms/bz-1.jpg" alt="">
+                            <table>
+                                <tr>
+                                    <th>Тарифный план</th>
+                                    <th>Цена за ночь (eur)</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Гибкий тариф</span><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price">440</span> €</td>
+                                    <td>
+                                        <button class="room-reserve">Заказать</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>«Завтрак включен»</span><br>
+                                        <small>Тариф включает завтрак.</small><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price-br">465</span> €</td>
+                                    <td>
+                                        <button class="room-reserve-br">Заказать</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                        </div>
+                        <div data-room_number="1" class="the-room">
+                            <h3 class="room-name">Номер с большой кроватью (king size)</h3>
+                            <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
+                            <img src="img/2_rooms/bz-1.jpg" alt="">
+                            <table>
+                                <tr>
+                                    <th>Тарифный план</th>
+                                    <th>Цена за ночь (eur)</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Гибкий тариф</span><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price">440</span> €</td>
+                                    <td>
+                                        <button class="room-reserve">Заказать</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>«Завтрак включен»</span><br>
+                                        <small>Тариф включает завтрак.</small><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price-br">465</span> €</td>
+                                    <td>
+                                        <button class="room-reserve-br">Заказать</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                        </div>
+                        <div data-room_number="1" class="the-room">
+                            <h3 class="room-name">Номер с большой кроватью (king size)</h3>
+                            <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
+                            <img src="img/2_rooms/bz-1.jpg" alt="">
+                            <table>
+                                <tr>
+                                    <th>Тарифный план</th>
+                                    <th>Цена за ночь (eur)</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Гибкий тариф</span><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price">440</span> €</td>
+                                    <td>
+                                        <button class="room-reserve">Заказать</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>«Завтрак включен»</span><br>
+                                        <small>Тариф включает завтрак.</small><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price-br">465</span> €</td>
+                                    <td>
+                                        <button class="room-reserve-br">Заказать</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                        </div>
+                        <div data-room_number="1" class="the-room">
+                            <h3 class="room-name">Номер с большой кроватью (king size)</h3>
+                            <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
+                            <img src="img/2_rooms/bz-1.jpg" alt="">
+                            <table>
+                                <tr>
+                                    <th>Тарифный план</th>
+                                    <th>Цена за ночь (eur)</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Гибкий тариф</span><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price">440</span> €</td>
+                                    <td>
+                                        <button class="room-reserve">Заказать</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>«Завтрак включен»</span><br>
+                                        <small>Тариф включает завтрак.</small><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price-br">465</span> €</td>
+                                    <td>
+                                        <button class="room-reserve-br">Заказать</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                        </div>
+                        <div data-room_number="1" class="the-room">
+                            <h3 class="room-name">Номер с большой кроватью (king size)</h3>
+                            <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
+                            <img src="img/2_rooms/bz-1.jpg" alt="">
+                            <table>
+                                <tr>
+                                    <th>Тарифный план</th>
+                                    <th>Цена за ночь (eur)</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Гибкий тариф</span><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price">440</span> €</td>
+                                    <td>
+                                        <button class="room-reserve">Заказать</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>«Завтрак включен»</span><br>
+                                        <small>Тариф включает завтрак.</small><br>
+                                        <small>Подлежит изменению и возврату.</small>
+                                    </td>
+                                    <td><span class="room-price-br">465</span> €</td>
+                                    <td>
+                                        <button class="room-reserve-br">Заказать</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                        </div>
+                        <div data-room_number="1" class="the-room">
                             <h3 class="room-name">Номер с большой кроватью (king size)</h3>
                             <span class="room-info">Стандартный номер, для некурящих, 1 этаж</span>
                             <img src="img/2_rooms/bz-1.jpg" alt="">
@@ -320,16 +587,35 @@
             <section class="block-3_rooms">
                 <div class="width1142">
                     <section id="rooms_page-pagination" class="block-3_rooms_page-pagination">
-                        <a class="active" href="#page-1">1</a> <!-- class="active" -->
-                        <a href="#page-2">2</a> <!-- class="active" -->
-                        <a href="#page-3">3</a> <!-- class="active" -->
-                        <a href="#page-4">4</a> <!-- class="active" -->
+                        <a href="#page-1">1</a> <!-- class="active" -->
+                        <!--<a href="#page-2">2</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-3">3</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-4">4</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <span>...</span>
                         <a href="#page-5">5</a> <!-- class="active" -->
                         <a href="#page-6">6</a> <!-- class="active" -->
                         <a href="#page-7">7</a> <!-- class="active" -->
-                        <a href="#page-8">8</a> <!-- class="active" -->
+                        <a class="active" href="#page-8">8</a> <!-- class="active" -->
                         <a href="#page-9">9</a> <!-- class="active" -->
                         <a href="#page-10">10</a> <!-- class="active" -->
+                        <a href="#page-11">11</a> <!-- class="active" -->
+                        <a href="#page-12">12</a> <!-- class="active" -->
+                        <!--<a href="#page-13">13</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-14">14</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-15">15</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-16">16</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-17">17</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-18">18</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-19">19</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-20">20</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-21">21</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-22">22</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-23">23</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-24">24</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-25">25</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <!--<a href="#page-26">26</a> &lt;!&ndash; class="active" &ndash;&gt;-->
+                        <span>...</span>
+                        <a href="#page-27">27</a> <!-- class="active" -->
                     </section>
                 </div>
             </section>
