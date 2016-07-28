@@ -12,9 +12,20 @@ namespace controller;
 use core\Controller;
 
 class User extends Controller {
+
     public function index($var2 = "it is a var") {
         print_r($var2);
     }
 
+    public function login() {
 
+    }
+
+    public function registration() {
+
+    }
+
+    public function booking() {
+
+    }
 }
