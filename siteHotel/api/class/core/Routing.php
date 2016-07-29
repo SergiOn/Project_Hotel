@@ -27,7 +27,6 @@ class Routing {
         if (!empty($pathArr[$key+3])) {
             $dataUrl[1] = array_slice($pathArr, $key + 3);
         }
-
         return $dataUrl;
     }
 

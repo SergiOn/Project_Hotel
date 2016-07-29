@@ -18,7 +18,8 @@ class DB implements IDB {
         $this->sqlConnect();
     }
     private function sqlConnect() {
-        $settings = "mysql:host=localhost;dbname=SOHotel";
+        $dbName = 'SOHotel';
+        $settings = "mysql:host=localhost;dbname=$dbName;charset=utf8";
         try {
             $this->db = new \PDO($settings, "root", "");
         } catch (PDOException $e) {
@@ -27,6 +28,7 @@ class DB implements IDB {
     }
 
     public function selectQuery($sql, $arrValue = []) {
+//        return $sql;
         $query = $this->db->prepare($sql);
         $query->execute($arrValue);
         $array = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -53,12 +55,12 @@ class DB implements IDB {
         }
         if ($orderColumn) {
             $orderColumnSQL = "ORDER BY $orderColumn";
-            if ($desc === "DESC") {
+            if (strtoupper($desc) === "DESC") {
                 $orderColumnSQL .= " DESC";
             } else {
                 $orderColumnSQL .= " ASC";
             }
-        } elseif ($desc === "DESC" && !$orderColumn) {
+        } elseif (strtoupper($desc) === "DESC" && !$orderColumn) {
             $orderColumnSQL = "ORDER BY id DESC";
         } else {
             $orderColumnSQL = "";
@@ -139,9 +141,13 @@ class DB implements IDB {
 # delete працює
 # insert працює
 # update працює
-//$sel = new DB();
+# $table, $what = false, $where = false, $orderColumn = false, $desc = false, $limit = false
+//$sql = new DB();
 //echo "<pre>";
-//print_r($sel->select("articles"));
+//print_r($sql->select("test", false, false, 'id', 'desc',[1, 10]));
+//print_r($sql->insert('test', ['name'=>'new']));
+//print_r($sql->update('test', ['name'=>'10'], ['id'=>'13']));
+//echo "</pre>";
 # ASC|DESC
 
 

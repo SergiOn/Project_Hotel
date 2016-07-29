@@ -13,5 +13,5 @@ abstract class Controller {
     public $model;
     public $view;
 
-    abstract function index();
+    abstract public function index();
 }
