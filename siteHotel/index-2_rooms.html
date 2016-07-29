@@ -29,7 +29,7 @@
         <section class="header-top clearfix">
             <div class="width1142">
                 <h1 class="left logo">
-                    <a href="/">O
+                    <a id="home-logo" href="/">O
                         <span class="logo-s">S</span>
                         <span class="logo-hotel">Hotel</span>
                     </a>
@@ -66,30 +66,30 @@
         <nav class="header-menu clearfix">
             <div class="width1142">
                 <button id="mobile-menu" class="left">+</button>
-                <ul class="left menu-left">
+                <ul id="menu" class="left menu-left">
                     <li> <!-- class = "menu-active" -->
-                        <a id="#home" href="pages/home.html">
+                        <a id="home" href="pages/home.html">
                             <i class="fa fa-home" aria-hidden="true"></i>Главная
                         </a>
                     </li>
                     <li><span class="separator"></span></li>
                     <li  class="menu-active"> <!-- class = "menu-active" -->
-                        <a id="#rooms" href="pages/rooms.html">Выбрать номер</a>
+                        <a id="rooms" href="pages/rooms.html">Выбрать номер</a>
                     </li>
                     <li><span class="separator"></span></li>
                     <li class="menu-services-hover"> <!-- class = "menu-active" -->
-                        <a id="#services" href="pages/services.html">Услуги отеля</a>
+                        <a id="services" href="pages/services.html">Услуги отеля</a>
                         <ul class="menu-services">
                             <li>
-                                <a href="#overview">Обзор</a>
+                                <a id="services-overview" href="#overview">Обзор</a>
                             </li>
                             <li><span class="separator"></span></li>
                             <li>
-                                <a href="#comfort">Услуги и удобства отеля</a>
+                                <a id="services-comfort" href="#comfort">Услуги и удобства отеля</a>
                             </li>
                             <li><span class="separator"></span></li>
                             <li>
-                                <a href="#rules">Правила проживания в отеле</a>
+                                <a id="services-rules" href="#rules">Правила проживания в отеле</a>
                             </li>
                         </ul>
                     </li>
@@ -107,11 +107,11 @@
                     </li>
                     <li><span class="separator"></span></li>
                     <li class="menu-currency-hover">
-                        <div id="currency">
+                        <div>
                             <i class="fa fa-money" aria-hidden="true"></i>
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </div>
-                        <ul class="menu-currency">
+                        <ul id="currency" class="menu-currency">
                             <li><i class="fa fa-angle-right" aria-hidden="true"></i>валюта</li>
                             <li><a href="#rub">RUB - Российский рубль</a></li>
                             <li><a href="#uah">UAH - Украинская гривна</a></li>
@@ -120,11 +120,11 @@
                     </li>
                     <li><span class="separator"></span></li>
                     <li class="menu-language-hover">
-                        <div id="language">
+                        <div>
                             <i class="fa fa-globe" aria-hidden="true"></i>
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </div>
-                        <ul class="menu-language">
+                        <ul id="language" class="menu-language">
                             <li><i class="fa fa-angle-right" aria-hidden="true"></i>язык</li>
                             <li><a href="#ru">Русский язык</a></li>
                             <li><a href="#ua">Українська мова</a></li>
@@ -133,7 +133,7 @@
                     </li>
                     <li><span class="separator"></span></li>
                     <li> <!-- class = "menu-active" -->
-                        <a class="menu-search" href="#search">
+                        <a id="search" class="menu-search" href="pages/search.html">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -150,13 +150,13 @@
                         <h4>Описание бронирования:</h4>
                         <button id="room_cal-in" class="room_cal-in">
                             <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-                            <time datetime="26.07.2016">26 июля 2016</time>
+                            <span data-time-in="26.07.2016">26 июля 2016</span>
                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                         </button>
                         -
                         <button id="room_cal-out" class="room_cal-out">
                             <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
-                            <span data-time="27.07.2016">27 июля 2016</span>
+                            <span data-time-out="27.07.2016">27 июля 2016</span>
                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                         </button>
                     </div>

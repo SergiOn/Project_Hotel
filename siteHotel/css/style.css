@@ -614,7 +614,7 @@ header {
 .menu-right .separator {
     margin: 20px 5px 0;
 }
-.menu-left i {
+.menu-left i.fa-home {
     margin-right: 10px;
 }
 .menu-left .menu-active,
