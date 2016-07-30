@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <title>SO Hotel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="libs/normalize.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="libs/font-awesome-4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../libs/normalize.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../libs/font-awesome-4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 
     <!--[if lte IE 9]>
-        <script src="libs/ie/html5.js"></script>
-        <script src="libs/ie/css3-mediaqueries.js"></script>
-        <script src="libs/ie/addEventListener-polyfill.js"></script>
-        <script src="libs/ie/classList.min.js"></script>
-        <script src="libs/ie/getComputedStyle.js"></script>
+        <script src="../libs/ie/html5.js"></script>
+        <script src="../libs/ie/css3-mediaqueries.js"></script>
+        <script src="../libs/ie/addEventListener-polyfill.js"></script>
+        <script src="../libs/ie/classList.min.js"></script>
+        <script src="../libs/ie/getComputedStyle.js"></script>
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-        <link rel="stylesheet" href="css/styleie9.css">
+        <link rel="stylesheet" href="../css/styleie9.css">
     <![endif]-->
     <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/styleie8.css">
+        <link rel="stylesheet" href="../css/styleie8.css">
     <![endif]-->
 
 </head>
@@ -35,10 +35,10 @@
                     </a>
                 </h1>
                 <section class="right auth-in hidden-"> <!-- class = "hidden" -->
-                    <a id="login" class="left login" href="pages/login.html">
+                    <a id="login" class="left login" href="login.html">
                         <i class="fa fa-sign-in" aria-hidden="true"></i>Войти
                     </a>
-                    <a id="registration" class="left reg" href="pages/registration.html">
+                    <a id="registration" class="left reg" href="registration.html">
                         <i class="fa fa-magic" aria-hidden="true"></i>Регистрация
                     </a>
                 </section>
@@ -68,34 +68,34 @@
                 <button id="mobile-menu" class="left">+</button>
                 <ul id="menu" class="left menu-left">
                     <li> <!-- class = "menu-active" -->
-                        <a id="home" href="pages/home.html">
+                        <a id="home" href="home.html">
                             <i class="fa fa-home" aria-hidden="true"></i>Главная
                         </a>
                     </li>
                     <li><span class="separator"></span></li>
                     <li> <!-- class = "menu-active" -->
-                        <a id="rooms" href="pages/rooms.html">Выбрать номер</a>
+                        <a id="rooms" href="rooms.html">Выбрать номер</a>
                     </li>
                     <li><span class="separator"></span></li>
                     <li class="menu-services-hover"> <!-- class = "menu-active" -->
-                        <a id="services" href="pages/services.html">Услуги отеля</a>
+                        <a id="services" href="services.html">Услуги отеля</a>
                         <ul class="menu-services">
                             <li>
-                                <a id="services-overview" href="pages/services.html#overview">Обзор</a>
+                                <a id="services-overview" href="services.html#overview">Обзор</a>
                             </li>
                             <li><span class="separator"></span></li>
                             <li>
-                                <a id="services-comfort" href="pages/services.html#comfort">Услуги и удобства отеля</a>
+                                <a id="services-comfort" href="services.html#comfort">Услуги и удобства отеля</a>
                             </li>
                             <li><span class="separator"></span></li>
                             <li>
-                                <a id="services-rules" href="pages/services.html#rules">Правила проживания в отеле</a>
+                                <a id="services-rules" href="services.html#rules">Правила проживания в отеле</a>
                             </li>
                         </ul>
                     </li>
                     <li><span class="separator"></span></li>
-                    <li class="menu-active"> <!-- class = "menu-active" -->
-                        <a id="contacts" href="pages/contact.html">Контакты</a>
+                    <li> <!-- class = "menu-active" -->
+                        <a id="contacts" href="contact.html">Контакты</a>
                     </li>
                     <li><span class="separator"></span></li>
                 </ul>
@@ -132,8 +132,8 @@
                         </ul>
                     </li>
                     <li><span class="separator"></span></li>
-                    <li> <!-- class = "menu-active" -->
-                        <a id="search" class="menu-search" href="pages/search.html">
+                    <li class="menu-active"> <!-- class = "menu-active" -->
+                        <a id="search" class="menu-search" href="search.html">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -143,47 +143,22 @@
     </header>
 
     <main id="content">
-        <section id="content_contact">
-            <section class="block-1_contact">
+        <section id="content_search">
+            <section class="block-1_search">
                 <div class="width1142">
-                    <section class="block-1_contact-top">
-                        <h2>Расположение и Транспорт</h2>
-                        <p>SO Hotel расположен в 45 минутах езды от Международного аэропорта Борисполь и в 15 минутах от Международного аэропорта Жуляны. Основные достопримечательности города находятся в шаговой доступности. От аэропорта до отеля Вы сможете доехать на автобусе, такси или метро. Гостям предоставляются услуги частного трансфера.
+                    <button id="search-close" class="right" title="Закрыть вкладку">
+                        <i class="fa fa-close" aria-hidden="true"></i>
+                    </button>
+                    <label>
+                        <input type="text" placeholder="Поиск" pattern=".{3,}" required>
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </label>
+                    <p>Результаты для “<span id="search-value">поиска</span>”</p>
+                    <section id="search-result" class="block-1_search_result">
+                        <p>Пятизвездочный отель SO Hotel, расположенный в одном из красивейших украинских городов с многовековой историей и памятниками искусства, является идеальным местом для бизнесменов и туристов.
                         </p>
-                    </section>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.7808607646366!2d30.502990209561066!3d50.44518234356596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cef668ea954d%3A0xd09e280cafe8eed!2zSC10b3dlciwg0LHRg9C70YzQstCw0YAg0KLQsNGA0LDRgdCwINCo0LXQstGH0LXQvdC60LAsIDMwLCDQmtC40ZfQsiwgMDEwMzA!5e0!3m2!1sru!2sua!4v1469436427958" allowfullscreen></iframe>
-                    <section class="block-1_contact-middle">
-                        <h3>Как добраться</h3>
-                        <p>
-                            <span>SO Hotel находиться по адрессу: Бульвар Тараса Шевченко, 30, Киев, 01030, Украина.</span><br>
-                            SO Hotel расположен в центре Киева на бульваре Шевченко, напротив Старого Ботанического Сада.
-                        </p>
-                        <p>SO Hotel находится всего лишь 35 км от Международного Аэропорта "Борисполь" и 10 км от Международного Аэропорта "Жуляны".
-                        </p>
-                        <ul>Время в пути:
-                            <li>Международный Аэропорт Борисполь: 40 минут</li>
-                            <li>Международный Аэропорт Жуляны: 15 минут</li>
-                        </ul>
-                        <ul>Общественный Транспорт
-                            <li>Международный Аэропорт Борисполь: Sky Bus</li>
-                            <li>Международный Аэропорт Жуляны: Троллейбус Trolley № 22
-                            </li>
-                        </ul>
-                        <ul>Трансфер Budget Car Rent
-                            <li>Международный Аэропорт Борисполь: 35 Евро</li>
-                            <li>Международный Аэропорт Жуляны: 15 Евро</li>
-                        </ul>
-                    </section>
-                    <section class="block-1_contact-bottom">
-                        <h3>Чем заняться</h3>
                         <p>SO Hotel находится в самом сердце столицы Украины, напротив старого Ботанического сада, неподалеку от главных туристических достопримечательностей. Узнайте лучше историю страны, прогулявшись по туристическому и деловому центру города ― улице Крещатик и площади Независимости. Прикоснитесь к богатейшему духовному наследию, посетив Киево-Печерскую лавру, Золотые ворота, Михайловский златоверхий монастырь, Владимирскую церковь, Софийский собор, Десятинную и Андреевскую церковь и многочисленные музеи с великолепными коллекциями украинского и мирового искусства. В пяти минутах ходьбы от отеля находятся современные ночные клубы, известные бутики, бизнес-центры и посольства иностранных государств.
                         </p>
-                        <figure class="clearfix">
-                            <img src="img/4_contact/1.jpg" alt="">
-                            <img src="img/4_contact/2.jpg" alt="">
-                            <img src="img/4_contact/3.jpg" alt="">
-                            <img src="img/4_contact/4.jpg" alt="">
-                        </figure>
                     </section>
                 </div>
             </section>

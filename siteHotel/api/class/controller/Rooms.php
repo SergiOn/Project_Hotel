@@ -46,7 +46,7 @@ class Rooms extends Controller {
 //        echo "<pre>";
 //        print_r($dataAllRooms);
 //        echo "</pre>";
-        
+
     }
 
 

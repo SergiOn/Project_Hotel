@@ -1,0 +1,40 @@
+<section id="content_reg">
+    <section class="block-1_reg">
+        <div class="width1142">
+            <button id="reg-close" class="right" title="Закрыть вкладку">
+                <i class="fa fa-close" aria-hidden="true"></i>
+            </button>
+            <form action="#" method="post">
+                <div class="novalid-"> <!-- class='novalid' -->
+                    <label for="reg-email">Введите емейл</label>
+                    <input id="reg-email" type="email" name="email" placeholder="Емейл" required autofocus>
+                    <label for="reg-email" class="novalid">Вы ввелы неверно данные</label>
+                </div>
+                <div class="novalid-"> <!-- class='novalid' -->
+                    <label for="reg-pass">Введите пароль</label>
+                    <input id="reg-pass" type="password" name="pass" placeholder="Пароль" required>
+                    <label for="reg-pass" class="novalid">Вы ввелы неверно данные</label>
+                </div>
+                <div class="novalid-"> <!-- class='novalid' -->
+                    <label for="reg-name">Введите имя</label>
+                    <input id="reg-name" type="text" name="name" placeholder="Имя" required pattern="[A-Za-zА-Яа-яЁё]+">
+                    <label for="reg-name" class="novalid">Вы ввелы неверно данные</label>
+                </div>
+                <div class="novalid-"> <!-- class='novalid' -->
+                    <label for="reg-l_name">Введите фамилию</label>
+                    <input id="reg-l_name" type="text" name="l_name" placeholder="Фамилия" required pattern="[A-Za-zА-Яа-яЁё]+">
+                    <label for="reg-l_name" class="novalid">Вы ввелы неверно данные</label>
+                </div>
+                <div class="novalid-"> <!-- class='novalid' -->
+                    <label for="reg-tell">Введите номер телефона</label>
+                    <input id="reg-tell" type="tel" name="tell" placeholder="Номер телефона" required pattern="\+?\d{5,12}">
+                    <label for="reg-tell" class="novalid">Вы ввелы неверно данные</label>
+                </div>
+                <label>
+                    <i class="fa fa-magic"></i>
+                    <input id="reg-submit" type="submit" value="Зарегистрироваться">
+                </label>
+            </form>
+        </div>
+    </section>
+</section>

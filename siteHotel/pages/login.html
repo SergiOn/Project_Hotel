@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <title>SO Hotel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="libs/normalize.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="libs/font-awesome-4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../libs/normalize.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../libs/font-awesome-4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 
     <!--[if lte IE 9]>
-        <script src="libs/ie/html5.js"></script>
-        <script src="libs/ie/css3-mediaqueries.js"></script>
-        <script src="libs/ie/addEventListener-polyfill.js"></script>
-        <script src="libs/ie/classList.min.js"></script>
-        <script src="libs/ie/getComputedStyle.js"></script>
+        <script src="../libs/ie/html5.js"></script>
+        <script src="../libs/ie/css3-mediaqueries.js"></script>
+        <script src="../libs/ie/addEventListener-polyfill.js"></script>
+        <script src="../libs/ie/classList.min.js"></script>
+        <script src="../libs/ie/getComputedStyle.js"></script>
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-        <link rel="stylesheet" href="css/styleie9.css">
+        <link rel="stylesheet" href="../css/styleie9.css">
     <![endif]-->
     <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/styleie8.css">
+        <link rel="stylesheet" href="../css/styleie8.css">
     <![endif]-->
 
 </head>
@@ -35,10 +35,10 @@
                     </a>
                 </h1>
                 <section class="right auth-in hidden-"> <!-- class = "hidden" -->
-                    <a id="login" class="left login" href="pages/login.html">
+                    <a id="login" class="left login" href="login.html">
                         <i class="fa fa-sign-in" aria-hidden="true"></i>Войти
                     </a>
-                    <a id="registration" class="left reg" href="pages/registration.html">
+                    <a id="registration" class="left reg" href="registration.html">
                         <i class="fa fa-magic" aria-hidden="true"></i>Регистрация
                     </a>
                 </section>
@@ -68,34 +68,34 @@
                 <button id="mobile-menu" class="left">+</button>
                 <ul id="menu" class="left menu-left">
                     <li> <!-- class = "menu-active" -->
-                        <a id="home" href="pages/home.html">
+                        <a id="home" href="home.html">
                             <i class="fa fa-home" aria-hidden="true"></i>Главная
                         </a>
                     </li>
                     <li><span class="separator"></span></li>
                     <li> <!-- class = "menu-active" -->
-                        <a id="rooms" href="pages/rooms.html">Выбрать номер</a>
+                        <a id="rooms" href="rooms.html">Выбрать номер</a>
                     </li>
                     <li><span class="separator"></span></li>
                     <li class="menu-services-hover"> <!-- class = "menu-active" -->
-                        <a id="services" href="pages/services.html">Услуги отеля</a>
+                        <a id="services" href="services.html">Услуги отеля</a>
                         <ul class="menu-services">
                             <li>
-                                <a id="services-overview" href="pages/services.html#overview">Обзор</a>
+                                <a id="services-overview" href="services.html#overview">Обзор</a>
                             </li>
                             <li><span class="separator"></span></li>
                             <li>
-                                <a id="services-comfort" href="pages/services.html#comfort">Услуги и удобства отеля</a>
+                                <a id="services-comfort" href="services.html#comfort">Услуги и удобства отеля</a>
                             </li>
                             <li><span class="separator"></span></li>
                             <li>
-                                <a id="services-rules" href="pages/services.html#rules">Правила проживания в отеле</a>
+                                <a id="services-rules" href="services.html#rules">Правила проживания в отеле</a>
                             </li>
                         </ul>
                     </li>
                     <li><span class="separator"></span></li>
                     <li> <!-- class = "menu-active" -->
-                        <a id="contacts" href="pages/contact.html">Контакты</a>
+                        <a id="contacts" href="contact.html">Контакты</a>
                     </li>
                     <li><span class="separator"></span></li>
                 </ul>
@@ -133,7 +133,7 @@
                     </li>
                     <li><span class="separator"></span></li>
                     <li> <!-- class = "menu-active" -->
-                        <a id="search" class="menu-search" href="pages/search.html">
+                        <a id="search" class="menu-search" href="search.html">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -143,41 +143,26 @@
     </header>
 
     <main id="content">
-        <section id="content_reg">
-            <section class="block-1_reg">
+        <section id="content_login">
+            <section class="block-1_login">
                 <div class="width1142">
-                    <button id="reg-close" class="right" title="Закрыть вкладку">
+                    <button id="login-close" class="right" title="Закрыть вкладку">
                         <i class="fa fa-close" aria-hidden="true"></i>
                     </button>
                     <form action="#" method="post">
                         <div class="novalid-"> <!-- class='novalid' -->
-                            <label for="reg-email">Введите емейл</label>
-                            <input id="reg-email" type="email" name="email" placeholder="Емейл" required autofocus>
-                            <label for="reg-email" class="novalid">Вы ввелы неверно данные</label>
+                            <label for="login-email">Введите емейл</label>
+                            <input id="login-email" type="email" name="email" placeholder="Емейл" required autofocus>
+                            <label for="login-email" class="novalid">Вы ввелы неверно данные</label>
                         </div>
                         <div class="novalid-"> <!-- class='novalid' -->
-                            <label for="reg-pass">Введите пароль</label>
-                            <input id="reg-pass" type="password" name="pass" placeholder="Пароль" required>
-                            <label for="reg-pass" class="novalid">Вы ввелы неверно данные</label>
-                        </div>
-                        <div class="novalid-"> <!-- class='novalid' -->
-                            <label for="reg-name">Введите имя</label>
-                            <input id="reg-name" type="text" name="name" placeholder="Имя" required pattern="[A-Za-zА-Яа-яЁё]+">
-                            <label for="reg-name" class="novalid">Вы ввелы неверно данные</label>
-                        </div>
-                        <div class="novalid-"> <!-- class='novalid' -->
-                            <label for="reg-l_name">Введите фамилию</label>
-                            <input id="reg-l_name" type="text" name="l_name" placeholder="Фамилия" required pattern="[A-Za-zА-Яа-яЁё]+">
-                            <label for="reg-l_name" class="novalid">Вы ввелы неверно данные</label>
-                        </div>
-                        <div class="novalid-"> <!-- class='novalid' -->
-                            <label for="reg-tell">Введите номер телефона</label>
-                            <input id="reg-tell" type="tel" name="tell" placeholder="Номер телефона" required pattern="\+?\d{5,12}">
-                            <label for="reg-tell" class="novalid">Вы ввелы неверно данные</label>
+                            <label for="login-pass">Введите пароль</label>
+                            <input id="login-pass" type="password" name="pass" placeholder="Пароль" required>
+                            <label for="login-pass" class="novalid">Вы ввелы неверно данные</label>
                         </div>
                         <label>
-                            <i class="fa fa-magic"></i>
-                            <input id="reg-submit" type="submit" value="Зарегистрироваться">
+                            <i class="fa fa-sign-in"></i>
+                            <input id="login-submit" type="submit" value="Войти">
                         </label>
                     </form>
                 </div>

@@ -492,6 +492,7 @@ header {
 .header-top .log-out {
     padding: 2px 10px;
     border: 1px solid #d9a548;
+    cursor: pointer;
 }
 .header-top .login:hover,
 .header-top .reg:hover,
