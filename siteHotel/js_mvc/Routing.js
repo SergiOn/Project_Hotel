@@ -3,15 +3,95 @@
  */
 
 
-
 function Routing() {
-
+    this.page = new controllerPages();
 }
-Routing.prototype.home = function () {
-    var home = new controllerHome();
-    home.init();
 
+Routing.prototype.siteHistory = function () {
 };
 
+Routing.prototype.menu = function () {
+    var self = this;
+    var menuEl = document.getElementById('menu');
+    menuEl.addEventListener('click', function (event) {
+        if (!event.target.matches('a[href^="tel:"]')) event.preventDefault();
+        var tagName = event.target.tagName,
+            tagNameParent = event.target.parentElement.tagName,
+            id = event.target.id,
+            idParent = event.target.parentElement.id,
+            namePage;
+
+
+        switch (true) {
+               case tagName === 'A' && id === 'home':
+                namePage = id;
+                break;
+            case tagNameParent === 'A' && idParent === 'home':
+                namePage = idParent;
+                break;
+            case tagName === 'A' && id === 'rooms':
+                namePage = id;
+                break;
+            case tagName === 'A' && id === 'services':
+                namePage = id;
+                break;
+            case tagName === 'A' && id === 'services-overview':
+                namePage = 'services';
+                break;
+            case tagName === 'A' && id === 'services-comfort':
+                namePage = 'services';
+                break;
+            case tagName === 'A' && id === 'services-rules':
+                namePage = 'services';
+                break;
+            case tagName === 'A' && id === 'contact':
+                namePage = id;
+                break;
+            case tagName === 'A' && id === 'search':
+                namePage = id;
+                break;
+            case tagNameParent === 'A' && idParent === 'search':
+                namePage = idParent;
+                break;
+            default:
+                return;
+        }
+
+        // if (tagName === 'A' && id) {
+        //
+        //     if (event.target.closest('ul.menu-services')) {
+        //         namePage = 'services';
+        //     } else {
+        //         namePage = id;
+        //     }
+        //
+        // } else if (tagNameParent === 'A' && idParent) {
+        //     namePage = idParent;
+        // } else {
+        //     return;
+        // }
+
+        self.page.thePage(namePage);
+    });
+
+    
+};
+
+
+
+
 var routing = new Routing();
-//routing.home();
+routing.siteHistory();
+routing.menu();
+
+
+//console.log(routing.pages._historyArrey);
+
+
+// Routing.prototype.home = function () {
+//     var home = new controllerHome();
+//     home.init();
+// };
+//
+// var routing = new Routing();
+// //routing.home();

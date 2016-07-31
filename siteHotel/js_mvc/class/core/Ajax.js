@@ -4,12 +4,12 @@
 
 function Ajax() {
 }
-Ajax.prototype._init = function () {
+Ajax.prototype._ajaxInit = function () {
     var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
     this._xhr = new XHR;
 };
-Ajax.prototype.sendGet = function (url, data) {
-    this._init();
+Ajax.prototype.ajaxSendGet = function (url, data, func) {
+    this._ajaxInit();
     var link = data ? url+'?'+data : url;
     this._xhr.open('GET', link, true);
     this._xhr.send(null);
@@ -18,13 +18,13 @@ Ajax.prototype.sendGet = function (url, data) {
         if (this.status != 200) {
             console.log(this.status + ': ' + this.statusText);
         } else {
-
-            // console.log(self._xhr.responseText);
+            return func(this.responseText);
         }
     };
+
 };
-Ajax.prototype.sendPost = function (url, data) {
-    this._init();
+Ajax.prototype.ajaxSendPost = function (url, data) {
+    this._ajaxInit();
     this._xhr.open('POST', url, true);
     this._xhr.send(data);
     this._xhr.onreadystatechange = function() {
@@ -36,8 +36,3 @@ Ajax.prototype.sendPost = function (url, data) {
         }
     }
 };
-
-var ajax = new Ajax();
-var one = ajax.sendGet('/api/pages/services');
-console.log(one);
-
