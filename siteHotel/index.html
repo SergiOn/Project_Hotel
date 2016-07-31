@@ -63,10 +63,10 @@
                 </section>
             </div>
         </section>
-        <nav class="header-menu clearfix">
+        <nav id="menu" class="header-menu clearfix">
             <div class="width1142">
                 <button id="mobile-menu" class="left">+</button>
-                <ul id="menu" class="left menu-left">
+                <ul class="left menu-left">
                     <li class="menu-active"> <!-- class = "menu-active" -->
                         <a id="home" href="pages/home.html">
                             <i class="fa fa-home" aria-hidden="true"></i>Главная
@@ -95,7 +95,7 @@
                     </li>
                     <li><span class="separator"></span></li>
                     <li> <!-- class = "menu-active" -->
-                        <a id="contacts" href="pages/contact.html">Контакты</a>
+                        <a id="contact" href="pages/contact.html">Контакты</a>
                     </li>
                     <li><span class="separator"></span></li>
                 </ul>
@@ -321,12 +321,12 @@
                 <div class="width1142">
                     <p>Пятизвездочный отель SO Hotel расположенный в одном из красивейших украинских городов с многовековой историей и памятниками искусства, является идеальным местом для бизнесменов и туристов.
                     </p>
-                    <!--<video controls="controls">-->
+                    <video controls="controls">
                         <!--<source src="video/Hilton_Kyiv.ogv" type='video/ogg; codecs="theora, vorbis"'>-->
                         <!--<source src="video/Hilton_Kyiv.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>-->
                         <!--<source src="video/Hilton_Kyiv.webm" type='video/webm; codecs="vp8, vorbis"'>-->
                         <!--<iframe width="564" height="315" src="https://www.youtube.com/embed/QSjX4BBPaZI" frameborder="0" allowfullscreen></iframe>-->
-                    <!--</video>-->
+                    </video>
                     <div id="block-2_home_hotel_key" class="hotel_key">
                         <a href="#block-2_home_hotel-rooms" class="hotel_key-active"> <!-- class = "hotel_key-active" -->
                             Стандартные номера и номера люкс
@@ -413,9 +413,13 @@
 
     <footer>SO Hotel   Все права защищены   ©   2016</footer>
 
+    <script src="js_mvc/class/core/Ajax.js"></script>
+    <script src="js_mvc/class/core/History.js"></script>
+    <script src="js_mvc/class/view/viewPages.js"></script>
     <script src="js_mvc/class/view/viewHome.js"></script>
+    <script src="js_mvc/class/model/modelPages.js"></script>
+    <script src="js_mvc/class/controller/controllerPages.js"></script>
     <script src="js_mvc/class/controller/controllerHome.js"></script>
     <script src="js_mvc/Routing.js"></script>
-    <script src="js_mvc/class/core/Ajax.js"></script>
 </body>
 </html>
