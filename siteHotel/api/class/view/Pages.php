@@ -14,41 +14,51 @@ use core\View;
 class Pages extends View {
 
     public function home() {
-        include('templates/home.html');
+        $file = file_get_contents('templates/home.html');
+        echo $this->toJson($file);
     }
 
     public function rooms() {
-        include('templates/rooms.html');
+        $file = file_get_contents('templates/rooms.html');
+        echo $this->toJson($file);
     }
 
     public function roomsRoom() {
-        include('templates/rooms_the-room.html');
+        $file = file_get_contents('templates/rooms_the-room.html');
+        echo $this->toJson($file);
     }
     public function roomsRoomReserve() {
-        include('templates/rooms_the-room-reserve.html');
+        $file = file_get_contents('templates/rooms_the-room-reserve.html');
+        echo $this->toJson($file);
     }
     public function roomsRoomReserveBr() {
-        include('templates/rooms_the-room-reserve-br.html');
+        $file = file_get_contents('templates/rooms_the-room-reserve-br.html');
+        echo $this->toJson($file);
     }
 
     public function services() {
-        include('templates/services.html');
+        $file = file_get_contents('templates/services.html');
+        echo $this->toJson($file);
     }
 
     public function contact() {
-        include('templates/contact.html');
+        $file = file_get_contents('templates/contact.html');
+        echo $this->toJson($file);
     }
 
     public function search() {
-        include('templates/search.html');
+        $file = file_get_contents('templates/search.html');
+        echo $this->toJson($file);
     }
 
     public function login() {
-        include('templates/login.html');
+        $file = file_get_contents('templates/login.html');
+        echo $this->toJson($file);
     }
 
     public function registration() {
-        include('templates/registration.html');
+        $file = file_get_contents('templates/registration.html');
+        echo $this->toJson($file);
     }
 
 }
