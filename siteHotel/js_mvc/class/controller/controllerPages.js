@@ -14,8 +14,8 @@ controllerPages.prototype.constructor = controllerPages;
 controllerPages.prototype.startPage = function () {
     var locationPathname = location.pathname.slice(1);
     var locationHash = location.hash.slice(1);
-    var namePage;
-    var url;
+    var namePage,
+        url;
 
     if (locationPathname) {
         namePage = locationPathname;
@@ -26,6 +26,7 @@ controllerPages.prototype.startPage = function () {
     }
     document.querySelector('li.menu-active').classList.remove('menu-active');
     document.getElementById(namePage).closest('li').classList.add('menu-active');
+
     url = '/api/pages/' + namePage;
     this.model.startPage(url, this.view.startPage);
 };
@@ -42,6 +43,9 @@ controllerPages.prototype.thePage = function (namePage) {
 
     var url = '/api/pages/' + namePage;
     this.model.thePage(url, this.view.thePage);
+
+    var nameUrl = namePage === 'home' ? '/' : namePage;
+    this.changeUrl(nameUrl);
 };
 
 

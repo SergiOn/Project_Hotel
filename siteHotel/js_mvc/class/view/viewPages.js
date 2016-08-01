@@ -28,7 +28,7 @@ viewPages.prototype.thePage = function (page) {
             page.classList.remove('animation_in_right-center');
             document.body.style.overflowX = '';
         }, timeOut * 1000 + 1000);
-    }, timeOut * 1000);
+    }, timeOut * 1000 + 200);
 
     //console.log(page);
 };

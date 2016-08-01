@@ -4,10 +4,12 @@
 
 function Ajax() {
 }
+
 Ajax.prototype._ajaxInit = function () {
     var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
     this._xhr = new XHR;
 };
+
 Ajax.prototype.ajaxSendGet = function (url, data, func) {
     this._ajaxInit();
     var link = data ? url+'?'+data : url;
@@ -21,8 +23,8 @@ Ajax.prototype.ajaxSendGet = function (url, data, func) {
             return func(this.responseText);
         }
     };
-
 };
+
 Ajax.prototype.ajaxSendPost = function (url, data, func) {
     this._ajaxInit();
     this._xhr.open('POST', url, true);

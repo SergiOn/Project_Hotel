@@ -59,7 +59,7 @@ Routing.prototype.menu = function () {
     });
 };
 
-Routing.prototype.user = function () {
+Routing.prototype.userMenu = function () {
 };
 Routing.prototype.siteHistory = function () {
 };
@@ -68,11 +68,9 @@ Routing.prototype.siteHistory = function () {
 
 var routing = new Routing();
 routing.startPage();
-// routing.menu();
+routing.menu();
 // routing.siteHistory();
 
-
-// routing.user();
 
 
 //console.log(routing.pages._historyArrey);
