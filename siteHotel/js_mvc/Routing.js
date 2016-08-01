@@ -20,8 +20,6 @@ Routing.prototype.menu = function () {
             id = event.target.id,
             idParent = event.target.parentElement.id,
             namePage;
-
-
         switch (true) {
                case tagName === 'A' && id === 'home':
                 namePage = id;
@@ -56,25 +54,10 @@ Routing.prototype.menu = function () {
             default:
                 return;
         }
-
-        // if (tagName === 'A' && id) {
-        //
-        //     if (event.target.closest('ul.menu-services')) {
-        //         namePage = 'services';
-        //     } else {
-        //         namePage = id;
-        //     }
-        //
-        // } else if (tagNameParent === 'A' && idParent) {
-        //     namePage = idParent;
-        // } else {
-        //     return;
-        // }
-
         self.page.thePage(namePage);
     });
-
-    
+};
+Routing.prototype.user = function () {
 };
 
 
@@ -83,6 +66,7 @@ Routing.prototype.menu = function () {
 var routing = new Routing();
 routing.siteHistory();
 routing.menu();
+// routing.user();
 
 
 //console.log(routing.pages._historyArrey);

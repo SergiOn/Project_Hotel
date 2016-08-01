@@ -7,6 +7,7 @@ body {
     min-height: calc(100vh - 180px);
 }
 .width1142 {
+    min-width: 1142px; /* delete */
     max-width: 1142px;
     height: inherit;
     margin: 0 auto;
@@ -974,6 +975,11 @@ footer {
     width: 564px;
     height: 315px;
     margin: 10px auto 0;
+}
+.block-2_home video iframe {
+    width: inherit;
+    height: inherit;
+    border: none;
 }
 .block-2_home .hotel_key {
     margin-top: 50px;
@@ -1963,4 +1969,132 @@ footer {
 /*    end #conten_rooms    */ /* ----- ----- ----- ----- ----- */
 
 
+/*    start Animation style    */ /* ----- ----- ----- ----- ----- */
+@-webkit-keyframes zoomOutLeft {
+    35% {
+        opacity: 1;
+        -webkit-transform: scale3d(.5, .5, .5) translate3d(0, -32%, 0);
+        transform: scale3d(.5, .5, .5) translate3d(0, -32%, 0);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: scale(.25) translate3d(-110%, 30%, 0);
+        transform: scale(.25) translate3d(-110%, 30%, 0);
+        -webkit-transform-origin: left top;
+        transform-origin: left top;
+    }
+}
+@keyframes zoomOutLeft {
+    35% {
+        opacity: 1;
+        -webkit-transform: scale3d(.5, .5, .5) translate3d(0, -32%, 0);
+        transform: scale3d(.5, .5, .5) translate3d(0, -32%, 0);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: scale(.25) translate3d(-110%, 30%, 0);
+        transform: scale(.25) translate3d(-110%, 30%, 0);
+        -webkit-transform-origin: left top;
+        transform-origin: left top;
+    }
+}
+.animation_out_center-left {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: zoomOutLeft;
+    animation-name: zoomOutLeft;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+@-webkit-keyframes lightSpeedIn {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
+        transform: translate3d(100%, 0, 0) skewX(-30deg);
+        opacity: 0;
+    }
+    60% {
+        -webkit-transform: skewX(20deg);
+        transform: skewX(20deg);
+        opacity: 1;
+    }
+    80% {
+        -webkit-transform: skewX(-5deg);
+        transform: skewX(-5deg);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+    }
+}
+@-webkit-keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+.animation_in_right-center {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+}
+@-webkit-keyframes zoomOutRight {
+    35% {
+        opacity: 1;
+        -webkit-transform: scale3d(.5, .5, .5) translate3d(0, -32%, 0);
+        transform: scale3d(.5, .5, .5) translate3d(0, -32%, 0);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: scale(.25) translate3d(110%, 30%, 0);
+        transform: scale(.25) translate3d(110%, 30%, 0);
+        -webkit-transform-origin: right top;
+        transform-origin: right top;
+    }
+}
+@keyframes zoomOutRight {
+    35% {
+        opacity: 1;
+        -webkit-transform: scale3d(.5, .5, .5) translate3d(0, -32%, 0);
+        transform: scale3d(.5, .5, .5) translate3d(0, -32%, 0);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: scale(.25) translate3d(110%, 30%, 0);
+        transform: scale(.25) translate3d(110%, 30%, 0);
+        -webkit-transform-origin: right top;
+        transform-origin: right top;
+    }
+}
+.animation_out_center-right {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: zoomOutRight;
+    animation-name: zoomOutRight;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+/*    end Animation style    */ /* ----- ----- ----- ----- ----- */
 
