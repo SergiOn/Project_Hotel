@@ -23,7 +23,7 @@ Ajax.prototype.ajaxSendGet = function (url, data, func) {
     };
 
 };
-Ajax.prototype.ajaxSendPost = function (url, data) {
+Ajax.prototype.ajaxSendPost = function (url, data, func) {
     this._ajaxInit();
     this._xhr.open('POST', url, true);
     this._xhr.send(data);
@@ -32,7 +32,7 @@ Ajax.prototype.ajaxSendPost = function (url, data) {
         if (this.status != 200) {
             console.log(this.status + ': ' + this.statusText);
         } else {
-            console.log(this.responseText);
+            return func(this.responseText);
         }
     }
 };

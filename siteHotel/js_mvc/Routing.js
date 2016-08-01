@@ -7,7 +7,8 @@ function Routing() {
     this.page = new controllerPages();
 }
 
-Routing.prototype.siteHistory = function () {
+Routing.prototype.startPage = function () {
+    this.page.startPage();
 };
 
 Routing.prototype.menu = function () {
@@ -57,15 +58,20 @@ Routing.prototype.menu = function () {
         self.page.thePage(namePage);
     });
 };
+
 Routing.prototype.user = function () {
+};
+Routing.prototype.siteHistory = function () {
 };
 
 
 
-
 var routing = new Routing();
-routing.siteHistory();
-routing.menu();
+routing.startPage();
+// routing.menu();
+// routing.siteHistory();
+
+
 // routing.user();
 
 

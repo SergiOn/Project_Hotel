@@ -10,6 +10,26 @@ function controllerPages() {
 controllerPages.prototype = Object.create(History.prototype);
 controllerPages.prototype.constructor = controllerPages;
 
+
+controllerPages.prototype.startPage = function () {
+    var locationPathname = location.pathname.slice(1);
+    var locationHash = location.hash.slice(1);
+    var namePage;
+    var url;
+
+    if (locationPathname) {
+        namePage = locationPathname;
+    } else if (locationHash) {
+        namePage = locationHash;
+    } else {
+        return;
+    }
+    document.querySelector('li.menu-active').classList.remove('menu-active');
+    document.getElementById(namePage).closest('li').classList.add('menu-active');
+    url = '/api/pages/' + namePage;
+    this.model.startPage(url, this.view.startPage);
+};
+
 controllerPages.prototype.thePage = function (namePage) {
     var page = document.getElementById('content').children[0];
     this.historyAdd(page);

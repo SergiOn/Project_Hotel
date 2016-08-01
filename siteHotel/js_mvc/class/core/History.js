@@ -13,3 +13,6 @@ History.prototype.historyAdd = function (page) {
     this._historyArrey.push(page);
     this._historyPosition = this._historyPosition + 1;
 };
+History.prototype.historyWalk = function (page) {
+
+};
