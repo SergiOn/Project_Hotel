@@ -7,7 +7,6 @@ body {
     min-height: calc(100vh - 180px);
 }
 .width1142 {
-    min-width: 1142px; /* delete */
     max-width: 1142px;
     height: inherit;
     margin: 0 auto;
@@ -41,6 +40,7 @@ header li,
     margin: 0;
     padding: 0;
     list-style: none;
+    outline: none;
 }
 a, a:link, a:visited, a:hover, a:active {
     text-decoration: none;

@@ -1,0 +1,24 @@
+/* delete */
+.width1142 {
+    min-width: 1142px; /* delete */
+}
+body,
+body > *,
+#content,
+#content > section,
+.header-menu,
+footer,
+.block-1_home,
+.block-1_rooms,
+.block-2_rooms,
+.block-3_rooms,
+.block-1_services,
+.block-2_services,
+.block-1_contact,
+.block-1_search {
+    min-width: 1162px;
+}
+.block-1_home_banner-reserve {
+    min-width: 1142px;
+}
+/* end delete*/
