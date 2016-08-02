@@ -25,7 +25,7 @@ modelPages.prototype.thePage = function (url, toView) {
         var wrapper = document.createElement("div");
         wrapper.innerHTML = dataFile;
         var element = wrapper.children[0];
-        toView(element);
+        toView(element, 'left');
     });
 };
 

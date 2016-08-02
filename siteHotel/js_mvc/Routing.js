@@ -11,7 +11,7 @@ Routing.prototype.startPage = function () {
     this.page.startPage();
 };
 
-Routing.prototype.menu = function () {
+Routing.prototype.thePages = function () {
     var self = this;
     var menuEl = document.getElementById('menu');
     menuEl.addEventListener('click', function (event) {
@@ -21,45 +21,85 @@ Routing.prototype.menu = function () {
             id = event.target.id,
             idParent = event.target.parentElement.id,
             namePage;
+        if(tagName != 'A' && tagNameParent != 'A') {
+            return;
+        }
         switch (true) {
-               case tagName === 'A' && id === 'home':
+               case id === 'home':
                 namePage = id;
                 break;
-            case tagNameParent === 'A' && idParent === 'home':
+            case idParent === 'home':
                 namePage = idParent;
                 break;
-            case tagName === 'A' && id === 'rooms':
+            case id === 'rooms':
                 namePage = id;
                 break;
-            case tagName === 'A' && id === 'services':
+            case id === 'services':
                 namePage = id;
                 break;
-            case tagName === 'A' && id === 'services-overview':
+            case id === 'services-overview':
                 namePage = 'services';
                 break;
-            case tagName === 'A' && id === 'services-comfort':
+            case id === 'services-comfort':
                 namePage = 'services';
                 break;
-            case tagName === 'A' && id === 'services-rules':
+            case id === 'services-rules':
                 namePage = 'services';
                 break;
-            case tagName === 'A' && id === 'contact':
+            case id === 'contact':
                 namePage = id;
                 break;
-            case tagName === 'A' && id === 'search':
+            case id === 'search':
                 namePage = id;
                 break;
-            case tagNameParent === 'A' && idParent === 'search':
+            case idParent === 'search':
                 namePage = idParent;
+                break;
+            default:
+                return;
+        }
+
+        /*
+        * var App = {};
+        * App['home'] = function Home() {};
+        * new App[id]()
+        * */
+        self.page.thePage(namePage);
+    });
+};
+
+Routing.prototype.userPages = function () {
+    var self = this;
+    var userMenuEl = document.getElementById('user-menu');
+
+    userMenuEl.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        var tagName = event.target.closest('a').tagName,
+            id = event.target.closest('a').id,
+            namePage;
+        if(tagName != 'A') {
+            return;
+        }
+
+        switch (true) {
+            case id === 'home-logo':
+                namePage = 'home';
+                break;
+            case id === 'login':
+                namePage = id;
+                break;
+            case id === 'registration':
+                namePage = id;
+                break;
+            case id === 'my-reserve':
+                namePage = id;
                 break;
             default:
                 return;
         }
         self.page.thePage(namePage);
     });
-};
-
-Routing.prototype.userMenu = function () {
 };
 
 Routing.prototype.siteHistory = function () {
@@ -73,7 +113,8 @@ Routing.prototype.siteHistory = function () {
 
 var routing = new Routing();
 routing.startPage();
-routing.menu();
+routing.thePages();
+routing.userPages();
 routing.siteHistory();
 
 

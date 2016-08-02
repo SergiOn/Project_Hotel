@@ -14,7 +14,7 @@ controllerPages.prototype.constructor = controllerPages;
 controllerPages.prototype.startPage = function () {
     var locationPathname = location.pathname.slice(1);
     var locationHash = location.hash.slice(1);
-    var namePage
+    var namePage;
 
     var ie89 = /(MSIE\s8\.0)|(MSIE\s9\.0)/.test(navigator.userAgent);
     var ie = /Microsoft\sInternet\sExplorer/.test(navigator.appName);
@@ -35,17 +35,19 @@ controllerPages.prototype.startPage = function () {
 };
 
 controllerPages.prototype.thePage = function (namePage) {
-    var page = document.getElementById('content').children[0];
-    this.historyAdd(page);
-
     var el = 'content_' + namePage;
     if (document.getElementById(el)) return;
 
-    document.querySelector('li.menu-active').classList.remove('menu-active');
-    document.getElementById(namePage).closest('li').classList.add('menu-active');
+    var page = document.getElementById('content').children[0];
+    this.historyAdd(page);
+
+    if (document.getElementById(namePage).closest('li')) {
+        document.querySelector('li.menu-active').classList.remove('menu-active');
+        document.getElementById(namePage).closest('li').classList.add('menu-active');
+    }
 
     var url = '/api/pages/' + namePage;
-    this.model.thePage(url, this.view.thePage);
+    this.model.thePage(url, this.view.thePage.bind(this.view));
 
     var nameUrl = namePage === 'home' ? '/' : namePage;
     this.changeUrl(nameUrl);
@@ -61,7 +63,6 @@ controllerPages.prototype.walkPage = function () {
     } else {
         page = this._lastPage;
     }
-
     namePage = page.id.slice(8);
 
     document.querySelector('li.menu-active').classList.remove('menu-active');

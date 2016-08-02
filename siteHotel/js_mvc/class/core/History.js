@@ -28,38 +28,22 @@ History.prototype.historyWalk = function () {
     if (!locationUrl) locationUrl = 'home';
     var locationId = 'content_' + locationUrl;
 
-    if (this._historyPosition === this._historyArrey.length
-        && this._historyArrey[this._historyPosition - 1].id === locationId) {
-
-        this._historyPosition = this._historyPosition - 1;
+    if (this._historyPosition === this._historyArrey.length) {
         this._lastPage = document.getElementById('content').children[0];
-        this._historyDirection = 'right';
-
-    } else if (this._historyPosition + 1 === this._historyArrey.length
-        && this._lastPage.id === locationId) {
-
-        this._historyPosition = this._historyPosition + 1;
-        this._historyDirection = 'left';
-
-    } else if (this._historyPosition
-        && this._historyArrey[this._historyPosition - 1].id === locationId) {
-
-        this._historyPosition = this._historyPosition - 1;
-        this._historyDirection = 'right';
-
-    } else if (this._historyArrey[this._historyPosition + 1]
-        && this._historyArrey[this._historyPosition + 1].id === locationId) {
-
-        this._historyPosition = this._historyPosition + 1;
-        this._historyDirection = 'left';
-
-    } else {
-        for (var key in this._historyArrey) {
-            if (this._historyArrey[key].id === locationId) {
-                this._historyPosition = key;
+    }
+    for (var key in this._historyArrey) {
+        if (this._historyArrey[key].id === locationId) {
+            if (this._historyPosition > key) {
                 this._historyDirection = 'right';
+            } else {
+                this._historyDirection = 'left';
             }
+            this._historyPosition = key;
         }
+    }
+    if (locationId === this._lastPage.id) {
+        this._historyPosition = this._historyArrey.length;
+        this._historyDirection = 'left';
     }
 };
 
