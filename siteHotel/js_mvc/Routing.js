@@ -61,7 +61,12 @@ Routing.prototype.menu = function () {
 
 Routing.prototype.userMenu = function () {
 };
+
 Routing.prototype.siteHistory = function () {
+    var self = this;
+    window.addEventListener('popstate', function () {
+        self.page.walkPage();
+    });
 };
 
 
@@ -69,7 +74,7 @@ Routing.prototype.siteHistory = function () {
 var routing = new Routing();
 routing.startPage();
 routing.menu();
-// routing.siteHistory();
+routing.siteHistory();
 
 
 

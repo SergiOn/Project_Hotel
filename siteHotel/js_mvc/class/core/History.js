@@ -15,18 +15,62 @@ History.prototype.historyAdd = function (page) {
     this._historyPosition = this._historyPosition + 1;
 };
 
-History.prototype.historyWalk = function (page) {
+History.prototype.historyWalk = function () {
+    var ie89 = /(MSIE\s8\.0)|(MSIE\s9\.0)/.test(navigator.userAgent);
+    var ie = /Microsoft\sInternet\sExplorer/.test(navigator.appName);
+    var locationUrl;
 
+    if (!(ie89 && ie)) {
+        locationUrl = location.pathname.slice(1);
+    } else {
+        locationUrl = location.hash.slice(1);
+    }
+    if (!locationUrl) locationUrl = 'home';
+    var locationId = 'content_' + locationUrl;
+
+    if (this._historyPosition === this._historyArrey.length
+        && this._historyArrey[this._historyPosition - 1].id === locationId) {
+
+        this._historyPosition = this._historyPosition - 1;
+        this._lastPage = document.getElementById('content').children[0];
+        this._historyDirection = 'right';
+
+    } else if (this._historyPosition + 1 === this._historyArrey.length
+        && this._lastPage.id === locationId) {
+
+        this._historyPosition = this._historyPosition + 1;
+        this._historyDirection = 'left';
+
+    } else if (this._historyPosition
+        && this._historyArrey[this._historyPosition - 1].id === locationId) {
+
+        this._historyPosition = this._historyPosition - 1;
+        this._historyDirection = 'right';
+
+    } else if (this._historyArrey[this._historyPosition + 1]
+        && this._historyArrey[this._historyPosition + 1].id === locationId) {
+
+        this._historyPosition = this._historyPosition + 1;
+        this._historyDirection = 'left';
+
+    } else {
+        for (var key in this._historyArrey) {
+            if (this._historyArrey[key].id === locationId) {
+                this._historyPosition = key;
+                this._historyDirection = 'right';
+            }
+        }
+    }
 };
 
 History.prototype.changeUrl = function (namePage) {
     var ie89 = /(MSIE\s8\.0)|(MSIE\s9\.0)/.test(navigator.userAgent);
     var ie = /Microsoft\sInternet\sExplorer/.test(navigator.appName);
 
-    if (ie89 && ie) {
-        location.hash = namePage;
-    } else {
+    if (!(ie89 && ie)) {
         history.pushState(null, '', namePage);
+    } else {
+        location.hash = namePage;
     }
 };
 

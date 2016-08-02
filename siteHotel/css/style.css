@@ -2050,7 +2050,7 @@ footer {
         opacity: 1;
     }
 }
-.animation_in_right-center {
+.animation_in_center {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
