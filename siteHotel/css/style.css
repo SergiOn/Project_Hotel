@@ -2096,5 +2096,43 @@ footer {
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
 }
+@-webkit-keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3) translate3d(0, 15%, 0);
+        transform: scale3d(.3, .3, .3) translate3d(0, 15%, 0);
+        -webkit-transform-origin: center top;
+        transform-origin: center top;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3) translate3d(0, 15%, 0);
+        transform: scale3d(.3, .3, .3) translate3d(0, 15%, 0);
+        -webkit-transform-origin: center top;
+        transform-origin: center top;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.animation_out_center {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: zoomOut;
+    animation-name: zoomOut;
+}
 /*    end Animation style    */ /* ----- ----- ----- ----- ----- */
 
