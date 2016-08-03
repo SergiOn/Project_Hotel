@@ -7,8 +7,47 @@ function Routing() {
     this.page = new controllerPages();
 }
 
+Routing.prototype.startController = function (nameController, servicesMiniPage) {
+    this._controller = null;
+    var self = this;
+    var contentId = 'content_' + nameController;
+
+    var controllerNameObj = {
+        'login': controllerLoginPage
+    };
+
+    document.getElementById('content').addEventListener('DOMNodeInserted', function () {
+        if (!document.getElementById(contentId)) return;
+
+        self._controller = new controllerNameObj[nameController]();
+        self._controller.controllerInit(servicesMiniPage);
+    });
+    /* ***  нужно раскоментировать. контроллер для home  *** */
+    // if (!this._controller) {
+    //     this._controller = new controllerNameObj[nameController]();
+    //     this._controller.controllerInit();
+    // }
+};
+
 Routing.prototype.startPage = function () {
-    this.page.startPage();
+    var locationPathname = location.pathname.slice(1),
+        locationHash = location.hash.slice(1),
+        namePage;
+
+    var ie89 = /(MSIE\s8\.0)|(MSIE\s9\.0)/.test(navigator.userAgent);
+    var ie = /Microsoft\sInternet\sExplorer/.test(navigator.appName);
+
+    if (locationPathname) {
+        namePage = locationPathname;
+        if (ie89 && ie) location.pathname = ' ';
+    } else if (locationHash) {
+        namePage = locationHash;
+    } else {
+        this.startController('home');
+        return;
+    }
+    this.page.startPage(namePage);
+    this.startController(namePage);
 };
 
 Routing.prototype.thePages = function () {
@@ -16,47 +55,20 @@ Routing.prototype.thePages = function () {
     var menuEl = document.getElementById('menu');
     menuEl.addEventListener('click', function (event) {
         if (!event.target.matches('a[href^="tel:"]')) event.preventDefault();
-        var tagName = event.target.tagName,
-            tagNameParent = event.target.parentElement.tagName,
-            id = event.target.id,
-            idParent = event.target.parentElement.id,
+        var tagName = event.target.closest('a').tagName,
+            id = event.target.closest('a').id,
             namePage;
-        if(tagName != 'A' && tagNameParent != 'A') {
+        if(tagName != 'A') {
             return;
         }
-        switch (true) {
-               case id === 'home':
-                namePage = id;
-                break;
-            case idParent === 'home':
-                namePage = idParent;
-                break;
-            case id === 'rooms':
-                namePage = id;
-                break;
-            case id === 'services':
-                namePage = id;
-                break;
-            case id === 'services-overview':
-                namePage = 'services';
-                break;
-            case id === 'services-comfort':
-                namePage = 'services';
-                break;
-            case id === 'services-rules':
-                namePage = 'services';
-                break;
-            case id === 'contact':
-                namePage = id;
-                break;
-            case id === 'search':
-                namePage = id;
-                break;
-            case idParent === 'search':
-                namePage = idParent;
-                break;
-            default:
-                return;
+
+        if (id === 'services-overview'
+            || id === 'services-comfort'
+            || id === 'services-rules' ) {
+            namePage = 'services';
+            var servicesMiniPage = id;
+        } else {
+            namePage = id;
         }
 
         /*
@@ -65,6 +77,7 @@ Routing.prototype.thePages = function () {
         * new App[id]()
         * */
         self.page.thePage(namePage);
+        self.startController(namePage, servicesMiniPage);
     });
 };
 
@@ -88,8 +101,16 @@ Routing.prototype.userPages = function () {
                 break;
             case id === 'login':
                 namePage = id;
+                document.getElementById('content').addEventListener('DOMNodeInserted', function () {
+                    if (!document.getElementById('content_login')) return;
+                    self._controller = new controllerLoginPage();
+                    self._controller.loginUser();
+                });
                 break;
             case id === 'registration':
+                namePage = id;
+                break;
+            case id === 'log-out':
                 namePage = id;
                 break;
             case id === 'my-reserve':

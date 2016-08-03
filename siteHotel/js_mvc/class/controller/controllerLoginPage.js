@@ -7,11 +7,35 @@ function controllerLoginPage() {
     this.view = new viewLoginPage();
 }
 
-
-controllerLoginPage.prototype.loginUser = function () {
-    console.log('controller login user');
+controllerLoginPage.prototype.controllerInit = function () {
+    this.loginUser();
 };
 
+controllerLoginPage.prototype.loginUser = function () {
+    var self = this;
+    document.getElementById('login-close').addEventListener('click', function () {
+        history.back();
+    });
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault();
+    });
+
+    var email = document.getElementById('login-email'),
+        pass = document.getElementById('login-pass'),
+        form = {
+        'email': email.value,
+        'pass': pass.value
+    };
+
+    document.getElementById('login-submit').addEventListener('click', function () {
+        console.log(form);
+    });
+
+  //  api/user/login
+};
+// controllerLoginPage.prototype.loginUserAnswer = function (answer) {
+//
+// };
 
 
 
