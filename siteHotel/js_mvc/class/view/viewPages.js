@@ -12,6 +12,7 @@ viewPages.prototype.startPage = function (page) {
 };
 
 viewPages.prototype.thePage = function (page, direction) {
+    if (!direction) direction = 'left';
     var animationOutName = 'animation_out_center-' + direction;
     var animationInName = 'animation_in_center';
     document.body.style.overflowX = 'hidden';

@@ -34,6 +34,10 @@ controllerPages.prototype.startPage = function () {
     this.model.startPage(url, this.view.startPage);
 };
 
+controllerPages.prototype.getTrueUser = function () {
+
+};
+
 controllerPages.prototype.thePage = function (namePage) {
     var el = 'content_' + namePage;
     if (document.getElementById(el)) return;

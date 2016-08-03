@@ -7,15 +7,15 @@ function Ajax() {
 
 Ajax.prototype._ajaxInit = function () {
     var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
-    this._xhr = new XHR;
+    return new XHR;
 };
 
 Ajax.prototype.ajaxSendGet = function (url, data, func) {
-    this._ajaxInit();
+    var xhr = this._ajaxInit();
     var link = data ? url+'?'+data : url;
-    this._xhr.open('GET', link, true);
-    this._xhr.send(null);
-    this._xhr.onreadystatechange = function() {
+    xhr.open('GET', link, true);
+    xhr.send(null);
+    xhr.onreadystatechange = function() {
         if (this.readyState != 4) return;
         if (this.status != 200) {
             console.log(this.status + ': ' + this.statusText);
@@ -26,10 +26,10 @@ Ajax.prototype.ajaxSendGet = function (url, data, func) {
 };
 
 Ajax.prototype.ajaxSendPost = function (url, data, func) {
-    this._ajaxInit();
-    this._xhr.open('POST', url, true);
-    this._xhr.send(data);
-    this._xhr.onreadystatechange = function() {
+    var xhr = this._ajaxInit();
+    xhr.open('POST', url, true);
+    xhr.send(data);
+    xhr.onreadystatechange = function() {
         if (this.readyState != 4) return;
         if (this.status != 200) {
             console.log(this.status + ': ' + this.statusText);
