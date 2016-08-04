@@ -95,31 +95,13 @@ Routing.prototype.userPages = function () {
             return;
         }
 
-        switch (true) {
-            case id === 'home-logo':
-                namePage = 'home';
-                break;
-            case id === 'login':
-                namePage = id;
-                document.getElementById('content').addEventListener('DOMNodeInserted', function () {
-                    if (!document.getElementById('content_login')) return;
-                    self._controller = new controllerLoginPage();
-                    self._controller.loginUser();
-                });
-                break;
-            case id === 'registration':
-                namePage = id;
-                break;
-            case id === 'log-out':
-                namePage = id;
-                break;
-            case id === 'my-reserve':
-                namePage = id;
-                break;
-            default:
-                return;
+        if (id === 'home-logo') {
+            namePage = 'home';
+        } else {
+            namePage = id;
         }
         self.page.thePage(namePage);
+        self.startController(namePage);
     });
 };
 

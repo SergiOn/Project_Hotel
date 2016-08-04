@@ -53,6 +53,9 @@ controllerPages.prototype.walkPage = function () {
     this.changeMenu(namePage);
 
     var direction = this._historyDirection;
+
+    /* if gettrueuser and login or pass return*/
+
     this.view.walkPage(page, direction);
 };
 
