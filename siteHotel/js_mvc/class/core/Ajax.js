@@ -14,6 +14,9 @@ Ajax.prototype.ajaxSendGet = function (url, data, func) {
     var xhr = this._ajaxInit();
     var link = data ? url+'?'+data : url;
     xhr.open('GET', link, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.getAllResponseHeaders();
     xhr.send(null);
     xhr.onreadystatechange = function() {
         if (this.readyState != 4) return;
@@ -28,6 +31,9 @@ Ajax.prototype.ajaxSendGet = function (url, data, func) {
 Ajax.prototype.ajaxSendPost = function (url, data, func) {
     var xhr = this._ajaxInit();
     xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.getAllResponseHeaders();
     xhr.send(data);
     xhr.onreadystatechange = function() {
         if (this.readyState != 4) return;
@@ -38,3 +44,9 @@ Ajax.prototype.ajaxSendPost = function (url, data, func) {
         }
     }
 };
+
+
+// var ajax = new Ajax();
+// ajax.ajaxSendPost('api/user/login', 'userLogin='+JSON.stringify({'email':"on@mail.com",'pass':"12345"}), function (answer) {
+//     console.log(answer);
+// });

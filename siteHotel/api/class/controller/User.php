@@ -13,12 +13,27 @@ use core\Controller;
 
 class User extends Controller {
 
-    public function index($var2 = "it is a var") {
-        print_r($var2);
+    public function __construct() {
+        $this->model = new \Model\User();
+        $this->view = new \view\User();
+    }
+
+    public function index() {
+        //$var2 = "it is a var"
+        //print_r($var2);
     }
 
     public function login() {
+        if (empty($_POST)) return;
+        $method = $_POST;
 
+        $data = json_decode($method['userLogin'], true);
+
+        $email = $data['email'];
+        $pass = md5($data['pass']);
+
+        $userInfo = $this->model->login($email, $pass);
+        $this->view->login($userInfo);
     }
 
     public function registration() {

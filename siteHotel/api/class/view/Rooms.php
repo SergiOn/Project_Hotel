@@ -12,6 +12,7 @@ namespace view;
 use core\View;
 
 class Rooms extends View {
+
     public function allRooms($file) {
         $this->toJson($file);
     }

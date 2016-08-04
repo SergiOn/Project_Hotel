@@ -10,6 +10,7 @@ namespace core;
 
 
 class View {
+
     protected function toJson($file) {
         $file = json_encode($file);
         return $file;

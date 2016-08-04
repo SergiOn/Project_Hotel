@@ -5,7 +5,10 @@
 function controllerLoginPage() {
     this.model = new modelLoginPage();
     this.view = new viewLoginPage();
+    Validation.call(this);
 }
+controllerLoginPage.prototype = Object.create(Validation.prototype);
+controllerLoginPage.prototype.constructor = controllerLoginPage;
 
 controllerLoginPage.prototype.controllerInit = function () {
     this.loginUser();
@@ -16,26 +19,49 @@ controllerLoginPage.prototype.loginUser = function () {
     document.getElementById('login-close').addEventListener('click', function () {
         history.back();
     });
-    document.querySelector('form').addEventListener('submit', function (event) {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
     });
 
     var email = document.getElementById('login-email'),
         pass = document.getElementById('login-pass'),
-        form = {
-        'email': email.value,
-        'pass': pass.value
-    };
+        parentClass,
+        formObjJson;
+    var formObj = {};
+
+    form.addEventListener('focus', function (event) {
+        parentClass = event.target.parentElement.classList;
+        if (event.target.name === 'email' && parentClass.contains("novalid") ) {
+            parentClass.remove('novalid');
+        }
+        if (event.target.name === 'pass' && parentClass.contains("novalid") ) {
+            parentClass.remove('novalid');
+        }
+    }, true);
+
+    form.addEventListener('blur', function (event) {
+        parentClass = event.target.parentElement.classList;
+        if (event.target.name === 'email') {
+            formObj['email'] = event.target.value;
+        } else {
+
+        }
+        if (event.target.name === 'pass') {
+            formObj['pass'] = event.target.value;
+        }
+    }, true);
 
     document.getElementById('login-submit').addEventListener('click', function () {
-        console.log(form);
+        formObjJson = JSON.stringify(formObj);
+        console.log(formObjJson);
+        self.model.loginUser('api/user/login', 'userLogin='+formObjJson, self.loginUserAnswer.bind(self));
     });
-
-  //  api/user/login
 };
-// controllerLoginPage.prototype.loginUserAnswer = function (answer) {
-//
-// };
+
+controllerLoginPage.prototype.loginUserAnswer = function (answer) {
+    console.log(answer[0]);
+};
 
 
 

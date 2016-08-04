@@ -1679,6 +1679,10 @@ footer {
     opacity: 1;
     transition: opacity .4s linear;
 }
+.block-1_login form div.novalid input,
+.block-1_reg form div.novalid input {
+    border: 1px solid #dc1b3b;
+}
 .block-1_login form div input,
 .block-1_reg form div input {
     display: block;
