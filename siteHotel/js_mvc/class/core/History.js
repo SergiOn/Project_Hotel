@@ -7,19 +7,33 @@ function History() {
     this._historyPosition = 0;
 }
 
-History.prototype.historyAdd = function (page) {
+History.prototype.historyChangeUrl = function (nameUrl) {
+    var ie89 = /(MSIE\s8\.0)|(MSIE\s9\.0)/.test(navigator.userAgent);
+    var ie = /Microsoft\sInternet\sExplorer/.test(navigator.appName);
+
+    if (nameUrl === 'home') nameUrl = '/';
+
+    if (!(ie89 && ie)) {
+        history.pushState(null, '', nameUrl);
+    } else {
+        location.hash = nameUrl;
+    }
+};
+
+History.prototype.historyAddPage = function (namePage) {
     if (this._historyArrey.length > this._historyPosition) {
         this._historyArrey.splice(this._historyPosition);
     }
-    this._historyArrey.push(page);
     this._historyPosition = this._historyPosition + 1;
+    this._historyArrey.push(namePage);
 };
 
 History.prototype.historyWalk = function () {
-    var ie89 = /(MSIE\s8\.0)|(MSIE\s9\.0)/.test(navigator.userAgent);
-    var ie = /Microsoft\sInternet\sExplorer/.test(navigator.appName);
-    var locationUrl;
-
+    var ie89 = /(MSIE\s8\.0)|(MSIE\s9\.0)/.test(navigator.userAgent),
+        ie = /Microsoft\sInternet\sExplorer/.test(navigator.appName),
+        locationUrl,
+        historyDirection,
+        page;
     if (!(ie89 && ie)) {
         locationUrl = location.pathname.slice(1);
     } else {
@@ -34,29 +48,28 @@ History.prototype.historyWalk = function () {
     for (var key in this._historyArrey) {
         if (this._historyArrey[key].id === locationId) {
             if (this._historyPosition > key) {
-                this._historyDirection = 'right';
+                historyDirection = 'right';
             } else {
-                this._historyDirection = 'left';
+                historyDirection = 'left';
             }
             this._historyPosition = key;
         }
     }
     if (locationId === this._lastPage.id) {
         this._historyPosition = this._historyArrey.length;
-        this._historyDirection = 'left';
+        historyDirection = 'left';
+        page = this._lastPage;
+    } else{
+        page = this._historyArrey[this._historyPosition];
     }
+    return {
+        'page': page,
+        'direction': historyDirection,
+        'namePage': locationUrl
+    };
 };
 
-History.prototype.changeUrl = function (namePage) {
-    var ie89 = /(MSIE\s8\.0)|(MSIE\s9\.0)/.test(navigator.userAgent);
-    var ie = /Microsoft\sInternet\sExplorer/.test(navigator.appName);
 
-    if (!(ie89 && ie)) {
-        history.pushState(null, '', namePage);
-    } else {
-        location.hash = namePage;
-    }
-};
 
 
 

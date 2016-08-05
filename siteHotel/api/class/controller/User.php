@@ -24,20 +24,39 @@ class User extends Controller {
     }
 
     public function login() {
-        if (empty($_POST)) return;
-        $method = $_POST;
+//        if (empty($_POST)) return;
+//        $method = $_POST;
+//
+//        $data = json_decode($method['userLogin'], true);
+//
+//        $email = $data['email'];
+//        $pass = md5($data['pass']);
 
-        $data = json_decode($method['userLogin'], true);
-
-        $email = $data['email'];
-        $pass = md5($data['pass']);
+        $email = 'on@mail.com';
+        $pass = md5('12345');
 
         $userInfo = $this->model->login($email, $pass);
-        $this->view->login($userInfo);
+//        $this->view->login($userInfo);
+
+        echo '<pre>';
+        print_r($userInfo);
+        echo '</pre>';
+
+        if (!empty($userInfo)) {
+            echo '<br><br> good<br><br>';
+
+            $this->setCookies($userInfo[0]['id']);
+        }
     }
 
     public function registration() {
 
+    }
+
+    public function setCookies($idUser) {
+        echo $idUser;
+    }
+    public function deleteCookies() {
     }
 
     public function booking() {

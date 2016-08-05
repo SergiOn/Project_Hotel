@@ -19,6 +19,8 @@ Routing.prototype.startController = function (nameController, servicesMiniPage) 
     document.getElementById('content').addEventListener('DOMNodeInserted', function () {
         if (!document.getElementById(contentId)) return;
 
+        if (controllerNameObj[nameController] !== controllerLoginPage) return;
+
         self._controller = new controllerNameObj[nameController]();
         self._controller.controllerInit(servicesMiniPage);
     });
@@ -42,9 +44,6 @@ Routing.prototype.startPage = function () {
         if (ie89 && ie) location.pathname = ' ';
     } else if (locationHash) {
         namePage = locationHash;
-    } else {
-        this.startController('home');
-        return;
     }
     this.page.startPage(namePage);
     this.startController(namePage);
@@ -54,11 +53,12 @@ Routing.prototype.thePages = function () {
     var self = this;
     var menuEl = document.getElementById('menu');
     menuEl.addEventListener('click', function (event) {
-        if (!event.target.matches('a[href^="tel:"]')) event.preventDefault();
         var tagName = event.target.closest('a').tagName,
             id = event.target.closest('a').id,
             namePage;
-        if(tagName != 'A') {
+        if (tagName === 'A' && !event.target.matches('a[href^="tel:"]')) {
+            event.preventDefault();
+        } else {
             return;
         }
 
@@ -108,7 +108,7 @@ Routing.prototype.userPages = function () {
 Routing.prototype.siteHistory = function () {
     var self = this;
     window.addEventListener('popstate', function () {
-        self.page.walkPage();
+        self.page.pageWalkHistory();
     });
 };
 

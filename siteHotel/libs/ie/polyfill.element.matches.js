@@ -1,14 +1,14 @@
-this.Element && function(ElementPrototype) {
-    ElementPrototype.matchesSelector = ElementPrototype.matchesSelector ||
-        ElementPrototype.mozMatchesSelector ||
-        ElementPrototype.msMatchesSelector ||
-        ElementPrototype.oMatchesSelector ||
-        ElementPrototype.webkitMatchesSelector ||
-        function (selector) {
-            var node = this, nodes = (node.parentNode || node.document).querySelectorAll(selector), i = -1;
+(function() {
 
-            while (nodes[++i] && nodes[i] != node);
+    // проверяем поддержку
+    if (!Element.prototype.matches) {
 
-            return !!nodes[i];
-        }
-}(Element.prototype);
+        // определяем свойство
+        Element.prototype.matches = Element.prototype.matchesSelector ||
+            Element.prototype.webkitMatchesSelector ||
+            Element.prototype.mozMatchesSelector ||
+            Element.prototype.msMatchesSelector;
+
+    }
+
+})();

@@ -12,10 +12,23 @@ controllerPages.prototype.constructor = controllerPages;
 
 
 controllerPages.prototype.startPage = function (namePage) {
+    var aLink = document.querySelectorAll('header a[id]');
+    for (var i = 0; i < aLink.length; i++) {
+        aLink[i].href = aLink[i].href.replace(/(\/pages)|(\.html)/ig, "");
+    }
+    if (!namePage || namePage === 'home') {
+        return;
+    }
+    var aId = 'a[id='+ namePage +']',
+        aPageLink = document.getElementsByTagName('header')[0].querySelector(aId);
+    if (!aPageLink || namePage === 'login' || namePage === 'registration' || namePage === 'my-reserve') {
+        location.pathname = '/';
+        return;
+    }
     this.changeMenu(namePage);
 
     var url = '/api/pages/' + namePage;
-    this.model.startPage(url, this.view.startPage);
+    this.model.startPage(url, this.view.startPage.bind(this.view));
 };
 
 controllerPages.prototype.getTrueUser = function () {
@@ -23,48 +36,32 @@ controllerPages.prototype.getTrueUser = function () {
 };
 
 controllerPages.prototype.thePage = function (namePage) {
+    var contentChildren = document.getElementById('content').children[0];
+    this.historyAddPage(contentChildren);
+
     var el = 'content_' + namePage;
     if (document.getElementById(el)) return;
 
-    var page = document.getElementById('content').children[0];
-    this.historyAdd(page);
-
     this.changeMenu(namePage);
+    this.historyChangeUrl(namePage);
 
     var url = '/api/pages/' + namePage;
     this.model.thePage(url, this.view.thePage.bind(this.view));
-
-    var nameUrl = namePage === 'home' ? '/' : namePage;
-    this.changeUrl(nameUrl);
-};
-
-controllerPages.prototype.walkPage = function () {
-    this.historyWalk();
-    var page,
-        namePage;
-
-    if (this._historyPosition in this._historyArrey) {
-        page = this._historyArrey[this._historyPosition];
-    } else {
-        page = this._lastPage;
-    }
-    namePage = page.id.slice(8);
-
-    this.changeMenu(namePage);
-
-    var direction = this._historyDirection;
-
-    /* if gettrueuser and login or pass return*/
-
-    this.view.walkPage(page, direction);
+    this.historyAddPage(namePage);
 };
 
 controllerPages.prototype.changeMenu = function (namePage) {
+    var namePageEl = document.getElementById(namePage);
     if (document.querySelector('li.menu-active')) {
         document.querySelector('li.menu-active').classList.remove('menu-active');
     }
-    if (document.getElementById(namePage).closest('li')) {
-        document.getElementById(namePage).closest('li').classList.add('menu-active');
+    if (namePageEl && namePageEl.closest('li')) {
+        namePageEl.closest('li').classList.add('menu-active');
     }
 };
 
+controllerPages.prototype.pageWalkHistory = function () {
+    var historyPage = this.historyWalk();
+    this.changeMenu(historyPage['namePage']);
+    this.view.walkPage(historyPage['page'], historyPage['direction']);
+};

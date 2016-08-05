@@ -16,7 +16,6 @@ Ajax.prototype.ajaxSendGet = function (url, data, func) {
     xhr.open('GET', link, true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    xhr.getAllResponseHeaders();
     xhr.send(null);
     xhr.onreadystatechange = function() {
         if (this.readyState != 4) return;
@@ -33,7 +32,6 @@ Ajax.prototype.ajaxSendPost = function (url, data, func) {
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    xhr.getAllResponseHeaders();
     xhr.send(data);
     xhr.onreadystatechange = function() {
         if (this.readyState != 4) return;
