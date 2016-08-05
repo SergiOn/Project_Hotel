@@ -12,6 +12,8 @@ controllerPages.prototype.constructor = controllerPages;
 
 
 controllerPages.prototype.startPage = function (namePage) {
+    this.getTrueUser();
+
     var aLink = document.querySelectorAll('header a[id]');
     for (var i = 0; i < aLink.length; i++) {
         aLink[i].href = aLink[i].href.replace(/(\/pages)|(\.html)/ig, "");
@@ -32,7 +34,11 @@ controllerPages.prototype.startPage = function (namePage) {
 };
 
 controllerPages.prototype.getTrueUser = function () {
-
+    this.model.getTrueUser('api/user/getTrueUser', this.getTrueUserAnswer.bind(this));
+};
+controllerPages.prototype.getTrueUserAnswer = function (answer) {
+    if (!answer) return;
+    this.view.getTrueUser(answer[0]);
 };
 
 controllerPages.prototype.thePage = function (namePage) {

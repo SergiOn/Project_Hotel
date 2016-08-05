@@ -2,19 +2,28 @@
  * Created by Sergio on 03.08.2016.
  */
 
-function controllerLoginPage() {
-    this.model = new modelLoginPage();
-    this.view = new viewLoginPage();
+function controllerUserPage() {
+    this.model = new modelUserPage();
+    this.view = new viewUserPage();
     Validation.call(this);
 }
-controllerLoginPage.prototype = Object.create(Validation.prototype);
-controllerLoginPage.prototype.constructor = controllerLoginPage;
+controllerUserPage.prototype = Object.create(Validation.prototype);
+controllerUserPage.prototype.constructor = controllerUserPage;
 
-controllerLoginPage.prototype.controllerInit = function () {
-    this.loginUser();
+
+controllerUserPage.prototype.controllerInit = function (methodName) {
+    if (methodName === 'login') {
+        this.loginUser();
+    }
+    if (methodName === 'registration') {
+        this.registrationUser();
+    }
+    if (methodName === 'log-out') {
+        this.logoutUser();
+    }
 };
 
-controllerLoginPage.prototype.loginUser = function () {
+controllerUserPage.prototype.loginUser = function () {
     var self = this;
     document.getElementById('login-close').addEventListener('click', function () {
         history.back();
@@ -42,7 +51,7 @@ controllerLoginPage.prototype.loginUser = function () {
         }
     }, true);
 
-    form.addEventListener('blur', function (event) {
+    form.addEventListener('change', function (event) {
         parentClass = event.target.parentElement.classList;
         eventValue = event.target.value;
         eventName = event.target.name;
@@ -52,7 +61,7 @@ controllerLoginPage.prototype.loginUser = function () {
         } else {
             parentClass.add('novalid');
         }
-    }, true);
+    });
 
     document.getElementById('login-submit').addEventListener('click', function () {
         if (form.querySelector('div.novalid')) return;
@@ -61,7 +70,7 @@ controllerLoginPage.prototype.loginUser = function () {
     });
 };
 
-controllerLoginPage.prototype.loginUserAnswer = function (answer) {
+controllerUserPage.prototype.loginUserAnswer = function (answer) {
     var formDiv = document.body.querySelectorAll('form > div');
     if (!answer[0]) {
         for (var i = 0; i < formDiv.length; i++) {
@@ -74,5 +83,16 @@ controllerLoginPage.prototype.loginUserAnswer = function (answer) {
         }
         return;
     }
-    console.log(answer[0]);
+    this.view.loginUser(answer[0]);
+};
+
+
+controllerUserPage.prototype.logoutUser = function () {
+    this.model.logoutUser('api/user/logout', 'idUser=1');
+    this.view.logoutUser();
+};
+
+
+controllerUserPage.prototype.registrationUser = function () {
+
 };

@@ -23,41 +23,46 @@ class User extends Controller {
         //print_r($var2);
     }
 
-    public function login() {
-//        if (empty($_POST)) return;
-//        $method = $_POST;
-//
-//        $data = json_decode($method['userLogin'], true);
-//
-//        $email = $data['email'];
-//        $pass = md5($data['pass']);
-
-        $email = 'on@mail.com';
-        $pass = md5('12345');
-
-        $userInfo = $this->model->login($email, $pass);
-//        $this->view->login($userInfo);
-
-        echo '<pre>';
-        print_r($userInfo);
-        echo '</pre>';
-
-        if (!empty($userInfo)) {
-            echo '<br><br> good<br><br>';
-
-            $this->setCookies($userInfo[0]['id']);
-        }
+    public function setCookies($idUser) {
+        $this->model->setCookies($idUser);
+    }
+    public function removeCookies($idUser) {
+        $this->model->removeCookies($idUser);
     }
 
+    public function login() {
+        $method = $_POST;
+        if (empty($method)) return;
+
+        $data = json_decode($method['userLogin'], true);
+
+        $email = $data['email'];
+        $pass = md5($data['pass']);
+
+//        $email = 'on@mail.com';
+//        $pass = md5('12345');
+
+        $userInfo = $this->model->login($email, $pass);
+
+        if (!empty($userInfo)) {
+            $this->setCookies($userInfo[0]['id']);
+        }
+        $this->view->login($userInfo);
+    }
+    public function logout() {
+        $method = $_POST;
+        if (empty($method)) return;
+        $this->removeCookies($method['idUser']);
+    }
+    public function getTrueUser() {
+        $userInfo = $this->model->getTrueUser();
+        $this->view->getTrueUser($userInfo);
+    }
     public function registration() {
 
     }
 
-    public function setCookies($idUser) {
-        echo $idUser;
-    }
-    public function deleteCookies() {
-    }
+
 
     public function booking() {
 
@@ -67,7 +72,5 @@ class User extends Controller {
 
     }
 
-    public function getTrueUserId() {
 
-    }
 }

@@ -37,3 +37,14 @@ viewPages.prototype.thePage = function (page, direction) {
 viewPages.prototype.walkPage = function (page, direction) {
     this.thePage(page, direction);
 };
+
+viewPages.prototype.getTrueUser = function (userData) {
+    document.querySelector('.auth-in').classList.add('hidden');
+    document.querySelector('.auth-out').classList.remove('hidden');
+
+    document.getElementById('user-name').innerHTML = userData['name'];
+    document.getElementById('user-l_name').innerHTML = userData['l_name'];
+    document.getElementById('user-tel').innerHTML = userData['phone'];
+    document.getElementById('my-reserve').dataset.userId = userData['id'];
+    document.getElementById('my-reserve').dataset.reg = userData['regDate'];
+};

@@ -363,22 +363,22 @@ footer {
 /*    start #conten_login    */ /* ----- ----- ----- ----- ----- */
 /**   start .block-1_login   **/
 .block-1_login button,
-.block-1_reg button {
+.block-1_registration button {
     font-size: 24px;
 }
 .block-1_login form div label,
-.block-1_reg form div label {
+.block-1_registration form div label {
     font-size: 16px;
     font-family: Kurale;
 }
 .block-1_login form div label.novalid,
-.block-1_reg form div label.novalid{
+.block-1_registration form div label.novalid{
     font-size: 14px;
 }
 .block-1_login form div input,
 .block-1_login form > label,
-.block-1_reg form div input,
-.block-1_reg form > label {
+.block-1_registration form div input,
+.block-1_registration form > label {
     font-size: 16px;
 }
 /**   end .block-1_login   **/
@@ -1635,14 +1635,14 @@ footer {
 /**   end .block-1_search   **/
 /*    end #conten_search    */ /* ----- ----- ----- ----- ----- */
 
-/*    start #conten_login && start #conten_reg    */ /* ----- ----- ----- ----- ----- */
-/**   start .block-1_login && start .block-1_reg   **/
+/*    start #conten_login && start #conten_registration   */ /* ----- ----- ----- ----- ----- */
+/**   start .block-1_login && start .block-1_registration   **/
 .block-1_login,
-.block-1_reg {
+.block-1_registration {
     padding-bottom: 50px;
 }
 .block-1_login button,
-.block-1_reg button {
+.block-1_registration button {
     width: 34px;
     height: 34px;
     margin: 30px 0 10px;
@@ -1651,40 +1651,40 @@ footer {
     color: #fff;
 }
 .block-1_login button i,
-.block-1_reg button i {
+.block-1_registration button i {
     vertical-align: top;
     margin-top: 3px;
 }
 .block-1_login form,
-.block-1_reg form {
+.block-1_registration form {
     clear: both;
     max-width: 396px;
     margin: 0 auto;
 }
 .block-1_login form div label,
-.block-1_reg form div label {
+.block-1_registration form div label {
     margin-left: 20px;
     color: #00395d;
 }
 .block-1_login form div label.novalid,
-.block-1_reg form div label.novalid {
+.block-1_registration form div label.novalid {
     visibility: hidden;
     color: #dc1b3b;
     opacity: 0;
     transition: opacity .2s linear;
 }
 .block-1_login form div.novalid label.novalid,
-.block-1_reg form div.novalid label.novalid {
+.block-1_registration form div.novalid label.novalid {
     visibility: visible;
     opacity: 1;
     transition: opacity .4s linear;
 }
 .block-1_login form div.novalid input,
-.block-1_reg form div.novalid input {
+.block-1_registration form div.novalid input {
     border: 1px solid #dc1b3b;
 }
 .block-1_login form div input,
-.block-1_reg form div input {
+.block-1_registration form div input {
     display: block;
     width: 100%;
     height: 42px;
@@ -1696,12 +1696,12 @@ footer {
     color: #00395d;
 }
 .block-1_login form div input:focus,
-.block-1_reg form div input:focus {
+.block-1_registration form div input:focus {
     box-shadow: 0 0 3px 0 #59b5e2;
     transition: all .1s;
 }
 .block-1_login form > label,
-.block-1_reg form > label {
+.block-1_registration form > label {
     display: block;
     width: 180px;
     height: 36px;
@@ -1712,21 +1712,21 @@ footer {
     line-height: 36px;
     cursor: pointer;
 }
-.block-1_reg form > label {
+.block-1_registration form > label {
     width: 224px;
 }
 .block-1_login form > label:hover,
-.block-1_reg form > label:hover {
+.block-1_registration form > label:hover {
     box-shadow: 0 0 4px 1px #d9a548;
 }
 .block-1_login form > label input,
-.block-1_reg form > label input {
+.block-1_registration form > label input {
     margin-left: 6px;
     background-color: transparent;
     cursor: inherit;
 }
-/**   end .block-1_login && end .block-1_reg   **/
-/*    end #conten_login && end #conten_reg    */ /* ----- ----- ----- ----- ----- */
+/**   end .block-1_login && end .block-1_registration   **/
+/*    end #conten_login && end #conten_registration    */ /* ----- ----- ----- ----- ----- */
 
 /*    start #conten_rooms    */ /* ----- ----- ----- ----- ----- */
 /**   start .block-1_rooms   **/

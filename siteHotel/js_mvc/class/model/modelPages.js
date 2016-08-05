@@ -19,14 +19,11 @@ modelPages.prototype.startPage = function (url, toView) {
     });
 };
 
-modelPages.prototype.getTrueUser = function (url, toView) {
-    // this.ajaxSendGet(url, null, function (answer) {
-    //     var dataFile = JSON.parse(answer);
-    //     var wrapper = document.createElement("div");
-    //     wrapper.innerHTML = dataFile;
-    //     var element = wrapper.children[0];
-    //     toView(element);
-    // });
+modelPages.prototype.getTrueUser = function (url, toContrroller) {
+    this.ajaxSendPost(url, null, function (answer) {
+        var answer = JSON.parse(answer);
+        toContrroller(answer);
+    });
 };
 
 modelPages.prototype.thePage = function (url, toView) {

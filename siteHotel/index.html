@@ -37,7 +37,7 @@
                         <span class="logo-hotel">Hotel</span>
                     </a>
                 </h1>
-                <section class="right auth-in hidden-"> <!-- class = "hidden" -->
+                <section class="right auth-in"> <!-- class = "hidden" -->
                     <a id="login" class="left login" href="pages/login.html">
                         <i class="fa fa-sign-in" aria-hidden="true"></i>Войти
                     </a>
@@ -51,12 +51,12 @@
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                         <ul class="auth-user-menu">
                             <li><i class="fa fa-angle-right" aria-hidden="true"></i>информация:</li>
-                            <li>Имя: <span id="user-name">Сергей</span></li>
-                            <li>Фамилия: <span id="user-l_name">Онищенко</span></li>
-                            <li>Номер: <span id="user-tel">+38 (096) 977 44 91</span></li>
+                            <li>Имя: <span id="user-name"></span></li>
+                            <li>Фамилия: <span id="user-l_name"></span></li>
+                            <li>Номер: <span id="user-tel"></span></li>
                             <li>
                                 <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                <a id="my-reserve" href="#my-reserve">Информация о бронировании</a>
+                                <a id="my-reserve" data-user-id ='' data-reg='' href="#my-reserve">Информация о бронировании</a>
                             </li>
                         </ul>
                     </section>
@@ -420,11 +420,11 @@
     <script src="js_mvc/class/core/History.js"></script>
     <script src="js_mvc/class/core/Validation.js"></script>
     <script src="js_mvc/class/view/viewPages.js"></script>
-    <script src="js_mvc/class/view/viewLoginPage.js"></script>
+    <script src="js_mvc/class/view/viewUserPage.js"></script>
     <script src="js_mvc/class/model/modelPages.js"></script>
-    <script src="js_mvc/class/model/modelLoginPage.js"></script>
+    <script src="js_mvc/class/model/modelUserPage.js"></script>
     <script src="js_mvc/class/controller/controllerPages.js"></script>
-    <script src="js_mvc/class/controller/controllerLoginPage.js"></script>
+    <script src="js_mvc/class/controller/controllerUserPage.js"></script>
     <script src="js_mvc/Routing.js"></script>
 </body>
 </html>

@@ -89,12 +89,12 @@
 
 
 /*    start #conten_login && start #conten_reg    */ /* ----- ----- ----- ----- ----- */
-/**   start .block-1_login && start .block-1_reg   **/
+/**   start .block-1_login && start .block-1_registration   **/
 .block-1_login form div input,
-.block-1_reg form div input {
+.block-1_registration form div input {
     padding: 8px 20px;
 }
-/**   end .block-1_login && end .block-1_reg   **/
+/**   end .block-1_login && end .block-1_registration   **/
 /*    end #conten_login && end #conten_reg    */ /* ----- ----- ----- ----- ----- */
 
 /*    start #conten_rooms    */ /* ----- ----- ----- ----- ----- */

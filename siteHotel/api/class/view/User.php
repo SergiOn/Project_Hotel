@@ -17,5 +17,8 @@ class User extends View {
         echo $this->toJson($userInfo);
     }
 
+    public function getTrueUser($userInfo) {
+        echo $this->toJson($userInfo);
+    }
 
 }

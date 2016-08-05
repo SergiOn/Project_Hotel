@@ -7,28 +7,36 @@ function Routing() {
     this.page = new controllerPages();
 }
 
-Routing.prototype.startController = function (nameController, servicesMiniPage) {
+Routing.prototype.startController = function (nameController, methodName) {
     this._controller = null;
     var self = this;
     var contentId = 'content_' + nameController;
 
     var controllerNameObj = {
-        'login': controllerLoginPage
+        'login': controllerUserPage,
+        'registration': controllerUserPage,
+        'log-out': controllerUserPage
     };
 
     document.getElementById('content').addEventListener('DOMNodeInserted', function () {
         if (!document.getElementById(contentId)) return;
 
-        if (controllerNameObj[nameController] !== controllerLoginPage) return;
+
+        if (controllerNameObj[nameController] !== controllerUserPage) return; /* delete */
+
 
         self._controller = new controllerNameObj[nameController]();
-        self._controller.controllerInit(servicesMiniPage);
+        self._controller.controllerInit(methodName);
     });
     /* ***  нужно раскоментировать. контроллер для home  *** */
     // if (!this._controller) {
     //     this._controller = new controllerNameObj[nameController]();
-    //     this._controller.controllerInit();
+    //     this._controller.controllerInit(methodName);
     // }
+    if (nameController === 'log-out') {
+        this._controller = new controllerNameObj[nameController]();
+        this._controller.controllerInit(methodName);
+    }
 };
 
 Routing.prototype.startPage = function () {
@@ -66,18 +74,11 @@ Routing.prototype.thePages = function () {
             || id === 'services-comfort'
             || id === 'services-rules' ) {
             namePage = 'services';
-            var servicesMiniPage = id;
         } else {
             namePage = id;
         }
-
-        /*
-        * var App = {};
-        * App['home'] = function Home() {};
-        * new App[id]()
-        * */
         self.page.thePage(namePage);
-        self.startController(namePage, servicesMiniPage);
+        self.startController(namePage, id);
     });
 };
 
@@ -100,8 +101,10 @@ Routing.prototype.userPages = function () {
         } else {
             namePage = id;
         }
-        self.page.thePage(namePage);
-        self.startController(namePage);
+        self.startController(namePage, id);
+        if(id !== 'log-out') {
+            self.page.thePage(namePage);
+        }
     });
 };
 
