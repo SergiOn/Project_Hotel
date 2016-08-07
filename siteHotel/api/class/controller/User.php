@@ -23,36 +23,23 @@ class User extends Controller {
         //print_r($var2);
     }
 
-    public function setCookies($idUser) {
-        $this->model->setCookies($idUser);
-    }
-    public function removeCookies($idUser) {
-        $this->model->removeCookies($idUser);
-    }
-
     public function login() {
         $method = $_POST;
         if (empty($method)) return;
-
         $data = json_decode($method['userLogin'], true);
 
         $email = $data['email'];
         $pass = md5($data['pass']);
-
 //        $email = 'on@mail.com';
 //        $pass = md5('12345');
 
         $userInfo = $this->model->login($email, $pass);
-
-        if (!empty($userInfo)) {
-            $this->setCookies($userInfo[0]['id']);
-        }
+        if (empty($userInfo)) return;
+        $this->model->setCookies($email);
         $this->view->login($userInfo);
     }
     public function logout() {
-        $method = $_POST;
-        if (empty($method)) return;
-        $this->removeCookies($method['idUser']);
+        $this->model->removeCookies();
     }
     public function getTrueUser() {
         $userInfo = $this->model->getTrueUser();
@@ -62,7 +49,22 @@ class User extends Controller {
         $this->view->getTrueUser($userInfo);
     }
     public function registration() {
+        $method = $_POST;
+        if (empty($method)) return;
+        $data = json_decode($method['userRegistration'], true);
 
+        $email = $data['email'];
+        $pass = md5($data['pass']);
+        $name = $data['name'];
+        $l_name = $data['l_name'];
+        $tel = $data['tel'];
+
+        $idUser = $this->model->registration($email, $pass, $name, $l_name, $tel);
+        if (!$idUser) return;
+        $userInfo = $this->model->login($email, $pass);
+        if (empty($userInfo)) return;
+        $this->model->setCookies($email);
+        $this->view->registration($userInfo);
     }
 
 

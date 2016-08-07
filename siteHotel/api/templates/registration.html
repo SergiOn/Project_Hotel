@@ -7,27 +7,32 @@
             <form action="#" method="post">
                 <div class="novalid-"> <!-- class='novalid' -->
                     <label for="reg-email">Введите емейл</label>
-                    <input id="reg-email" type="email" name="email" placeholder="Емейл" required autofocus>
+                    <!--<input id="reg-email" type="email" name="email" placeholder="Емейл" required autofocus>-->
+                    <input id="reg-email" type="text" name="email" placeholder="Емейл" autofocus>
                     <label for="reg-email" class="novalid">Вы ввелы неверно данные</label>
                 </div>
                 <div class="novalid-"> <!-- class='novalid' -->
                     <label for="reg-pass">Введите пароль</label>
-                    <input id="reg-pass" type="password" name="pass" placeholder="Пароль" required>
+                    <!--<input id="reg-pass" type="password" name="pass" required placeholder="Пароль">-->
+                    <input id="reg-pass" type="text" name="pass" placeholder="Пароль">
                     <label for="reg-pass" class="novalid">Вы ввелы неверно данные</label>
                 </div>
                 <div class="novalid-"> <!-- class='novalid' -->
                     <label for="reg-name">Введите имя</label>
-                    <input id="reg-name" type="text" name="name" placeholder="Имя" required pattern="[A-Za-zА-Яа-яЁё]+">
+                    <!--<input id="reg-name" type="text" name="name" placeholder="Имя" required pattern="[A-Za-zА-Яа-яЁё]+">-->
+                    <input id="reg-name" type="text" name="name" placeholder="Имя">
                     <label for="reg-name" class="novalid">Вы ввелы неверно данные</label>
                 </div>
                 <div class="novalid-"> <!-- class='novalid' -->
                     <label for="reg-l_name">Введите фамилию</label>
-                    <input id="reg-l_name" type="text" name="l_name" placeholder="Фамилия" required pattern="[A-Za-zА-Яа-яЁё]+">
+                    <!--<input id="reg-l_name" type="text" name="l_name" placeholder="Фамилия" required pattern="[\s\-A-Za-zА-Яа-яЁё]+">-->
+                    <input id="reg-l_name" type="text" name="l_name" placeholder="Фамилия">
                     <label for="reg-l_name" class="novalid">Вы ввелы неверно данные</label>
                 </div>
                 <div class="novalid-"> <!-- class='novalid' -->
                     <label for="reg-tell">Введите номер телефона</label>
-                    <input id="reg-tell" type="tel" name="tell" placeholder="Номер телефона" required pattern="\+?\d{5,12}">
+                    <!--<input id="reg-tell" type="tel" name="tel" placeholder="Номер телефона" required pattern="\+?\d{5,12}">-->
+                    <input id="reg-tell" type="tel" name="tel" placeholder="Номер телефона">
                     <label for="reg-tell" class="novalid">Вы ввелы неверно данные</label>
                 </div>
                 <label>

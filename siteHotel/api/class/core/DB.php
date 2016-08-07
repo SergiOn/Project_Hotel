@@ -138,17 +138,7 @@ class DB implements IDB {
         return $result;
     }
 }
-# delete працює
-# insert працює
-# update працює
-# $table, $what = false, $where = false, $orderColumn = false, $desc = false, $limit = false
-//$sql = new DB();
-//echo "<pre>";
-//print_r($sql->select("test", false, false, 'id', 'desc',[1, 10]));
-//print_r($sql->insert('test', ['name'=>'new']));
-//print_r($sql->update('test', ['name'=>'10'], ['id'=>'13']));
-//echo "</pre>";
-# ASC|DESC
+
 
 
 interface IDB {

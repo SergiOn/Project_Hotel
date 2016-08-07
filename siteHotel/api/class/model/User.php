@@ -13,9 +13,8 @@ use core\Model;
 
 class User extends Model {
 
-    public function setCookies($idUser) {
-        $userInfo = $this->db->select('user_login', false, ['id' => $idUser])[0];
-        $email = $userInfo['email'];
+    public function setCookies($emailUser) {
+        $email = $emailUser;
         $cookieData = $this->doEncryption($email);
         setcookie("auth", $cookieData['auth'], time()+60*60*24, "/");
         setcookie("token", $cookieData['token'], time()+60*60*24, "/");
@@ -41,7 +40,7 @@ class User extends Model {
     }
 
     public function getTrueUser() {
-        if (empty($_COOKIE)) return;
+        if (empty($_COOKIE)) return false;
         $email = $_COOKIE['auth'];
         $token = $_COOKIE['token'];
         $trueToken = $this->doEncryption($email)['token'];
@@ -56,6 +55,14 @@ class User extends Model {
         ", [$email]);
         return $userInfo;
     }
+
+    public function registration($email, $pass, $name, $l_name, $tel) {
+        $idUser = $this->db->insert('user_login', ['email' => $email, 'pass' => $pass]);
+        if (!$idUser) return false;
+        $this->db->insert('user_data', ['id' => $idUser, 'name' => $name, 'l_name' => $l_name, 'phone' => $tel]);
+        return $idUser;
+    }
+
 
 
 

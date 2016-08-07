@@ -21,4 +21,8 @@ class User extends View {
         echo $this->toJson($userInfo);
     }
 
+    public function registration($userInfo) {
+        echo $this->toJson($userInfo);
+    }
+
 }
