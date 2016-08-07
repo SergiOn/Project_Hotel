@@ -45,15 +45,21 @@ controllerPages.prototype.thePage = function (namePage) {
     var contentChildren = document.getElementById('content').children[0];
     this.historyAddPage(contentChildren);
 
-    var el = 'content_' + namePage;
-    if (document.getElementById(el)) return;
+    var domEl = 'content_' + namePage;
+    if (document.getElementById(domEl)) return;
 
     this.changeMenu(namePage);
     this.historyChangeUrl(namePage);
 
+    /* открываю страницу с истории, а не делаю запросс к базе */
+    if (this.historyHasPage(domEl)) {
+        this.view.thePage(this.historyOpenPage(domEl), 'left');
+        console.log('historyPage');
+        return;
+    }
+
     var url = '/api/pages/' + namePage;
     this.model.thePage(url, this.view.thePage.bind(this.view));
-    this.historyAddPage(namePage);
 };
 
 controllerPages.prototype.changeMenu = function (namePage) {

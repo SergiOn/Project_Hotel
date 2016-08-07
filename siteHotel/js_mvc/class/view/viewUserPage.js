@@ -13,8 +13,8 @@ viewUserPage.prototype.loginUser = function (userData) {
     document.getElementById('user-name').innerHTML = userData['name'];
     document.getElementById('user-l_name').innerHTML = userData['l_name'];
     document.getElementById('user-tel').innerHTML = userData['phone'];
-    document.getElementById('my-reserve').dataset.userId = userData['id'];
-    document.getElementById('my-reserve').dataset.reg = userData['regDate'];
+    document.getElementById('my_reserve').dataset.userId = userData['id'];
+    document.getElementById('my_reserve').dataset.reg = userData['regDate'];
 
     history.back();
 
@@ -28,6 +28,6 @@ viewUserPage.prototype.logoutUser = function () {
     document.getElementById('user-name').innerHTML = '';
     document.getElementById('user-l_name').innerHTML = '';
     document.getElementById('user-tel').innerHTML = '';
-    document.getElementById('my-reserve').dataset.userId = '';
-    document.getElementById('my-reserve').dataset.reg = '';
+    document.getElementById('my_reserve').dataset.userId = '';
+    document.getElementById('my_reserve').dataset.reg = '';
 };

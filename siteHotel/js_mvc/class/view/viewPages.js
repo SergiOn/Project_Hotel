@@ -45,6 +45,6 @@ viewPages.prototype.getTrueUser = function (userData) {
     document.getElementById('user-name').innerHTML = userData['name'];
     document.getElementById('user-l_name').innerHTML = userData['l_name'];
     document.getElementById('user-tel').innerHTML = userData['phone'];
-    document.getElementById('my-reserve').dataset.userId = userData['id'];
-    document.getElementById('my-reserve').dataset.reg = userData['regDate'];
+    document.getElementById('my_reserve').dataset.userId = userData['id'];
+    document.getElementById('my_reserve').dataset.reg = userData['regDate'];
 };

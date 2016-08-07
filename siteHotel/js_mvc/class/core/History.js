@@ -3,7 +3,7 @@
  */
 
 function History() {
-    this._historyArrey = [];
+    this._historyArray = [];
     this._historyPosition = 0;
 }
 
@@ -20,12 +20,12 @@ History.prototype.historyChangeUrl = function (nameUrl) {
     }
 };
 
-History.prototype.historyAddPage = function (namePage) {
-    if (this._historyArrey.length > this._historyPosition) {
-        this._historyArrey.splice(this._historyPosition);
+History.prototype.historyAddPage = function (domPage) {
+    if (this._historyArray.length > this._historyPosition) {
+        this._historyArray.splice(this._historyPosition);
     }
     this._historyPosition = this._historyPosition + 1;
-    this._historyArrey.push(namePage);
+    this._historyArray.push(domPage);
 };
 
 History.prototype.historyWalk = function () {
@@ -42,11 +42,11 @@ History.prototype.historyWalk = function () {
     if (!locationUrl) locationUrl = 'home';
     var locationId = 'content_' + locationUrl;
 
-    if (this._historyPosition === this._historyArrey.length) {
+    if (this._historyPosition === this._historyArray.length) {
         this._lastPage = document.getElementById('content').children[0];
     }
-    for (var key in this._historyArrey) {
-        if (this._historyArrey[key].id === locationId) {
+    for (var key in this._historyArray) {
+        if (this._historyArray[key].id === locationId) {
             if (this._historyPosition > key) {
                 historyDirection = 'right';
             } else {
@@ -56,11 +56,11 @@ History.prototype.historyWalk = function () {
         }
     }
     if (locationId === this._lastPage.id) {
-        this._historyPosition = this._historyArrey.length;
+        this._historyPosition = this._historyArray.length;
         historyDirection = 'left';
         page = this._lastPage;
     } else{
-        page = this._historyArrey[this._historyPosition];
+        page = this._historyArray[this._historyPosition];
     }
     return {
         'page': page,
@@ -69,9 +69,22 @@ History.prototype.historyWalk = function () {
     };
 };
 
+History.prototype.historyHasPage = function (namePage) {
+    for (var key in this._historyArray) {
+        if (this._historyArray[key].id === namePage) {
+            return true;
+        }
+    }
+    return false;
+};
 
-
-
+History.prototype.historyOpenPage = function (namePage) {
+    for (var key in this._historyArray) {
+        if (this._historyArray[key].id === namePage) {
+            return this._historyArray[key];
+        }
+    }
+};
 
 
 
