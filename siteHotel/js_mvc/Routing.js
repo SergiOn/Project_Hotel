@@ -8,7 +8,8 @@ function Routing() {
 }
 
 Routing.prototype.startController = function (nameController, methodName) {
-    var controller,
+    var self = this,
+        controller,
         controllerNameObj = {
         'login': controllerUserPage,
         'registration': controllerUserPage,
@@ -18,17 +19,13 @@ Routing.prototype.startController = function (nameController, methodName) {
 
     };
 
-    if (!controller) {
-        controller = new controllerNameObj[nameController](this.controllerPages);
-        controller.controllerInit();
-    }
     if (nameController === 'log-out') {
         var controllerLogOut = new controllerNameObj[nameController]();
         controllerLogOut.controllerInit(methodName);
         return;
     }
 
-    if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'log-out' && nameController !== 'my_reserve' && nameController !== 'home') return;
+    if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'my_reserve' && nameController !== 'home') return;
 
     setTimeout(function () {
         if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'my_reserve' && nameController !== 'home') return;
@@ -70,7 +67,7 @@ Routing.prototype.startPage = function () {
     namePage = namePage ? namePage : 'home';
 
     this.controllerPages.startPage(namePage);
-    this.startController(namePage);
+    this.startController(namePage, namePage);
 };
 
 Routing.prototype.thePages = function () {
