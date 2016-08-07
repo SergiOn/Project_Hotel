@@ -61,4 +61,9 @@ class Pages extends View {
         echo $this->toJson($file);
     }
 
+    public function my_reserve() {
+        $file = file_get_contents('templates/my_reserve.html');
+        echo $this->toJson($file);
+    }
+
 }

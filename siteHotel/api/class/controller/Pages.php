@@ -59,4 +59,8 @@ class Pages extends Controller {
         $this->view->registration();
     }
 
+    public function my_reserve() {
+        $this->view->my_reserve();
+    }
+
 }

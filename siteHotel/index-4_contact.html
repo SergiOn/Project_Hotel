@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>SO Hotel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/logo16x16.png" type="image/png">
     <link rel="stylesheet" href="libs/normalize.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="libs/font-awesome-4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 
     <!--[if lte IE 9]>
         <script src="libs/ie/html5.js"></script>
@@ -17,11 +17,14 @@
         <script src="libs/ie/addEventListener-polyfill.js"></script>
         <script src="libs/ie/classList.min.js"></script>
         <script src="libs/ie/getComputedStyle.js"></script>
+        <script src="libs/ie/polyfill.element.matches.js"></script>
+        <script src="libs/ie/polyfill.element.closest.js"></script>
         <link rel="stylesheet" href="css/styleie9.css">
     <![endif]-->
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="css/styleie8.css">
     <![endif]-->
+    <script src="//cdn.polyfill.io/v1/polyfill.js?features=es6"></script>
 
 </head>
 <body>
@@ -53,7 +56,7 @@
                             <li>Номер: <span id="user-tel">+38 (096) 977 44 91</span></li>
                             <li>
                                 <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                <a id="my-reserve" href="#my-reserve">Информация о бронировании</a>
+                                <a id="my_reserve" href="#my-reserve">Информация о бронировании</a>
                             </li>
                         </ul>
                     </section>
