@@ -16,14 +16,14 @@ viewUserPage.prototype.loginUser = function (userData) {
     document.getElementById('my_reserve').dataset.userId = userData['id'];
     document.getElementById('my_reserve').dataset.reg = userData['regDate'];
 
-    // history.back();
+    history.back();
 
     console.log(userData);
 };
 
 viewUserPage.prototype.logoutUser = function () {
-    document.querySelector('.auth-in').classList.remove('hidden');
     document.querySelector('.auth-out').classList.add('hidden');
+    document.querySelector('.auth-in').classList.remove('hidden');
 
     document.getElementById('user-name').innerHTML = '';
     document.getElementById('user-l_name').innerHTML = '';

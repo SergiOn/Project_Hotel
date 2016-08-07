@@ -12,6 +12,7 @@ controllerUserPage.prototype.constructor = controllerUserPage;
 
 
 controllerUserPage.prototype.controllerInit = function (methodName) {
+    console.log(methodName);
     if (methodName === 'login') {
         this.loginUser();
     }
@@ -26,19 +27,22 @@ controllerUserPage.prototype.controllerInit = function (methodName) {
 controllerUserPage.prototype.loginUser = function () {
     var self = this;
     document.getElementById('login-close').addEventListener('click', function () {
-        console.log('back');
         history.back();
     });
-    var form = document.querySelector('form');
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-    });
-
-    var parentClass,
+    var form = document.querySelector('form'),
+        divInput = form.querySelectorAll('div > input'),
+        parentClass,
         formObjJson,
         eventValue,
         eventName,
         formObj = {};
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+    });
+
+    for (var i = 0; i < divInput.length; i++) {
+        formObj[divInput[i].name] = divInput[i].value;
+    }
 
     form.addEventListener('focus', function (event) {
         parentClass = event.target.parentElement.classList;
@@ -54,17 +58,16 @@ controllerUserPage.prototype.loginUser = function () {
         if (event.target.type === 'submit') return;
         if (self.validForm(eventName, eventValue)) {
             formObj[eventName] = eventValue;
+            console.log(eventValue);
         } else {
             parentClass.add('novalid');
         }
     });
 
     document.getElementById('login-submit').addEventListener('click', function () {
-        console.log('click');
-        // if (form.querySelector('div.novalid')) return;
-        // formObjJson = JSON.stringify(formObj);
-        // console.log(formObj);
-        // self.model.loginUser('api/user/login', 'userLogin='+formObjJson, self.loginUserAnswer.bind(self));
+        if (form.querySelector('div.novalid')) return;
+        formObjJson = JSON.stringify(formObj);
+        self.model.loginUser('api/user/login', 'userLogin='+formObjJson, self.loginUserAnswer.bind(self));
     });
 };
 
@@ -96,16 +99,20 @@ controllerUserPage.prototype.registrationUser = function () {
     document.getElementById('reg-close').addEventListener('click', function () {
         history.back();
     });
-    var form = document.querySelector('form');
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-    });
-
-    var parentClass,
+    var form = document.querySelector('form'),
+        divInput = form.querySelectorAll('div > input'),
+        parentClass,
         formObjJson,
         eventValue,
         eventName,
         formObj = {};
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+    });
+
+    for (var i = 0; i < divInput.length; i++) {
+        formObj[divInput[i].name] = divInput[i].value;
+    }
 
     form.addEventListener('focus', function (event) {
         if (event.target.type === 'submit') return;
@@ -140,20 +147,17 @@ controllerUserPage.prototype.registrationUser = function () {
 };
 
 controllerUserPage.prototype.registrationUserAnswer = function (answer) {
-
-    console.log(answer);
-
-    // var formDiv = document.body.querySelectorAll('form > div');
-    // if (!answer[0]) {
-    //     for (var i = 0; i < formDiv.length; i++) {
-    //         formDiv[i].classList.add('novalid');
-    //         (function (i) {
-    //             setTimeout(function () {
-    //                 formDiv[i].classList.remove('novalid');
-    //             }, 2000);
-    //         })(i);
-    //     }
-    //     return;
-    // }
-    // this.view.registrationUser(answer[0]);
+    var formDiv = document.body.querySelectorAll('form > div');
+    if (!answer[0]) {
+        for (var i = 0; i < formDiv.length; i++) {
+            formDiv[i].classList.add('novalid');
+            (function (i) {
+                setTimeout(function () {
+                    formDiv[i].classList.remove('novalid');
+                }, 2000);
+            })(i);
+        }
+        return;
+    }
+    this.view.registrationUser(answer[0]);
 };

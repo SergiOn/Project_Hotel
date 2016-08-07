@@ -9,7 +9,6 @@ function Routing() {
 
 Routing.prototype.startController = function (nameController, methodName) {
     var controller,
-        contentId = 'content_' + nameController,
         controllerNameObj = {
         'login': controllerUserPage,
         'registration': controllerUserPage,
@@ -19,37 +18,39 @@ Routing.prototype.startController = function (nameController, methodName) {
 
     };
 
-    if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'log-out' && nameController !== 'my_reserve' && nameController !== 'home') return;
-
-    setTimeout(function () {
-        if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'log-out' && nameController !== 'my_reserve' && nameController !== 'home') return;
-
-        /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
-        controller = new controllerNameObj[nameController](self.controllerPages);
-        controller.controllerInit(methodName);
-    }, 2200);
-
-
-    // document.getElementById('content').addEventListener('DOMNodeInserted', function (event) {
-    //     console.log(document.getElementById(contentId));
-    //     if (!document.getElementById(contentId)) return;
-    //
-    //     if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'log-out' && nameController !== 'my_reserve' && nameController !== 'home') return;
-    //
-    //     /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
-    //     controller = new controllerNameObj[nameController](self.controllerPages);
-    //     controller.controllerInit(methodName);
-    //     return false;
-    // }, false);
-    /* ***  controllerHomePage  *** */
     if (!controller) {
-        controller = new controllerNameObj[nameController](self.controllerPages);
+        controller = new controllerNameObj[nameController](this.controllerPages);
         controller.controllerInit();
     }
     if (nameController === 'log-out') {
-        controller = new controllerNameObj[nameController]();
-        controller.controllerInit(methodName);
+        var controllerLogOut = new controllerNameObj[nameController]();
+        controllerLogOut.controllerInit(methodName);
+        return;
     }
+
+    if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'log-out' && nameController !== 'my_reserve' && nameController !== 'home') return;
+
+    setTimeout(function () {
+        if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'my_reserve' && nameController !== 'home') return;
+
+        // /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
+        controller = new controllerNameObj[nameController](self.controllerPages);
+        controller.controllerInit(methodName);
+    }, 2000);
+
+    /*       *** mutation observe ***
+    var target = document.getElementById('content');
+    // создаем экземпляр MutationObserver
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            console.log(mutation.type);
+        });
+    });
+    // конфигурация нашего observer:
+    var config = {childList: true};
+    // передаем в качестве аргументов целевой элемент и его конфигурацию
+    observer.observe(target, config);
+    */
 };
 
 Routing.prototype.startPage = function () {
