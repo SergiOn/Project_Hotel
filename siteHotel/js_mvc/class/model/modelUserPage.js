@@ -20,3 +20,10 @@ modelUserPage.prototype.logoutUser = function (url, data) {
     this.ajaxSendPost(url, data, function () {
     });
 };
+
+modelUserPage.prototype.registrationUser = function (url, data, toContrroller) {
+    this.ajaxSendPost(url, data, function (answer) {
+        var answer = JSON.parse(answer);
+        toContrroller(answer);
+    });
+};

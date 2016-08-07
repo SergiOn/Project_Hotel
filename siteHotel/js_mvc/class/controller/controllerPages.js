@@ -52,11 +52,11 @@ controllerPages.prototype.thePage = function (namePage) {
     this.historyChangeUrl(namePage);
 
     /* открываю страницу с истории, а не делаю запросс к базе */
-    if (this.historyHasPage(domEl)) {
-        this.view.thePage(this.historyOpenPage(domEl), 'left');
-        console.log('historyPage');
-        return;
-    }
+    // if (this.historyHasPage(domEl)) {
+    //     this.view.thePage(this.historyOpenPage(domEl), 'left');
+    //     console.log('historyPage');
+    //     return;
+    // }
 
     var url = '/api/pages/' + namePage;
     this.model.thePage(url, this.view.thePage.bind(this.view));

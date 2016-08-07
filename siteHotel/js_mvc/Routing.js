@@ -8,34 +8,47 @@ function Routing() {
 }
 
 Routing.prototype.startController = function (nameController, methodName) {
-    this._controller = null;
-    var self = this;
-    var contentId = 'content_' + nameController;
-
-    var controllerNameObj = {
+    var controller,
+        contentId = 'content_' + nameController,
+        controllerNameObj = {
         'login': controllerUserPage,
         'registration': controllerUserPage,
-        'log-out': controllerUserPage
+        'log-out': controllerUserPage,
+        'my_reserve': controllerUserPage,
+        'home': controllerHomePage
+
     };
 
-    document.getElementById('content').addEventListener('DOMNodeInserted', function () {
-        if (!document.getElementById(contentId)) return;
+    if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'log-out' && nameController !== 'my_reserve' && nameController !== 'home') return;
 
-
-        if (controllerNameObj[nameController] !== controllerUserPage) return; /* delete */
+    setTimeout(function () {
+        if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'log-out' && nameController !== 'my_reserve' && nameController !== 'home') return;
 
         /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
-        self._controller = new controllerNameObj[nameController](self.controllerPages);
-        self._controller.controllerInit(methodName);
-    });
-    /* ***  нужно раскоментировать. контроллер для home  *** */
-    // if (!this._controller) {
-    //     this._controller = new controllerNameObj[nameController]();
-    //     this._controller.controllerInit(methodName);
-    // }
+        controller = new controllerNameObj[nameController](self.controllerPages);
+        controller.controllerInit(methodName);
+    }, 2200);
+
+
+    // document.getElementById('content').addEventListener('DOMNodeInserted', function (event) {
+    //     console.log(document.getElementById(contentId));
+    //     if (!document.getElementById(contentId)) return;
+    //
+    //     if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'log-out' && nameController !== 'my_reserve' && nameController !== 'home') return;
+    //
+    //     /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
+    //     controller = new controllerNameObj[nameController](self.controllerPages);
+    //     controller.controllerInit(methodName);
+    //     return false;
+    // }, false);
+    /* ***  controllerHomePage  *** */
+    if (!controller) {
+        controller = new controllerNameObj[nameController](self.controllerPages);
+        controller.controllerInit();
+    }
     if (nameController === 'log-out') {
-        this._controller = new controllerNameObj[nameController]();
-        this._controller.controllerInit(methodName);
+        controller = new controllerNameObj[nameController]();
+        controller.controllerInit(methodName);
     }
 };
 
@@ -53,6 +66,8 @@ Routing.prototype.startPage = function () {
     } else if (locationHash) {
         namePage = locationHash;
     }
+    namePage = namePage ? namePage : 'home';
+
     this.controllerPages.startPage(namePage);
     this.startController(namePage);
 };
@@ -61,6 +76,7 @@ Routing.prototype.thePages = function () {
     var self = this;
     var menuEl = document.getElementById('menu');
     menuEl.addEventListener('click', function (event) {
+        if (!event.target.closest('a')) return;
         var tagName = event.target.closest('a').tagName,
             id = event.target.closest('a').id,
             namePage;

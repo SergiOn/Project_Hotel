@@ -16,8 +16,8 @@ viewPages.prototype.thePage = function (page, direction) {
     var animationOutName = 'animation_out_center-' + direction;
     var animationInName = 'animation_in_center';
     document.body.style.overflowX = 'hidden';
-    var wrapper = document.getElementById('content');
-    var children = wrapper.children[0];
+    var wrapper = document.getElementById('content'),
+        children = wrapper.children[0];
     children.classList.add(animationOutName);
 
     var styleChildren = getComputedStyle(children);

@@ -45,14 +45,14 @@ History.prototype.historyWalk = function () {
     if (this._historyPosition === this._historyArray.length) {
         this._lastPage = document.getElementById('content').children[0];
     }
-    for (var key in this._historyArray) {
-        if (this._historyArray[key].id === locationId) {
-            if (this._historyPosition > key) {
+    for (var i = this._historyArray.length - 1; i >= 0; i--) {
+        if (this._historyArray[i].id === locationId) {
+            if (this._historyPosition > i) {
                 historyDirection = 'right';
             } else {
                 historyDirection = 'left';
             }
-            this._historyPosition = key;
+            this._historyPosition = i;
         }
     }
     if (locationId === this._lastPage.id) {
@@ -79,9 +79,9 @@ History.prototype.historyHasPage = function (namePage) {
 };
 
 History.prototype.historyOpenPage = function (namePage) {
-    for (var key in this._historyArray) {
-        if (this._historyArray[key].id === namePage) {
-            return this._historyArray[key];
+    for (var i = this._historyArray.length - 1; i >= 0; i--) {
+        if (this._historyArray[i].id === namePage) {
+            return this._historyArray[i];
         }
     }
 };

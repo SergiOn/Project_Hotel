@@ -16,7 +16,7 @@ viewUserPage.prototype.loginUser = function (userData) {
     document.getElementById('my_reserve').dataset.userId = userData['id'];
     document.getElementById('my_reserve').dataset.reg = userData['regDate'];
 
-    history.back();
+    // history.back();
 
     console.log(userData);
 };
@@ -30,4 +30,8 @@ viewUserPage.prototype.logoutUser = function () {
     document.getElementById('user-tel').innerHTML = '';
     document.getElementById('my_reserve').dataset.userId = '';
     document.getElementById('my_reserve').dataset.reg = '';
+};
+
+viewUserPage.prototype.registrationUser = function (userData) {
+    this.loginUser(userData);
 };
