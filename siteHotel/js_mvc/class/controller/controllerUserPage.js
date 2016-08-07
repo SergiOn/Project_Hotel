@@ -2,7 +2,8 @@
  * Created by Sergio on 03.08.2016.
  */
 
-function controllerUserPage() {
+function controllerUserPage(controllerPage) {
+    this.controllerPage = controllerPage;
     this.model = new modelUserPage();
     this.view = new viewUserPage();
     Validation.call(this);
@@ -12,6 +13,9 @@ controllerUserPage.prototype.constructor = controllerUserPage;
 
 
 controllerUserPage.prototype.controllerInit = function (methodName) {
+
+    console.log(this.controllerPage);
+
     if (methodName === 'login') {
         this.loginUser();
     }

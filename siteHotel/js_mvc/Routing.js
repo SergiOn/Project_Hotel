@@ -4,7 +4,7 @@
 
 
 function Routing() {
-    this.page = new controllerPages();
+    this.controllerPages = new controllerPages();
 }
 
 Routing.prototype.startController = function (nameController, methodName) {
@@ -24,8 +24,8 @@ Routing.prototype.startController = function (nameController, methodName) {
 
         if (controllerNameObj[nameController] !== controllerUserPage) return; /* delete */
 
-
-        self._controller = new controllerNameObj[nameController]();
+        /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
+        self._controller = new controllerNameObj[nameController](self.controllerPages);
         self._controller.controllerInit(methodName);
     });
     /* ***  нужно раскоментировать. контроллер для home  *** */
@@ -53,7 +53,7 @@ Routing.prototype.startPage = function () {
     } else if (locationHash) {
         namePage = locationHash;
     }
-    this.page.startPage(namePage);
+    this.controllerPages.startPage(namePage);
     this.startController(namePage);
 };
 
@@ -77,7 +77,7 @@ Routing.prototype.thePages = function () {
         } else {
             namePage = id;
         }
-        self.page.thePage(namePage);
+        self.controllerPages.thePage(namePage);
         self.startController(namePage, id);
     });
 };
@@ -88,6 +88,7 @@ Routing.prototype.userPages = function () {
 
     userMenuEl.addEventListener('click', function (event) {
         event.preventDefault();
+        if (!event.target.closest('a')) return;
 
         var tagName = event.target.closest('a').tagName,
             id = event.target.closest('a').id,
@@ -103,7 +104,7 @@ Routing.prototype.userPages = function () {
         }
         self.startController(namePage, id);
         if(id !== 'log-out') {
-            self.page.thePage(namePage);
+            self.controllerPages.thePage(namePage);
         }
     });
 };
@@ -111,7 +112,7 @@ Routing.prototype.userPages = function () {
 Routing.prototype.siteHistory = function () {
     var self = this;
     window.addEventListener('popstate', function () {
-        self.page.pageWalkHistory();
+        self.controllerPages.pageWalkHistory();
     });
 };
 

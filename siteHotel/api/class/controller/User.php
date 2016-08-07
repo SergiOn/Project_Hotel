@@ -56,6 +56,9 @@ class User extends Controller {
     }
     public function getTrueUser() {
         $userInfo = $this->model->getTrueUser();
+        if (!$userInfo) {
+            $this->model->removeCookies();
+        }
         $this->view->getTrueUser($userInfo);
     }
     public function registration() {

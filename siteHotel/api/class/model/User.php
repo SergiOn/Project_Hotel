@@ -24,15 +24,7 @@ class User extends Model {
         $token = md5("security_key".$email);
         return $array = ['auth' => $email, 'token' => $token];
     }
-    public function removeCookies($idUser) {
-        $cookieAuth = $_COOKIE['auth'];
-        $cookieToken = $_COOKIE['token'];
-        $trueToken = $this->doEncryption($cookieAuth)['token'];
-        $userData = $this->db->select('user_login', ['email'], ['id' => $idUser]);
-
-        if (empty($userData) || $userData[0]['email'] !== $cookieAuth || $cookieToken !== $trueToken) {
-            return;
-        }
+    public function removeCookies() {
         if (isset($_COOKIE['auth']) || isset($_COOKIE['token'])) {
             setcookie("auth", "", time()-1, "/");
             setcookie("token", "", time()-1, "/");
@@ -51,6 +43,12 @@ class User extends Model {
     public function getTrueUser() {
         if (empty($_COOKIE)) return;
         $email = $_COOKIE['auth'];
+        $token = $_COOKIE['token'];
+        $trueToken = $this->doEncryption($email)['token'];
+        $userData = $this->db->select('user_login', false, ['email' => $email]);
+        if (empty($userData) || $userData[0]['email'] !== $email || $token !== $trueToken) {
+            return false;
+        }
 
         $userInfo = $this->db->selectQuery("
             SELECT user_data.* FROM `user_login` LEFT JOIN `user_data` 
