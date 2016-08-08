@@ -25,11 +25,13 @@ Routing.prototype.startController = function (nameController, methodName) {
         return;
     }
 
-    if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'my_reserve' && nameController !== 'home') return;
+    if (!controller) {
+        controller = new controllerNameObj[nameController](this.controllerPages);
+        controller.controllerInit(methodName);
+        return;
+    }
 
     setTimeout(function () {
-        if (nameController !== 'login' && nameController !== 'registration' && nameController !== 'my_reserve' && nameController !== 'home') return;
-
         // /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
         controller = new controllerNameObj[nameController](self.controllerPages);
         controller.controllerInit(methodName);

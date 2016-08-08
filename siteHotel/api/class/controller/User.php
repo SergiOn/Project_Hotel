@@ -60,9 +60,14 @@ class User extends Controller {
         $tel = $data['tel'];
 
         $idUser = $this->model->registration($email, $pass, $name, $l_name, $tel);
-        if (!$idUser) return;
+        if (!$idUser) {
+            $this->view->registration([]);
+            return;
+        }
         $userInfo = $this->model->login($email, $pass);
-        if (empty($userInfo)) return;
+        if (empty($userInfo)) {
+            return;
+        }
         $this->model->setCookies($email);
         $this->view->registration($userInfo);
     }

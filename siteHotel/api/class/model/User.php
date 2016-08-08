@@ -57,8 +57,10 @@ class User extends Model {
     }
 
     public function registration($email, $pass, $name, $l_name, $tel) {
+        $loginUser = $this->db->select('user_login', false, ['email' => $email]);
+        if (!empty($loginUser)) return false;
         $idUser = $this->db->insert('user_login', ['email' => $email, 'pass' => $pass]);
-        if (!$idUser) return false;
+        if (empty($idUser)) return false;
         $this->db->insert('user_data', ['id' => $idUser, 'name' => $name, 'l_name' => $l_name, 'phone' => $tel]);
         return $idUser;
     }
