@@ -16,8 +16,8 @@ Routing.prototype.startController = function (nameController, methodName) {
         'log-out': controllerUserPage,
         'my_reserve': controllerUserPage,
         'home': controllerHomePage
-
     };
+    if (!(nameController in controllerNameObj)) return;
 
     if (nameController === 'log-out') {
         var controllerLogOut = new controllerNameObj[nameController]();
@@ -25,17 +25,11 @@ Routing.prototype.startController = function (nameController, methodName) {
         return;
     }
 
-    if (!controller) {
-        controller = new controllerNameObj[nameController](this.controllerPages);
-        controller.controllerInit(methodName);
-        return;
-    }
-
     setTimeout(function () {
         // /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
         controller = new controllerNameObj[nameController](self.controllerPages);
         controller.controllerInit(methodName);
-    }, 2000);
+    }, 1700);
 
     /*       *** mutation observe ***
     var target = document.getElementById('content');

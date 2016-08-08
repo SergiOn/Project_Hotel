@@ -12,9 +12,10 @@ controllerHomePage.prototype.controllerInit = function () {
     this.block1_ArrowSlider();
     this.block1_Slider_changeBanner();
     this.block1_Slider_changeBannerImg();
-    this.block2_Home_hotel_Key();
-    this.block2_Home_hotel_Rooms();
-    this.block2_Home_hotel_Halls();
+    this.block1_Banner_Reserve();
+    this.block2_Hotel_Key();
+    this.block2_Hotel_Rooms();
+    this.block2_Hotel_Halls();
 };
 
 
@@ -148,7 +149,28 @@ controllerHomePage.prototype.block1_Slider_changeBannerImg = function () {
 };
 
 
-controllerHomePage.prototype.block2_Home_hotel_Key = function () {
+controllerHomePage.prototype.block1_Banner_Reserve = function () {
+    var elUp = document.querySelector('.block-1_home_banner-top'),
+        el = document.querySelector('.block-1_home_banner-reserve'),
+        elUpCoordTop;
+    window.addEventListener('scroll', function () {
+        elUpCoordTop = elUp.getBoundingClientRect().bottom;
+        if (elUpCoordTop < 0) {
+            el.classList.add('fixed');
+        } else {
+            el.classList.remove('fixed');
+        }
+    });
+
+
+
+
+
+
+};
+
+
+controllerHomePage.prototype.block2_Hotel_Key = function () {
     var self = this,
         aEl,
         block;
@@ -158,14 +180,14 @@ controllerHomePage.prototype.block2_Home_hotel_Key = function () {
         block = document.getElementById('block-2_home_hotel-rooms');
 
         if (aEl === aEl.parentElement.children[0]) {
-            self.view.block2_Home_hotel_Key(aEl, aEl.nextElementSibling, block, true);
+            self.view.block2_Hotel_Key(aEl, aEl.nextElementSibling, block, true);
         } else {
-            self.view.block2_Home_hotel_Key(aEl, aEl.previousElementSibling, block, false);
+            self.view.block2_Hotel_Key(aEl, aEl.previousElementSibling, block, false);
         }
     });
 };
 
-controllerHomePage.prototype.block2_Home_hotel_Rooms = function () {
+controllerHomePage.prototype.block2_Hotel_Rooms = function () {
     var self = this,
         parent,
         className,
@@ -181,12 +203,12 @@ controllerHomePage.prototype.block2_Home_hotel_Rooms = function () {
         imgActive = parent.querySelector('img.' + className);
         divActive = parent.querySelector('div.' + className);
 
-        self.view.block2_Home_hotel_Rooms(parent, className, aActive, imgActive, divActive);
+        self.view.block2_Hotel_Rooms(parent, className, aActive, imgActive, divActive);
     });
 
 };
 
-controllerHomePage.prototype.block2_Home_hotel_Halls = function () {
+controllerHomePage.prototype.block2_Hotel_Halls = function () {
     var self = this,
         parent,
         className,
@@ -202,7 +224,7 @@ controllerHomePage.prototype.block2_Home_hotel_Halls = function () {
         imgActive = parent.querySelector('img.' + className);
         divActive = parent.querySelector('div.' + className);
 
-        self.view.block2_Home_hotel_Halls(parent, className, aActive, imgActive, divActive);
+        self.view.block2_Hotel_Halls(parent, className, aActive, imgActive, divActive);
     });
 };
 

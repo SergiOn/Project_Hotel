@@ -12,7 +12,6 @@ controllerUserPage.prototype.constructor = controllerUserPage;
 
 
 controllerUserPage.prototype.controllerInit = function (methodName) {
-    console.log(methodName);
     if (methodName === 'login') {
         this.loginUser();
     }

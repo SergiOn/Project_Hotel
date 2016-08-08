@@ -23,7 +23,7 @@ viewHomePage.prototype.block1_Slider_changeBannerImg = function (parentEl, remov
 };
 
 
-viewHomePage.prototype.block2_Home_hotel_Key = function (elAddCl, elRemCl, block, status) {
+viewHomePage.prototype.block2_Hotel_Key = function (elAddCl, elRemCl, block, status) {
     if (!elAddCl.classList.contains('hotel_key-active')) {
         elAddCl.classList.add('hotel_key-active');
     }
@@ -37,7 +37,7 @@ viewHomePage.prototype.block2_Home_hotel_Key = function (elAddCl, elRemCl, block
     }
 };
 
-viewHomePage.prototype.block2_Home_hotel_Rooms = function (parent, className, aActive, imgActive, divActive) {
+viewHomePage.prototype.block2_Hotel_Rooms = function (parent, className, aActive, imgActive, divActive) {
     if (!aActive.classList.contains('active')) {
         parent.querySelector('a.active').classList.remove('active');
         aActive.classList.add('active');
@@ -51,7 +51,7 @@ viewHomePage.prototype.block2_Home_hotel_Rooms = function (parent, className, aA
         divActive.classList.add('active');
     }
 };
-viewHomePage.prototype.block2_Home_hotel_Halls = function (parent, className, aActive, imgActive, divActive) {
-    this.block2_Home_hotel_Rooms(parent, className, aActive, imgActive, divActive);
+viewHomePage.prototype.block2_Hotel_Halls = function (parent, className, aActive, imgActive, divActive) {
+    this.block2_Hotel_Rooms(parent, className, aActive, imgActive, divActive);
 };
 
