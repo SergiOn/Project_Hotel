@@ -446,6 +446,20 @@ footer {
 /**   end .block-3_rooms   **/
 /*    end #conten_rooms    */ /* ----- ----- ----- ----- ----- */
 
+/*    start .calendar    */ /* ----- ----- ----- ----- ----- */
+.calendar {
+    font-size: 14px;
+}
+.calendar thead td i {
+    font-size: 12px;
+}
+.calendar thead th {
+    font-weight: 600;
+}
+.calendar tbody td {
+    font-size: 12px;
+}
+/*    end .calendar    */ /* ----- ----- ----- ----- ----- */
 /*   end font style   */ /* ***** ***** ***** ***** ***** ***** ***** ***** */
 
 
@@ -906,19 +920,25 @@ footer {
     border-radius: 0 0 20px 20px;
     text-align: center;
 }
-.banner-reserve label {
+.banner-reserve .room-in,
+.banner-reserve .room-out {
     position: relative;
     display: inline-block;
     width: 180px;
     height: 40px;
     margin-top: 17px;
+}
+.banner-reserve .room-in {
+    margin-right: 8px;
+}
+.banner-reserve label {
+    display: block;
+    width: 180px;
+    height: 40px;
     line-height: 40px;
     border-radius: 10px;
     background-color: #fff;
     cursor: pointer;
-}
-.banner-reserve label:first-of-type {
-    margin-right: 8px;
 }
 .banner-reserve .fa-calendar-plus-o,
 .banner-reserve .fa-calendar-minus-o {
@@ -928,12 +948,6 @@ footer {
 .banner-reserve .fa-caret-down {
     margin: 0 20px 0 5px;
     color: #59b5e2;
-}
-.banner-reserve .calendar {
-    position: absolute;
-
-
-
 }
 .banner-reserve input {
     width: 89px;
@@ -1990,6 +2004,52 @@ footer {
 /***  /.block-3_rooms_page-pagination  ***/
 /**   end .block-3_rooms   **/
 /*    end #conten_rooms    */ /* ----- ----- ----- ----- ----- */
+
+
+/*    start .calendar    */ /* ----- ----- ----- ----- ----- */
+.calendar {
+    position: absolute;
+    top: 40px;
+    left: -14px;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-spacing: 3px;
+    color: #000;
+    cursor: default;
+    line-height: 1;
+}
+.calendar thead td {
+    padding: 5px 0;
+    background-color: #59b5e2;
+    color: #fff;
+}
+.calendar thead i {
+    cursor: pointer;
+}
+.calendar thead th {
+    color: #888;
+}
+.calendar tbody td {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #00395d;
+    cursor: pointer;
+}
+.calendar tbody td.active {
+    background-color: #59b5e2;
+    border: 1px solid #59b5e2;
+    color: #fff;
+}
+.calendar tbody td.no {
+    background-color: #fff;
+    border: none;
+    color: #bebebe;
+    cursor: default;
+}
+/*    end .calendar    */ /* ----- ----- ----- ----- ----- */
 
 
 /*    start Animation style    */ /* ----- ----- ----- ----- ----- */

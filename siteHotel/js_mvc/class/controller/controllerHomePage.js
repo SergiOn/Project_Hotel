@@ -162,11 +162,31 @@ controllerHomePage.prototype.block1_Banner_Reserve = function () {
         }
     });
 
+    /* start calender */
+    var self = this,
+        label,
+        calendar,
+        dayIn,
+        monthIn,
+        yearIn;
+
+    document.querySelector('.room-in').addEventListener('click', function (event) {
+        event.preventDefault();
+        if (event.target.matches('td.no')) return;
+        label = event.target.closest('label');
+        calendar = event.currentTarget.querySelector('.calendar');
+
+        console.log(event.currentTarget);
+        console.log(label);
+        console.log(calendar);
+
+
+    });
 
 
 
 
-
+    /* end calender */
 };
 
 

@@ -11,15 +11,15 @@ controllerPages.prototype = Object.create(History.prototype);
 controllerPages.prototype.constructor = controllerPages;
 
 
-controllerPages.prototype.startController = function (nameController, methodName) {
-    var self = this,
-        controller,
+controllerPages.prototype.startController = function (controllerPages, nameController, methodName) {
+    var controller,
         controllerNameObj = {
             'login': controllerUserPage,
             'registration': controllerUserPage,
             'log-out': controllerUserPage,
             'my_reserve': controllerUserPage,
-            'home': controllerHomePage
+            'home': controllerHomePage,
+            'search': controllerSearchPage
         };
     if (!(nameController in controllerNameObj)) return;
 
@@ -31,7 +31,7 @@ controllerPages.prototype.startController = function (nameController, methodName
 
     setTimeout(function () {
         // /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
-        controller = new controllerNameObj[nameController](self.controllerPages);
+        controller = new controllerNameObj[nameController](controllerPages);
         controller.controllerInit(methodName);
     }, 1700);
 
@@ -119,22 +119,22 @@ controllerPages.prototype.pageWalkHistory = function () {
 
 
 controllerPages.prototype.calendarRooms = function (day, mon, year, countMonth) {
-    var month = mon - 1 + countMonth,
-        date;
-    if (!mon || !year) {
-        date = new Date();
-    } else {
-        date = new Date(year, month);
-    }
-
-    console.log(date.getFullYear());
-    console.log(date.getMonth() + 1);
-    console.log(date.getDate());
+    var month = mon - 1 + countMonth;
 
     console.log(day);
     console.log(month);
     console.log(year);
     console.log(countMonth);
+    console.log('-------------');
 
+
+    var date = new Date(year, month);
+    console.log(date.getDay());
+    console.log(date.getDate());
+    console.log(date.getMonth());
+    console.log(date.getFullYear());
 
 };
+
+// var cal = new controllerPages();
+// cal.calendarRooms(09, 08, 2016, 1);

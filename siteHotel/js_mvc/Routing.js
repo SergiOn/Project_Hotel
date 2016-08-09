@@ -7,7 +7,6 @@ function Routing() {
     this.controllerPages = new controllerPages();
 }
 
-
 Routing.prototype.startPage = function () {
     var locationPathname = location.pathname.slice(1),
         locationHash = location.hash.slice(1),
@@ -25,7 +24,7 @@ Routing.prototype.startPage = function () {
     namePage = namePage ? namePage : 'home';
 
     this.controllerPages.startPage(namePage);
-    this.controllerPages.startController(namePage, namePage);
+    this.controllerPages.startController(this.controllerPages, namePage, namePage);
 };
 
 Routing.prototype.thePages = function () {
@@ -49,8 +48,9 @@ Routing.prototype.thePages = function () {
         } else {
             namePage = id;
         }
+
         self.controllerPages.thePage(namePage);
-        self.controllerPages.startController(namePage, id);
+        self.controllerPages.startController(self.controllerPages, namePage, id);
     });
 };
 
