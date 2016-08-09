@@ -7,44 +7,6 @@ function Routing() {
     this.controllerPages = new controllerPages();
 }
 
-Routing.prototype.startController = function (nameController, methodName) {
-    var self = this,
-        controller,
-        controllerNameObj = {
-        'login': controllerUserPage,
-        'registration': controllerUserPage,
-        'log-out': controllerUserPage,
-        'my_reserve': controllerUserPage,
-        'home': controllerHomePage
-    };
-    if (!(nameController in controllerNameObj)) return;
-
-    if (nameController === 'log-out') {
-        var controllerLogOut = new controllerNameObj[nameController]();
-        controllerLogOut.controllerInit(methodName);
-        return;
-    }
-
-    setTimeout(function () {
-        // /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
-        controller = new controllerNameObj[nameController](self.controllerPages);
-        controller.controllerInit(methodName);
-    }, 1700);
-
-    /*       *** mutation observe ***
-    var target = document.getElementById('content');
-    // создаем экземпляр MutationObserver
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            console.log(mutation.type);
-        });
-    });
-    // конфигурация нашего observer:
-    var config = {childList: true};
-    // передаем в качестве аргументов целевой элемент и его конфигурацию
-    observer.observe(target, config);
-    */
-};
 
 Routing.prototype.startPage = function () {
     var locationPathname = location.pathname.slice(1),
@@ -63,7 +25,7 @@ Routing.prototype.startPage = function () {
     namePage = namePage ? namePage : 'home';
 
     this.controllerPages.startPage(namePage);
-    this.startController(namePage, namePage);
+    this.controllerPages.startController(namePage, namePage);
 };
 
 Routing.prototype.thePages = function () {
@@ -88,7 +50,7 @@ Routing.prototype.thePages = function () {
             namePage = id;
         }
         self.controllerPages.thePage(namePage);
-        self.startController(namePage, id);
+        self.controllerPages.startController(namePage, id);
     });
 };
 

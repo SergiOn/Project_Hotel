@@ -11,6 +11,45 @@ controllerPages.prototype = Object.create(History.prototype);
 controllerPages.prototype.constructor = controllerPages;
 
 
+controllerPages.prototype.startController = function (nameController, methodName) {
+    var self = this,
+        controller,
+        controllerNameObj = {
+            'login': controllerUserPage,
+            'registration': controllerUserPage,
+            'log-out': controllerUserPage,
+            'my_reserve': controllerUserPage,
+            'home': controllerHomePage
+        };
+    if (!(nameController in controllerNameObj)) return;
+
+    if (nameController === 'log-out') {
+        var controllerLogOut = new controllerNameObj[nameController]();
+        controllerLogOut.controllerInit(methodName);
+        return;
+    }
+
+    setTimeout(function () {
+        // /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */
+        controller = new controllerNameObj[nameController](self.controllerPages);
+        controller.controllerInit(methodName);
+    }, 1700);
+
+    /*       *** mutation observe ***
+     var target = document.getElementById('content');
+     // создаем экземпляр MutationObserver
+     var observer = new MutationObserver(function(mutations) {
+     mutations.forEach(function(mutation) {
+     console.log(mutation.type);
+     });
+     });
+     // конфигурация нашего observer:
+     var config = {childList: true};
+     // передаем в качестве аргументов целевой элемент и его конфигурацию
+     observer.observe(target, config);
+     */
+};
+
 controllerPages.prototype.startPage = function (namePage) {
     this.getTrueUser();
 
@@ -76,4 +115,26 @@ controllerPages.prototype.pageWalkHistory = function () {
     var historyPage = this.historyWalk();
     this.changeMenu(historyPage['namePage']);
     this.view.walkPage(historyPage['page'], historyPage['direction']);
+};
+
+
+controllerPages.prototype.calendarRooms = function (day, mon, year, countMonth) {
+    var month = mon - 1 + countMonth,
+        date;
+    if (!mon || !year) {
+        date = new Date();
+    } else {
+        date = new Date(year, month);
+    }
+
+    console.log(date.getFullYear());
+    console.log(date.getMonth() + 1);
+    console.log(date.getDate());
+
+    console.log(day);
+    console.log(month);
+    console.log(year);
+    console.log(countMonth);
+
+
 };
