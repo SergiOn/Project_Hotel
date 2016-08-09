@@ -19,15 +19,21 @@ controllerPages.prototype.startController = function (controllerPages, nameContr
             'log-out': controllerUserPage,
             'my_reserve': controllerUserPage,
             'home': controllerHomePage,
+            'services': controllerServicesPage,
             'search': controllerSearchPage
         };
     if (!(nameController in controllerNameObj)) return;
+    var domEl = 'content_' + nameController;
+    if (controller && document.getElementById(domEl)) return;
 
     if (nameController === 'log-out') {
         var controllerLogOut = new controllerNameObj[nameController]();
         controllerLogOut.controllerInit(methodName);
         return;
     }
+
+    /* хотел очистить память от прошлого значения переменной */
+    // controller = null;
 
     setTimeout(function () {
         // /* передаю controllerPages = self.page чтобы можно было вызывать методы controllerPages */

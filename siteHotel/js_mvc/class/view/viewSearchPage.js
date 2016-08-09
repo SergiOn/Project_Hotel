@@ -22,7 +22,7 @@ viewSearchPage.prototype.searchPage = function (searchAnswer) {
         h4.innerHTML = 'Название номера: ' + searchAnswer[i]['name'];
         div.appendChild(h4);
         h4 = document.createElement('h4');
-        h4.innerHTML = 'Номера: ' + searchAnswer[i]['number'];
+        h4.innerHTML = 'Номер: ' + searchAnswer[i]['number'];
         div.appendChild(h4);
         h4 = document.createElement('h4');
         h4.innerHTML = 'Этаж: ' + searchAnswer[i]['step'];
@@ -31,7 +31,7 @@ viewSearchPage.prototype.searchPage = function (searchAnswer) {
         h4.innerHTML = 'Тип номера: ' + searchAnswer[i]['typeName'] + ', ' + searchAnswer[i]['smoking'];
         div.appendChild(h4);
         h4 = document.createElement('h4');
-        h4.innerHTML = 'Цена: ' + searchAnswer[i]['price'] + ' без завтрака, ' + searchAnswer[i]['price-br'] + ' с завтраком';
+        h4.innerHTML = 'Цена: ' + searchAnswer[i]['price'] + '€ без завтрака, ' + searchAnswer[i]['price-br'] + '€ с завтраком';
         div.appendChild(h4);
         sectionAnswer.appendChild(div);
     }

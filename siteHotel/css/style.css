@@ -984,10 +984,11 @@ footer {
     margin: 0;
     border: none;
     border-radius: 0;
-    transition: height .4s;
+    transition: height .4s, width .4s;
     z-index: 2;
 }
-.block-1_home_banner-reserve.fixed label {
+.block-1_home_banner-reserve.fixed .room-in,
+.block-1_home_banner-reserve.fixed .room-out {
     margin-top: 8px;
     transition: all .4s;
 }
@@ -1129,7 +1130,7 @@ footer {
     color: #fff;
     text-align: center;
     overflow-y: hidden;
-    transition: margin-top .4s linear;
+    transition: margin-top .3s linear;
     z-index: 1;
 }
 .block-1_services_banner-reserve.active {
@@ -1159,12 +1160,12 @@ footer {
     right: 0;
     bottom: 0;
     background-color: rgba(72, 204, 217, 0.5);
-    transition: all .5s linear;
+    transition: all .4s linear;
 }
 .block-1_services h2 {
     margin-top: 110px;
     text-align: center;
-    transition: margin-top .4s linear;
+    transition: margin-top .3s linear;
 }
 .block-1_services_banner-reserve.active ~ h2 {
     margin-top: 35px;

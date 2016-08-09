@@ -31,7 +31,7 @@ controllerSearchPage.prototype.searchPage = function () {
             textResult.innerHTML = 'поиска';
         }
 
-        if (inputValue.length = 1) {
+        if (inputValue.length < 2) {
             if (sectionAnswer.children[1] && sectionAnswer.children[0] && sectionAnswer.children[0].tagName === 'P') {
                 stdText2 = sectionAnswer.removeChild(sectionAnswer.children[1]);
                 stdText1 = sectionAnswer.removeChild(sectionAnswer.children[0]);

@@ -7,6 +7,7 @@ function Routing() {
     this.controllerPages = new controllerPages();
 }
 
+
 Routing.prototype.startPage = function () {
     var locationPathname = location.pathname.slice(1),
         locationHash = location.hash.slice(1),
@@ -32,6 +33,10 @@ Routing.prototype.thePages = function () {
     var menuEl = document.getElementById('menu');
     menuEl.addEventListener('click', function (event) {
         if (!event.target.closest('a')) return;
+        if (event.target.closest('ul#currency') || event.target.closest('ul#language')) {
+            event.preventDefault();
+            return;
+        }
         var tagName = event.target.closest('a').tagName,
             id = event.target.closest('a').id,
             namePage;
