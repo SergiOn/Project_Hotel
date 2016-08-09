@@ -3,15 +3,56 @@
  */
 
 function controllerSearchPage() {
+    this.model = new modelSearchPage();
     this.view = new viewSearchPage();
 }
 
 
 controllerSearchPage.prototype.controllerInit = function () {
-    console.log('init');
+    this.searchPage();
 };
 
-/*
-*
-* SELECT r.number, r.step, r.smoking, ri.name, ri.typeName, ri.price, ri.`price-br` FROM `rooms` AS `r` LEFT JOIN `roomsInfo` AS `ri` ON r.type = ri.type WHERE r.number LIKE '%делюкс%' OR r.step LIKE '%делюкс%' OR r.smoking LIKE '%делюкс%' OR ri.name LIKE '%делюкс%' OR ri.typeName LIKE '%делюкс%' OR ri.price LIKE '%делюкс%' OR ri.`price-br`  LIKE '%делюкс%'
-* */
+controllerSearchPage.prototype.searchPage = function () {
+    document.getElementById('search-close').addEventListener('click', function () {
+        history.back();
+    });
+
+    var self = this,
+        sectionAnswer = document.getElementById('search-result'),
+        textResult = document.getElementById('search-value'),
+        inputValue,
+        stdText1,
+        stdText2;
+    document.getElementById('input-search').addEventListener('input', function (event) {
+        inputValue = event.currentTarget.value;
+        if (inputValue.length > 0) {
+            textResult.innerHTML = inputValue;
+        } else {
+            textResult.innerHTML = 'поиска';
+        }
+
+        if (inputValue.length = 1) {
+            if (sectionAnswer.children[1] && sectionAnswer.children[0] && sectionAnswer.children[0].tagName === 'P') {
+                stdText2 = sectionAnswer.removeChild(sectionAnswer.children[1]);
+                stdText1 = sectionAnswer.removeChild(sectionAnswer.children[0]);
+            }
+            if (!sectionAnswer.children[1] && !sectionAnswer.children[0]) {
+                sectionAnswer.appendChild(stdText1);
+                sectionAnswer.appendChild(stdText2);
+            }
+        }
+
+        if (inputValue.length > 2) {
+
+            inputValue = JSON.stringify(inputValue);
+            self.model.searchPage('api/user/search', 'searchValue='+inputValue, self.searchPageAnswer.bind(self));
+        } else if (inputValue.length <= 2 && inputValue.length > 0) {
+            while (sectionAnswer.firstChild) {
+                sectionAnswer.removeChild(sectionAnswer.firstChild);
+            }
+        }
+    });
+};
+controllerSearchPage.prototype.searchPageAnswer = function (answer) {
+    this.view.searchPage(answer);
+};

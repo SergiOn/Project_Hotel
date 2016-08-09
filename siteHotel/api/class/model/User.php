@@ -65,6 +65,18 @@ class User extends Model {
         return $idUser;
     }
 
+    public function search($searchValue) {
+        $searchAnswer = $this->db->selectQuery("
+            SELECT r.number, r.step, r.smoking, ri.name, ri.typeName, ri.price, ri.`price-br` 
+            FROM `rooms` AS `r` LEFT JOIN `roomsInfo` AS `ri` ON r.type = ri.type 
+            WHERE r.number LIKE '%$searchValue%' OR r.step LIKE '%$searchValue%' OR r.smoking LIKE '%$searchValue%' 
+            OR ri.name LIKE '%$searchValue%' OR ri.typeName LIKE '%$searchValue%' 
+            OR ri.price LIKE '%$searchValue%' OR ri.`price-br`  LIKE '%$searchValue%'
+        ");
+
+        return $searchAnswer;
+    }
+
 
 
 

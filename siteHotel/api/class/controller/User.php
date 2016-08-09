@@ -79,8 +79,12 @@ class User extends Controller {
     }
 
     public function search() {
+        $method = $_GET;
+        if (empty($method)) return;
+        $searchValue = json_decode($method['searchValue'], true);
+        //$searchValue = $method['searchValue'];
 
+        $searchAnswer = $this->model->search($searchValue);
+        $this->view->search($searchAnswer);
     }
-
-
 }

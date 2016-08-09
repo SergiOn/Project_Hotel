@@ -74,7 +74,7 @@ Routing.prototype.userPages = function () {
         } else {
             namePage = id;
         }
-        self.startController(namePage, id);
+        self.controllerPages.startController(self.controllerPages, namePage, id);
         if(id !== 'log-out') {
             self.controllerPages.thePage(namePage);
         }

@@ -353,7 +353,8 @@ footer {
 .block-1_search p {
     font-size: 19px;
 }
-.block-1_search_result p {
+.block-1_search_result p,
+.block-1_search_result div {
     font-size: 17px;
     font-family: 'Open Sans';
 }
@@ -1658,7 +1659,8 @@ footer {
     color: #00395d;
     border-bottom: 1px solid #d9a548;
 }
-.block-1_search_result p {
+.block-1_search_result p,
+.block-1_search_result div {
     max-width: 972px;
     margin: 30px auto 0;
     padding-bottom: 30px;

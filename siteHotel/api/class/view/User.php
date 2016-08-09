@@ -25,4 +25,8 @@ class User extends View {
         echo $this->toJson($userInfo);
     }
 
+    public function search($searchAnswer) {
+        echo $this->toJson($searchAnswer);
+    }
+
 }

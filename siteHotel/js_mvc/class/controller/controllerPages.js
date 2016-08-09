@@ -50,6 +50,14 @@ controllerPages.prototype.startController = function (controllerPages, nameContr
      */
 };
 
+controllerPages.prototype.getTrueUser = function () {
+    this.model.getTrueUser('api/user/getTrueUser', this.getTrueUserAnswer.bind(this));
+};
+controllerPages.prototype.getTrueUserAnswer = function (answer) {
+    if (!answer) return;
+    this.view.getTrueUser(answer[0]);
+};
+
 controllerPages.prototype.startPage = function (namePage) {
     this.getTrueUser();
 
@@ -66,18 +74,13 @@ controllerPages.prototype.startPage = function (namePage) {
         location.pathname = '/';
         return;
     }
+    var contentChildren = document.getElementById('content').children[0];
+    this.historyAddPage(contentChildren);
+
     this.changeMenu(namePage);
 
     var url = '/api/pages/' + namePage;
     this.model.startPage(url, this.view.startPage.bind(this.view));
-};
-
-controllerPages.prototype.getTrueUser = function () {
-    this.model.getTrueUser('api/user/getTrueUser', this.getTrueUserAnswer.bind(this));
-};
-controllerPages.prototype.getTrueUserAnswer = function (answer) {
-    if (!answer) return;
-    this.view.getTrueUser(answer[0]);
 };
 
 controllerPages.prototype.thePage = function (namePage) {
