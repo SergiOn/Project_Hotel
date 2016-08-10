@@ -13,6 +13,7 @@ controllerHomePage.prototype.controllerInit = function () {
     this.block1_Slider_changeBanner();
     this.block1_Slider_changeBannerImg();
     this.block1_Banner_Reserve();
+    this.block1_Banner_Reserve_calendar();
     this.block2_Hotel_Key();
     this.block2_Hotel_Rooms();
     this.block2_Hotel_Halls();
@@ -164,36 +165,110 @@ controllerHomePage.prototype.block1_Banner_Reserve = function () {
             el.classList.remove('fixed');
         }
     });
+};
 
-    /* start calender */
+controllerHomePage.prototype.block1_Banner_Reserve_calendar = function () {
     var self = this,
-        calendarIn,
+        div,
+        elTarg,
+        m,
+        d,
+        calendar,
         dayIn,
         monthIn,
         yearIn,
-        countMoIn = 0;
+        countMoIn = 0,
+        dayOut,
+        monthOut,
+        yearOut,
+        countMoOut = 0;
 
     document.querySelector('.room-in').addEventListener('click', function (event) {
         event.preventDefault();
-        var div = event.currentTarget;
+        div = event.currentTarget;
+        elTarg = event.target;
 
         if (!div.querySelector('table.calendar')) {
-            // calendarIn = self.controllerPage.calendarRooms(dayIn, monthIn, yearIn);
-            calendarIn = self.controllerPage.calendarRooms(dayIn, 07, 2016);
-            div.appendChild(calendarIn);
+            calendar = self.controllerPage.calendarRooms(dayIn, monthIn, yearIn, countMoIn);
+            div.appendChild(calendar);
+        } else if (div.querySelector('table.calendar') && elTarg.closest('label')) {
+            div.removeChild(calendar);
+            return;
         }
 
-
-        console.log(event.currentTarget);
-        console.log(event.target);
-
-
+        if (elTarg.matches('td:not(.no)') && !elTarg.closest('thead')) {
+            dayIn = parseInt(elTarg.innerHTML);
+            monthIn = parseInt(div.querySelector('.month_cal').dataset.month);
+            yearIn = parseInt(div.querySelector('.month_cal').dataset.year);
+            countMoIn = 0;
+            d = String(dayIn).length > 1 ? dayIn : '0'+dayIn;
+            m = String(monthIn).length > 1 ? monthIn : '0'+monthIn;
+            document.getElementById('room-in').value = d+'.'+m+'.'+yearIn;
+            div.removeChild(calendar);
+        } else if (elTarg.closest('.prev_cal')) {
+            countMoIn -= 1;
+            div.removeChild(calendar);
+            calendar = self.controllerPage.calendarRooms(dayIn, monthIn, yearIn, countMoIn);
+            div.appendChild(calendar);
+        } else if (elTarg.closest('.next_cal')) {
+            countMoIn += 1;
+            div.removeChild(calendar);
+            calendar = self.controllerPage.calendarRooms(dayIn, monthIn, yearIn, countMoIn);
+            div.appendChild(calendar);
+        }
     });
 
+    document.querySelector('.room-out').addEventListener('click', function (event) {
+        event.preventDefault();
+        div = event.currentTarget;
+        elTarg = event.target;
 
+        if (!div.querySelector('table.calendar')) {
+            calendar = self.controllerPage.calendarRooms(dayOut, monthOut, yearOut, countMoOut);
+            div.appendChild(calendar);
+        } else if (div.querySelector('table.calendar') && elTarg.closest('label')) {
+            div.removeChild(calendar);
+            return;
+        }
 
+        if (elTarg.matches('td:not(.no)') && !elTarg.closest('thead')) {
+            dayOut = parseInt(elTarg.innerHTML);
+            monthOut = parseInt(div.querySelector('.month_cal').dataset.month);
+            yearOut = parseInt(div.querySelector('.month_cal').dataset.year);
+            countMoOut = 0;
+            d = String(dayOut).length > 1 ? dayOut : '0'+dayOut;
+            m = String(monthOut).length > 1 ? monthOut : '0'+monthOut;
+            document.getElementById('room-out').value = d+'.'+m+'.'+yearOut;
+            div.removeChild(calendar);
+        } else if (elTarg.closest('.prev_cal')) {
+            countMoOut -= 1;
+            div.removeChild(calendar);
+            calendar = self.controllerPage.calendarRooms(dayOut, monthOut, yearOut, countMoOut);
+            div.appendChild(calendar);
+        } else if (elTarg.closest('.next_cal')) {
+            countMoOut += 1;
+            div.removeChild(calendar);
+            calendar = self.controllerPage.calendarRooms(dayOut, monthOut, yearOut, countMoOut);
+            div.appendChild(calendar);
+        }
+    });
 
-    /* end calender */
+    var objData;
+    document.getElementById('reserve').addEventListener('click', function () {
+        if (!dayIn || !monthIn || !yearIn || !dayOut || !monthOut || !yearOut) return;
+
+        objData = {
+            'dayIn': dayIn,
+            'monthIn': monthIn,
+            'yearIn': yearIn,
+            'dayOut': dayOut,
+            'monthOut': monthOut,
+            'yearOut': yearOut
+        };
+        self.controllerPage.calendarRoomsData(objData);
+        self.controllerPage.thePage('rooms');
+        self.controllerPage.startController(self.controllerPage, 'rooms', 'rooms');
+    });
 };
 
 
