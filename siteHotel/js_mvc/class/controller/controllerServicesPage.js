@@ -4,7 +4,6 @@
 
 function controllerServicesPage(controllerPage) {
     this.controllerPage = controllerPage;
-    this.view = new viewServicesPage();
 }
 
 controllerServicesPage.prototype.controllerInit = function (methodName) {

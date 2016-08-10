@@ -167,21 +167,24 @@ controllerHomePage.prototype.block1_Banner_Reserve = function () {
 
     /* start calender */
     var self = this,
-        label,
-        calendar,
+        calendarIn,
         dayIn,
         monthIn,
-        yearIn;
+        yearIn,
+        countMoIn = 0;
 
     document.querySelector('.room-in').addEventListener('click', function (event) {
         event.preventDefault();
-        if (event.target.matches('td.no')) return;
-        label = event.target.closest('label');
-        calendar = event.currentTarget.querySelector('.calendar');
+        var div = event.currentTarget;
+
+        if (!div.querySelector('table.calendar')) {
+            calendarIn = self.controllerPage.calendarRooms(dayIn, monthIn, yearIn);
+            div.appendChild(calendarIn);
+        }
+
 
         console.log(event.currentTarget);
-        console.log(label);
-        console.log(calendar);
+        console.log(event.target);
 
 
     });

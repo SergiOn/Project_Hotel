@@ -137,23 +137,143 @@ controllerPages.prototype.pageWalkHistory = function () {
 };
 
 
-controllerPages.prototype.calendarRooms = function (day, mon, year, countMonth) {
-    var month = mon - 1 + countMonth;
+controllerPages.prototype.calendarRooms = function (day, month, year) {
+    var dayRes, monthRes, yearRes;
+    var dateNow = new Date(),
+        dayNow = dateNow.getDate(),
+        monthNow = dateNow.getMonth(),
+        yearNow = dateNow.getFullYear();
+    if (day === undefined || month === undefined || year === undefined || year < yearNow || (year === yearNow && month-1 < monthNow)) {
+        monthRes = monthNow;
+        yearRes = yearNow;
+    } else {
+        dayRes = day;
+        monthRes = month - 1;
+        yearRes = year;
+    }
+    var monthResult = monthRes + 1;
+    var monthNameObj = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+    var monthName = monthNameObj[monthRes];
 
-    console.log(day);
-    console.log(month);
-    console.log(year);
-    console.log(countMonth);
-    console.log('-------------');
+    // console.log(dayRes);
+    // console.log(monthRes);
+    // console.log(yearRes);
 
+    // устанавливаю нужный месяц
+    var theMonth = new Date(yearRes, monthRes);
+    // console.log(theMonth);
 
-    var date = new Date(year, month);
-    console.log(date.getDay());
-    console.log(date.getDate());
-    console.log(date.getMonth());
-    console.log(date.getFullYear());
+    function getDay(date) {
+        // получить номер дня недели, от 1(пн) до 7(вс)
+        var day = date.getDay();
+        if (day == 0) day = 7;
+        return day;
+    }
+
+    var tableInside = '<thead><tr><td class="prev_cal"><i class="fa fa-chevron-left" aria-hidden="true"></i></td><td class="month_cal" colspan="5" data-year="' + yearRes + '" data-month="' + monthResult + '">' + monthName + '</td><td class="next_cal"><i class="fa fa-chevron-right" aria-hidden="true"></i></td></tr><tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th></tr></thead><tbody><tr>';
+
+    // заполнить первый ряд от понедельника
+    // и до дня, с которого начинается месяц
+    // * * * | 1  2  3  4
+    for (var i = 1; i < getDay(theMonth); i++) {
+        tableInside += '<td class="no"></td>';
+    }
+
+    // ячейки календаря с датами
+    while (theMonth.getMonth() === monthRes) {
+        if (theMonth.getDate() < dayNow && yearNow === yearRes && monthNow === monthRes) {
+            tableInside += '<td class="no">'+ theMonth.getDate() + '</td>';
+        } else if (theMonth.getDate() >= dayNow && dayRes !== undefined && theMonth.getDate() === dayRes) {
+            tableInside += '<td class="active">'+ theMonth.getDate() + '</td>';
+        } else {
+            tableInside += '<td>'+ theMonth.getDate() + '</td>';
+        }
+        // вс, последний день - перевод строки
+        if (getDay(theMonth) === 7) {
+            tableInside += '</tr><tr>';
+        }
+
+        theMonth.setDate(theMonth.getDate() + 1);
+    }
+
+    // добить таблицу пустыми ячейками, если нужно
+    if (getDay(theMonth) != 7) {
+        for (var j = getDay(theMonth); j < 8; j++) {
+            tableInside += '<td class="no"></td>';
+        }
+    }
+
+    // закрыть таблицу
+    tableInside += '</tr></tbody>';
+
+    var table = document.createElement('table');
+    table.classList.add('calendar');
+    table.innerHTML = tableInside;
+    // console.log(table);
+    return table;
 
 };
 
 // var cal = new controllerPages();
-// cal.calendarRooms(09, 08, 2016, 1);
+// var a = cal.calendarRooms(11, 8, 2016);
+// console.log(a);
+
+
+
+/*
+*  <table class="calendar">
+
+
+ <td class="no">1</td>
+ <td class="no">2</td>
+ <td class="no">3</td>
+ <td class="no">4</td>
+ <td class="no">5</td>
+ <td class="no">6</td>
+ <td class="no">7</td>
+ </tr>
+ <tr>
+ <td class="no">8</td>
+ <td class="active">9</td>
+ <td>10</td>
+ <td>11</td>
+ <td>12</td>
+ <td>13</td>
+ <td>14</td>
+ </tr>
+ <tr>
+ <td>15</td>
+ <td>16</td>
+ <td>17</td>
+ <td>18</td>
+ <td>19</td>
+ <td>20</td>
+ <td>21</td>
+ </tr>
+ <tr>
+ <td>22</td>
+ <td>23</td>
+ <td>24</td>
+ <td>25</td>
+ <td>26</td>
+ <td>27</td>
+ <td>28</td>
+ </tr>
+ <tr>
+ <td>29</td>
+ <td>30</td>
+ <td>31</td>
+ <td class="no"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ </tr>
+ </tbody>
+ </table>
+* */
+
+
+
+
+
+
