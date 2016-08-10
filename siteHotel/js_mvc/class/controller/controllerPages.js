@@ -19,6 +19,7 @@ controllerPages.prototype.startController = function (controllerPages, nameContr
             'log-out': controllerUserPage,
             'my_reserve': controllerUserPage,
             'home': controllerHomePage,
+            'rooms': controllerRoomsPage,
             'services': controllerServicesPage,
             'search': controllerSearchPage
         };
@@ -78,8 +79,13 @@ controllerPages.prototype.startPage = function (namePage) {
         location.pathname = '/';
         return;
     }
-    var contentChildren = document.getElementById('content').children[0];
-    this.historyAddPage(contentChildren);
+
+    /*
+    * Выключил, потому что не срабатывает контроллер home
+    * усли открываю не главную страницу
+    * */
+    // var contentChildren = document.getElementById('content').children[0];
+    // this.historyAddPage(contentChildren);
 
     this.changeMenu(namePage);
 
@@ -114,6 +120,7 @@ controllerPages.prototype.thePage = function (namePage) {
 };
 
 controllerPages.prototype.thePageHistory = function (idPage, namePage) {
+    if (document.getElementById(idPage)) return;
     this.view.thePageHistory(this.historyOpenPage(idPage), 'left');
     this.changeMenu(namePage);
     this.historyChangeUrl(namePage);
@@ -137,30 +144,36 @@ controllerPages.prototype.pageWalkHistory = function () {
 };
 
 
-controllerPages.prototype.calendarRooms = function (day, month, year) {
+controllerPages.prototype.calendarRooms = function (day, month, year, countMonth) {
     var dayRes, monthRes, yearRes;
     var dateNow = new Date(),
         dayNow = dateNow.getDate(),
         monthNow = dateNow.getMonth(),
         yearNow = dateNow.getFullYear();
     if (month === undefined || year === undefined || year < yearNow || (year === yearNow && month-1 < monthNow)) {
-        monthRes = monthNow;
+        monthRes = monthNow + countMonth;
         yearRes = yearNow;
     } else {
         dayRes = day;
-        monthRes = month - 1;
+        monthRes = month - 1 + countMonth;
         yearRes = year;
     }
-    var monthResult = monthRes + 1;
+    var monthCountRes = monthRes;
+    while (monthCountRes >= 12) monthCountRes -= 12;
     var monthNameObj = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-    var monthName = monthNameObj[monthRes];
+    var monthName = monthNameObj[monthCountRes];
 
+    // console.log(monthRes);
+    // console.log(monthName);
     // console.log(dayRes);
     // console.log(monthRes);
     // console.log(yearRes);
 
     // устанавливаю нужный месяц
-    var theMonth = new Date(yearRes, monthRes);
+    var theMonth = new Date(yearRes, monthRes),
+        theYearResult = theMonth.getFullYear(),
+        thrMonthResult = theMonth.getMonth() + 1;
+
     // console.log(theMonth);
 
     function getDay(date) {
@@ -170,7 +183,7 @@ controllerPages.prototype.calendarRooms = function (day, month, year) {
         return day;
     }
 
-    var tableInside = '<thead><tr><td class="prev_cal"><i class="fa fa-chevron-left" aria-hidden="true"></i></td><td class="month_cal" colspan="5" data-year="' + yearRes + '" data-month="' + monthResult + '">' + monthName + '</td><td class="next_cal"><i class="fa fa-chevron-right" aria-hidden="true"></i></td></tr><tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th></tr></thead><tbody><tr>';
+    var tableInside = '<thead><tr><td class="prev_cal"><i class="fa fa-chevron-left" aria-hidden="true"></i></td><td class="month_cal" colspan="5" data-year="' + theYearResult + '" data-month="' + thrMonthResult + '">' + monthName + ' ' + theYearResult +'</td><td class="next_cal"><i class="fa fa-chevron-right" aria-hidden="true"></i></td></tr><tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th></tr></thead><tbody><tr>';
 
     // заполнить первый ряд от понедельника
     // и до дня, с которого начинается месяц
@@ -180,10 +193,12 @@ controllerPages.prototype.calendarRooms = function (day, month, year) {
     }
 
     // ячейки календаря с датами
-    while (theMonth.getMonth() === monthRes) {
-        if (theMonth.getDate() < dayNow && yearNow === yearRes && monthNow === monthRes) {
+    while (theMonth.getMonth() === monthCountRes) {
+        if (theMonth.getMonth() < monthNow) {
             tableInside += '<td class="no">'+ theMonth.getDate() + '</td>';
-        } else if (theMonth.getDate() >= dayNow && dayRes !== undefined && theMonth.getDate() === dayRes) {
+        } else if (theMonth.getDate() < dayNow && yearNow === yearRes && monthNow === monthCountRes) {
+            tableInside += '<td class="no">'+ theMonth.getDate() + '</td>';
+        } else if (theMonth.getDate() >= dayNow && dayRes !== undefined && theMonth.getDate() === dayRes && !countMonth) {
             tableInside += '<td class="active">'+ theMonth.getDate() + '</td>';
         } else {
             tableInside += '<td>'+ theMonth.getDate() + '</td>';
@@ -213,3 +228,10 @@ controllerPages.prototype.calendarRooms = function (day, month, year) {
     return table;
 };
 
+controllerPages.prototype.calendarRoomsData = function (objData) {
+    if (objData) {
+        this._calendarObjectData = objData;
+    } else {
+        return this._calendarObjectData;
+    }
+};
