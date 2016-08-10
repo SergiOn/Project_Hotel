@@ -88,17 +88,20 @@ controllerHomePage.prototype.block1_ArrowSlider = function () {
 controllerHomePage.prototype.block1_Slider = function (figureImg) {
     var bl1_home = document.querySelector('.block-1_home'),
         bl1_homeStyle = getComputedStyle(bl1_home),
+        imgNumber,
         figureImgSrc,
         imgFirstPath,
         imgLastPath,
         backgroundUrl;
+
+    imgNumber = figureImg.match(/.*\/(\d*)-slider-.*/)[1];
 
     figureImgSrc = figureImg.replace(/(.+)(?:-small)(.+)$/, "$1$2");
     imgFirstPath = bl1_homeStyle.backgroundImage.match(/(.*url\()(?:.*)(.+)/)[1];
     imgLastPath = bl1_homeStyle.backgroundImage.match(/(.*url\()(?:.*)(.+)/)[2];
     backgroundUrl = imgFirstPath + figureImgSrc + imgLastPath;
 
-    this.view.block1_Slider(backgroundUrl);
+    this.view.block1_Slider(backgroundUrl, imgNumber);
 };
 
 controllerHomePage.prototype.block1_Slider_changeBanner = function () {

@@ -7,9 +7,10 @@ function viewHomePage () {
 }
 
 
-viewHomePage.prototype.block1_Slider = function (backgroundUrl) {
+viewHomePage.prototype.block1_Slider = function (backgroundUrl, imgNumber) {
     var bl1_home = document.querySelector('.block-1_home');
     bl1_home.style.backgroundImage = backgroundUrl;
+    document.getElementById('arrow-slider-number').innerHTML = imgNumber;
 
 };
 
