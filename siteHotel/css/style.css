@@ -273,8 +273,8 @@ footer {
     font-size: 14px;
     font-weight: 600;
 }
-.spa-active_r .spa-img_prew,
-.restaurant-active_r .restaurant-img_prew,
+.spa-active_r .spa-img_prev,
+.restaurant-active_r .restaurant-img_prev,
 .spa-active_r .spa-img_next,
 .restaurant-active_r .restaurant-img_next {
     font-size: 20px;
@@ -1413,9 +1413,9 @@ footer {
     background-color: #f0af22;
     color: #fff;
 }
-.spa-active_r .spa-img_prew,
+.spa-active_r .spa-img_prev,
 .spa-active_r .spa-img_next,
-.restaurant-active_r .restaurant-img_prew,
+.restaurant-active_r .restaurant-img_prev,
 .restaurant-active_r .restaurant-img_next {
     position: absolute;
     top: calc(50% - 22px);
@@ -1424,8 +1424,8 @@ footer {
     background-color: #59b5e2;
     color: #fff;
 }
-.spa-active_r .spa-img_prew,
-.restaurant-active_r .restaurant-img_prew {
+.spa-active_r .spa-img_prev,
+.restaurant-active_r .restaurant-img_prev {
     left: 0;
 }
 .spa-active_r .spa-img_next,

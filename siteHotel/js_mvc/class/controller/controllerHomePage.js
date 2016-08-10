@@ -30,10 +30,6 @@ controllerHomePage.prototype.block1_ArrowSlider = function () {
         insertBefore;
 
     document.getElementById('block-1_home_arrow-slider-l').addEventListener('click', function () {
-
-        console.log('aaAAaaaa. Метод остается в памяти')
-
-
         figureActive = document.querySelector('figure.active');
         figureActive.classList.remove('active');
 

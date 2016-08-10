@@ -54,6 +54,13 @@ Routing.prototype.thePages = function () {
             namePage = id;
         }
 
+        /* открываю страницу с истории, а не делаю запросс к базе */
+        var idPage = 'content_' + namePage;
+        if (self.controllerPages.historyHasPage(idPage)) {
+            self.controllerPages.thePageHistory(idPage, namePage);
+            return;
+        }
+
         self.controllerPages.thePage(namePage);
         self.controllerPages.startController(self.controllerPages, namePage, id);
     });

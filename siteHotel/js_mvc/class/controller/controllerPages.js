@@ -23,8 +23,6 @@ controllerPages.prototype.startController = function (controllerPages, nameContr
             'search': controllerSearchPage
         };
     if (!(nameController in controllerNameObj)) return;
-    var domEl = 'content_' + nameController;
-    if (controller && document.getElementById(domEl)) return;
 
     if (nameController === 'log-out') {
         var controllerLogOut = new controllerNameObj[nameController]();
@@ -100,14 +98,26 @@ controllerPages.prototype.thePage = function (namePage) {
     this.historyChangeUrl(namePage);
 
     /* открываю страницу с истории, а не делаю запросс к базе */
-    if (this.historyHasPage(domEl)) {
-        this.view.thePage(this.historyOpenPage(domEl), 'left');
-        console.log('historyPage');
-        return;
-    }
+    /*
+    * Не работает. Перенес проверку в роутинг.
+    * Не работает, потому что страница не загружаеться,
+    * зато startController стартует!!!!!
+    * */
+    // if (this.historyHasPage(domEl)) {
+    //     this.view.thePage(this.historyOpenPage(domEl), 'left');
+    //     console.log('historyPage');
+    //     return;
+    // }
 
     var url = '/api/pages/' + namePage;
     this.model.thePage(url, this.view.thePage.bind(this.view));
+};
+
+controllerPages.prototype.thePageHistory = function (idPage, namePage) {
+    this.view.thePageHistory(this.historyOpenPage(idPage), 'left');
+    this.changeMenu(namePage);
+    this.historyChangeUrl(namePage);
+    console.log('historyPage');
 };
 
 controllerPages.prototype.changeMenu = function (namePage) {

@@ -34,6 +34,10 @@ viewPages.prototype.thePage = function (page, direction) {
     }, timeOut * 1000 + 500);
 };
 
+viewPages.prototype.thePageHistory = function (page, direction) {
+    this.thePage(page, direction);
+};
+
 viewPages.prototype.walkPage = function (page, direction) {
     this.thePage(page, direction);
 };
