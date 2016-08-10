@@ -143,7 +143,7 @@ controllerPages.prototype.calendarRooms = function (day, month, year) {
         dayNow = dateNow.getDate(),
         monthNow = dateNow.getMonth(),
         yearNow = dateNow.getFullYear();
-    if (day === undefined || month === undefined || year === undefined || year < yearNow || (year === yearNow && month-1 < monthNow)) {
+    if (month === undefined || year === undefined || year < yearNow || (year === yearNow && month-1 < monthNow)) {
         monthRes = monthNow;
         yearRes = yearNow;
     } else {
@@ -192,7 +192,7 @@ controllerPages.prototype.calendarRooms = function (day, month, year) {
         if (getDay(theMonth) === 7) {
             tableInside += '</tr><tr>';
         }
-
+        // приплюсовать день
         theMonth.setDate(theMonth.getDate() + 1);
     }
 
@@ -211,69 +211,5 @@ controllerPages.prototype.calendarRooms = function (day, month, year) {
     table.innerHTML = tableInside;
     // console.log(table);
     return table;
-
 };
-
-// var cal = new controllerPages();
-// var a = cal.calendarRooms(11, 8, 2016);
-// console.log(a);
-
-
-
-/*
-*  <table class="calendar">
-
-
- <td class="no">1</td>
- <td class="no">2</td>
- <td class="no">3</td>
- <td class="no">4</td>
- <td class="no">5</td>
- <td class="no">6</td>
- <td class="no">7</td>
- </tr>
- <tr>
- <td class="no">8</td>
- <td class="active">9</td>
- <td>10</td>
- <td>11</td>
- <td>12</td>
- <td>13</td>
- <td>14</td>
- </tr>
- <tr>
- <td>15</td>
- <td>16</td>
- <td>17</td>
- <td>18</td>
- <td>19</td>
- <td>20</td>
- <td>21</td>
- </tr>
- <tr>
- <td>22</td>
- <td>23</td>
- <td>24</td>
- <td>25</td>
- <td>26</td>
- <td>27</td>
- <td>28</td>
- </tr>
- <tr>
- <td>29</td>
- <td>30</td>
- <td>31</td>
- <td class="no"></td>
- <td class="no"></td>
- <td class="no"></td>
- <td class="no"></td>
- </tr>
- </tbody>
- </table>
-* */
-
-
-
-
-
 

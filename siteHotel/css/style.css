@@ -992,6 +992,9 @@ footer {
     margin-top: 8px;
     transition: all .4s;
 }
+.block-1_home_banner-reserve.fixed + .block-2_home {
+    margin-top: 80px;
+}
 /****  /.fixed  ****/
 /*** /.block-1_home_banner-reserve ***/
 /**   end .block-1_home   **/

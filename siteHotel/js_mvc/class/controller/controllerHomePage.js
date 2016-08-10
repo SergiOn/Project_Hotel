@@ -178,7 +178,8 @@ controllerHomePage.prototype.block1_Banner_Reserve = function () {
         var div = event.currentTarget;
 
         if (!div.querySelector('table.calendar')) {
-            calendarIn = self.controllerPage.calendarRooms(dayIn, monthIn, yearIn);
+            // calendarIn = self.controllerPage.calendarRooms(dayIn, monthIn, yearIn);
+            calendarIn = self.controllerPage.calendarRooms(dayIn, 07, 2016);
             div.appendChild(calendarIn);
         }
 
