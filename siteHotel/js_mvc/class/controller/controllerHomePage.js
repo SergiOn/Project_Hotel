@@ -257,17 +257,23 @@ controllerHomePage.prototype.block1_Banner_Reserve_calendar = function () {
     document.getElementById('reserve').addEventListener('click', function () {
         if (!dayIn || !monthIn || !yearIn || !dayOut || !monthOut || !yearOut) return;
 
+        var monIn = String(monthIn).length > 1 ? monthIn : ''+0+monthIn,
+            monOut = String(monthOut).length > 1 ? monthOut : ''+0+monthOut;
+
         objData = {
             'dayIn': dayIn,
-            'monthIn': monthIn,
+            'monthIn': monIn,
             'yearIn': yearIn,
             'dayOut': dayOut,
-            'monthOut': monthOut,
+            'monthOut': monOut,
             'yearOut': yearOut
         };
         self.controllerPage.calendarRoomsData(objData);
         self.controllerPage.thePage('rooms');
         self.controllerPage.startController(self.controllerPage, 'rooms', 'rooms');
+        document.getElementById('room-in').value = 'Заезд';
+        document.getElementById('room-out').value = 'Выезд';
+        dayIn = monthIn = yearIn = dayOut = monthOut = yearOut = undefined;
     });
 };
 

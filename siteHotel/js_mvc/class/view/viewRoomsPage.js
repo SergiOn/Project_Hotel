@@ -6,6 +6,9 @@ function viewRoomsPage() {
 
 }
 
-// viewRoomsPage.prototype.rooms = function (searchAnswer) {
-//
-// };
+viewRoomsPage.prototype.start = function (innerIn, innerOut, dataIn, dataOut) {
+    document.querySelector('#room_cal-in span').innerHTML = innerIn;
+    document.querySelector('#room_cal-out span').innerHTML = innerOut;
+    document.querySelector('#room_cal-in span').dataset.timeIn = dataIn;
+    document.querySelector('#room_cal-out span').dataset.timeOut = dataOut;
+};

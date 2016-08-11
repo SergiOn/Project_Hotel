@@ -160,6 +160,7 @@ controllerPages.prototype.calendarRooms = function (day, month, year, countMonth
     }
     var monthCountRes = monthRes;
     while (monthCountRes >= 12) monthCountRes -= 12;
+    while (monthCountRes < 0) monthCountRes += 12;
     var monthNameObj = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
     var monthName = monthNameObj[monthCountRes];
 
@@ -194,9 +195,9 @@ controllerPages.prototype.calendarRooms = function (day, month, year, countMonth
 
     // ячейки календаря с датами
     while (theMonth.getMonth() === monthCountRes) {
-        if (theMonth.getMonth() < monthNow) {
+        if (theMonth.getMonth() < monthNow && yearNow === theYearResult || yearNow > theYearResult) {
             tableInside += '<td class="no">'+ theMonth.getDate() + '</td>';
-        } else if (theMonth.getDate() < dayNow && yearNow === yearRes && monthNow === monthCountRes) {
+        } else if (theMonth.getDate() < dayNow && yearNow === theYearResult && monthNow === monthCountRes) {
             tableInside += '<td class="no">'+ theMonth.getDate() + '</td>';
         } else if (theMonth.getDate() >= dayNow && dayRes !== undefined && theMonth.getDate() === dayRes && !countMonth) {
             tableInside += '<td class="active">'+ theMonth.getDate() + '</td>';
