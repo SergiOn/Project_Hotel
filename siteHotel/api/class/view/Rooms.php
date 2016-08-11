@@ -14,6 +14,12 @@ use core\View;
 class Rooms extends View {
 
     public function allRooms($file) {
-        $this->toJson($file);
+        echo $this->toJson($file);
+    }
+
+    public function getRooms($arrRooms) {
+        echo $this->toJson($arrRooms);
     }
 }
+
+

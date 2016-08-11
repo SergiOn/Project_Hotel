@@ -167,6 +167,7 @@ controllerRoomsPage.prototype.changeSearch = function () {
     this.reservObject[selectCount.name] = selectCount.value;
 
     // запустить ajax
+    this.getRooms();
     console.log(this.reservObject);
 
 
@@ -181,6 +182,7 @@ controllerRoomsPage.prototype.changeSearch = function () {
         self.reservObject['page'] = 1;
 
         // запустить ajax
+        self.getRooms();
         console.log(self.reservObject);
     });
 
@@ -198,13 +200,21 @@ controllerRoomsPage.prototype.changeSearch = function () {
             self.reservObject['page'] = 1;
 
             // запустить ajax
+            self.getRooms();
             console.log(self.reservObject);
         }
     });
 };
 
-
-
+controllerRoomsPage.prototype.getRooms = function () {
+    var page = this.reservObject['page'],
+        count = this.reservObject['count'],
+        data = 'page='+page+'&count='+count;
+    this.model.getRooms('api/rooms/allRooms', data, this.getRoomsAnswer.bind(this));
+};
+controllerRoomsPage.prototype.getRoomsAnswer = function (answer) {
+    this.view.showRooms(answer);
+};
 
 
 
