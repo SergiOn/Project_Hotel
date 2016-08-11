@@ -3,17 +3,21 @@
         <section class="block-1_rooms_top">
             <div class="width1142">
                 <h4>Описание бронирования:</h4>
-                <button id="room_cal-in" class="room_cal-in">
-                    <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-                    <span data-time-in="26-07-2016">26 июля 2016</span>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </button>
+                <div class="room_cal-in">
+                    <button id="room_cal-in">
+                        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                        <span data-time-in="26-07-2016">26 июля 2016</span>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </button>
+                </div>
                 -
-                <button id="room_cal-out" class="room_cal-out">
-                    <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
-                    <span data-time-out="27-07-2016">27 июля 2016</span>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </button>
+                <div class="room_cal-out">
+                    <button id="room_cal-out">
+                        <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                        <span data-time-out="27-07-2016">27 июля 2016</span>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
         </section>
     </section>
@@ -58,7 +62,7 @@
                         <div>
                             <span>Выберите этаж:</span>
                             <select name="steps">
-                                <option value="" selected>1 - 25 этаж</option>
+                                <option value="0" selected>1 - 25 этаж</option>
                                 <option value="1">1 этаж</option>
                                 <option value="2">2 этаж</option>
                                 <option value="3">3 этаж</option>
@@ -84,6 +88,17 @@
                                 <option value="23">23 этаж</option>
                                 <option value="24">24 этаж</option>
                                 <option value="25">25 этаж</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span>Количество выдачи:</span>
+                            <select name="count">
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                                <option value="50">50</option>
                             </select>
                         </div>
                     </form>

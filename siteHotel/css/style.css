@@ -1805,11 +1805,35 @@ footer {
     color: #00395d;
 }
 .block-1_rooms_top .room_cal-in {
+    position: relative;
+    display: inline-block;
     margin: 0 10px 0 288px;
-    background-color: transparent;
 }
 .block-1_rooms_top .room_cal-out {
+    position: relative;
+    display: inline-block;
     margin-left: 8px;
+}
+.block-1_rooms_top .room_cal-in .calendar,
+.block-1_rooms_top .room_cal-out .calendar {
+    top: 27px;
+    text-align: center;
+}
+.block-1_rooms_top .room_cal-in .calendar td.active,
+.block-1_rooms_top .room_cal-out .calendar td.active{
+    background-color: #d9a548;
+    border: 1px solid #d9a548;
+}
+.block-1_rooms_top .room_cal-in .calendar thead td,
+.block-1_rooms_top .room_cal-out .calendar thead td {
+    background-color: #d9a548;
+}
+.block-1_rooms_top .room_cal-in .calendar i,
+.block-1_rooms_top .room_cal-out .calendar i {
+    color: #fff;
+}
+.block-1_rooms_top .room_cal-in button,
+.block-1_rooms_top .room_cal-out button {
     background-color: transparent;
 }
 .block-1_rooms_top .room_cal-in i,
@@ -1847,7 +1871,7 @@ footer {
 }
 .block-2_rooms_sort-border div {
     margin: 0 8px;
-    padding: 18px 5px 22px;
+    padding: 12px 5px 18px;
     border-bottom: 1px solid #ccc;
 }
 .block-2_rooms_sort-border div:first-of-type {
@@ -1865,6 +1889,9 @@ footer {
 .block-2_rooms_sort-border div select {
     padding: 0 6px;
     cursor: pointer;
+}
+.block-2_rooms_sort-border div select[name='count'] {
+    margin-left: 24px;
 }
 .block-2_rooms_sort-border div .martop10 {
     margin-top: 10px;
