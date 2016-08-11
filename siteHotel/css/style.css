@@ -2009,21 +2009,21 @@ footer {
 }
 .block-3_rooms_page-pagination a {
     display: inline-block;
-    width: 36px;
-    height: 26px;
+    width: 34px;
+    height: 25px;
     margin-right: 6px;
     background-color: #fff;
-    border: 2px solid #d9a548;
+    border: 1px solid #d9a548;
     border-radius: 5px;
     color: #d9a548;
-    line-height: 26px;
+    line-height: 25px;
 }
 .block-3_rooms_page-pagination span {
     display: inline-block;
     margin-right: 6px;
 }
 .block-3_rooms_page-pagination a:hover {
-    box-shadow: 0 0 5px 0 #d9a548;
+    box-shadow: 0 0 4px 0 #d9a548;
 }
 .block-3_rooms_page-pagination a.active {
     background-color: #d9a548;

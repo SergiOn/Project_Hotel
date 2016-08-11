@@ -51,7 +51,11 @@ class Routing {
                 } else {
                     $obj->$methodName();
                 }
+            } else {
+                echo 'ERROR 404';
             }
+        } else {
+            echo 'ERROR 404';
         }
 
     }

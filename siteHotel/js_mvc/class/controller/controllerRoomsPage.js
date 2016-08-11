@@ -51,8 +51,8 @@ controllerRoomsPage.prototype.start = function () {
 
     var innerIn = dayIn+' '+monthNameIn+' '+yearIn,
         innerOut = dayOut+' '+monthNameOut+' '+yearOut,
-        dataIn = dayIn+'-'+monIn+'-'+yearIn,
-        dataOut = dayOut+'-'+monOut+'-'+yearOut;
+        dataIn = yearIn+'-'+monIn+'-'+dayIn,
+        dataOut = yearOut+'-'+monOut+'-'+dayOut;
 
     this.view.start(innerIn, innerOut, dataIn, dataOut);
 };
@@ -87,7 +87,7 @@ controllerRoomsPage.prototype.startCalendar = function () {
 
             monthNameIn = monthNameObj[monthIn-1];
             innerIn = day+' '+monthNameIn+' '+yearIn;
-            dataIn = day+'-'+mon+'-'+yearIn;
+            dataIn = yearIn+'-'+mon+'-'+day;
 
             self.view.startCalendar(innerIn, false, dataIn, false);
             div.removeChild(calendar);
@@ -126,7 +126,7 @@ controllerRoomsPage.prototype.startCalendar = function () {
 
             monthNameOut = monthNameObj[monthOut-1];
             innerOut = day+' '+monthNameOut+' '+yearOut;
-            dataOut = day+'-'+mon+'-'+yearOut;
+            dataOut = yearOut+'-'+mon+'-'+day;
 
             self.view.startCalendar(false, innerOut, false, dataOut);
             div.removeChild(calendar);

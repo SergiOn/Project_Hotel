@@ -52,27 +52,33 @@ class Rooms extends Controller {
 
 
 
-    public function getRooms($arr = []) {
-        $page = isset($arr[0]) ? $arr[0] - 1 : 0;
-        $count = !empty($arr[1]) ? $arr[1] : 10;
+    public function getRooms() {
 
-        $roomsInfo = [
-            'time-in' => '26.07.2016',
-            'time-out' => '27.07.2016',
-            'reserved-rooms' => false,
-            '1-bed' => true,
-            '2-bed' => true,
-            'standard-rooms' => true,
-            'lux-rooms' => true,
-            'business-rooms' => true,
-            'no-smoke' => true,
-            'smoke' => false,
-            'steps' => false
-        ];
+        echo "<pre>";
+        print_r($_GET);
+        echo "</pre>";
 
 
 
-        echo $page."<br>";
-        echo $count."<br>";
+
+
+//        $roomsInfo = [
+//            'time-in' => '26.07.2016',
+//            'time-out' => '27.07.2016',
+//            'reserved-rooms' => false,
+//            '1-bed' => true,
+//            '2-bed' => true,
+//            'standard-rooms' => true,
+//            'lux-rooms' => true,
+//            'business-rooms' => true,
+//            'no-smoke' => true,
+//            'smoke' => false,
+//            'steps' => false
+//        ];
+//
+//
+//
+//        echo $page."<br>";
+//        echo $count."<br>";
     }
 }
